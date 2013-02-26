@@ -7,5 +7,7 @@ package cards.model;
  */
 public class TesteRepositorio {
     //Apenas teste.
+    //Teste finalizado por Gustavo, Robson e Daniel
+    //Meninas passando maquiagem? Dúvida.
     
 }
