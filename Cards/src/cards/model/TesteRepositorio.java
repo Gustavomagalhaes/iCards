@@ -6,8 +6,10 @@ package cards.model;
  * @author gustavopereira
  */
 public class TesteRepositorio {
-    //Apenas teste.
-    //Teste finalizado por Gustavo, Robson e Daniel
-    //Meninas passando maquiagem? Dúvida.
-    
-}
+    /**
+     * @param args the command line arguments
+     */
+    public void testeClasse(String dev){
+        System.out.println("Teste do repositório por "+dev);
+    }
+} 
