@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author clodoalves
+ * @author daniel
  */
 public class Cadastro extends javax.swing.JFrame {
 
