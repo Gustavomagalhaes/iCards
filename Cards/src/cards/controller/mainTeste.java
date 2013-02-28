@@ -9,6 +9,6 @@ public class mainTeste {
    
     public static void main(String[] args){
         TesteRepositorio objeto = new TesteRepositorio();
-        objeto.testeClasse("Gustavo");
+        objeto.testeClasse("Rafaella");
     }
 }
