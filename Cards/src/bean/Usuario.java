@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package bean;
 
 /**
@@ -16,9 +12,9 @@ public class Usuario {
     private String senhaOnline;
     private String senhaCatao;
     private String endereco;
-    private String dataNascimento;
+    private String datanascimento;
     private String nacionalidade;
-    private String cartao;
+    private Cartao cartao;
     private Usuario responsavel;
     
     public Usuario() {
@@ -26,14 +22,16 @@ public class Usuario {
     
     public void setName(String nome){
         this.nome = nome;
-    }   
+    } 
+    
     public String getNome(){
          return nome;
     }
  
     public void setCpf(String cpf){
          this.cpf = cpf;
-    }   
+    }  
+    
     public String getCpf(){
          return cpf;
     }
@@ -41,6 +39,7 @@ public class Usuario {
     public void setTipoUsuario(int tipoUsuario){
          this.tipoUsuario = tipoUsuario;
     }   
+    
     public int getTipoUsuario(){
          return tipoUsuario;
     }
@@ -49,7 +48,6 @@ public class Usuario {
     }   
     public String getEmail(){
          return email;
- 
     }
  
     public void setSenha(String senhaOnline){
@@ -57,55 +55,54 @@ public class Usuario {
     }   
     public String getSenha(){
          return senhaOnline;
- 
     }
  
     public void setSenhaCartao(String senhaCartao){
          this.senhaCatao = senhaCartao;
     }   
+    
     public String getSenhaCartao(){
          return senhaCatao;
- 
     }
  
     public void setEndereco(String endereco){
          this.endereco = endereco;
-    }   
+    } 
+    
     public String getEndereco(){
          return endereco;
- 
     }
  
     public void setDataNascimento(String dataNascimento){
-         this.dataNascimento = dataNascimento;
-    }   
+         this.datanascimento = dataNascimento;
+    } 
+    
     public String getDataNascimento(){
-         return dataNascimento;
- 
+         return datanascimento;
     }
  
     public void setNacionalidade(String nacionalidade){
          this.nacionalidade = nacionalidade;
-    }   
+    }  
+    
     public String getNacionalidade(){
          return nacionalidade;
- 
     }
  
-    public void setCartao(String cartao){
+    public void setCartao(Cartao cartao){
          this.cartao = cartao;
-    }   
-    public String getCartao(){
+    }  
+    
+    public Cartao getCartao(){
          return cartao;
- 
     }
  
     public void setResponsavel(Usuario responsavel){
          this.responsavel = responsavel;
     }   
+    
     public Usuario getResponsavel(){
          return responsavel;
- 
     }
  
 }
