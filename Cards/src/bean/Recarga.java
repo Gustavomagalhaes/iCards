@@ -10,7 +10,7 @@ public class Recarga {
     private String data;
     private String mensagem;
 
-    public Recarga () {    
+    public Recarga() {    
     }
 
     public float getValor() {
