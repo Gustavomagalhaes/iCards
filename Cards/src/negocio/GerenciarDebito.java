@@ -4,6 +4,6 @@ package negocio;
  *
  * @author gustavopereira
  */
-public class GerenciamentoDebito {
+public class GerenciarDebito {
     
 }
