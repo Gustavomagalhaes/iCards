@@ -1,5 +1,4 @@
 package exemplo;
-import cards.model.*;
 
 /**
  *
