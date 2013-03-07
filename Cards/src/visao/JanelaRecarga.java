@@ -40,6 +40,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("iCards - iRecharge");
         getContentPane().setLayout(null);
 
         jLabel2.setText("Nome do depositante:");

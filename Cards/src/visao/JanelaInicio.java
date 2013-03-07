@@ -5,6 +5,7 @@
 package visao;
 
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,6 +41,7 @@ public class JanelaInicio extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("iCards - Inicial");
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -95,6 +97,7 @@ public class JanelaInicio extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Your message.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel5FocusGained
