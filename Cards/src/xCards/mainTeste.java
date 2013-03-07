@@ -10,6 +10,6 @@ public class mainTeste {
    
     public static void main(String[] args) throws Exception{
         GerenciarDB banco = new GerenciarDB();
-        banco.addUsuario(666666666,"Capeta","hell@bol.com","Inferno Av.","66326694","06/06/06","Hell",1,1234,"adm1234senha");
+        banco.addUsuario("12345SON","Capeta","hell@bol.com","Inferno Av.","66326694","06/06/2006","Hell","ADM","12345PAI","adm123");
     }
 }

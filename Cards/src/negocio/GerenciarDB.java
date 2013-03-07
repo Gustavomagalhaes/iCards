@@ -12,36 +12,33 @@ import java.sql.Statement;
 public class GerenciarDB {
     static Connection conexao;
    
-    public static void conectaDB(){
+    public static void conectaDB() throws ClassNotFoundException{ //FUNCIONANDO
         String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:icards.serveftp.com";
+        String url = "jdbc:mysql://icards.serveftp.com";
         String login = "panda";
         String password = "bazinga";
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url,login,password);
             System.out.println("Conexao bem sucedida");
-        } catch (Exception e){
-            System.out.println("Conexao falhou");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Classe falhou"+e.getMessage());
+        } catch (SQLException e){
+            System.out.println("Conexao falhou"+e.getMessage());
         }
-    }
-    
-    public static void desconectaDB()throws Exception{
-        conexao.close();
     }
     
     public static void executaDB(String query)throws Exception{
         Statement exe = conexao.createStatement();
         exe.executeUpdate(query);
+        
     }
     
-    public void addUsuario(int cpf,String nome,String email,String endereco,String telefone,String datanascimento,String nacionalidade,int tipousuario,int cpftitular,String senhaadm) throws Exception{
+    public void addUsuario(String CPF,String nome,String email,String endereco,String telefone,String datanascimento,String nacionalidade,String tipousuario,String CPFtitular,String senhaADM) throws Exception{
         conectaDB();
-        System.out.print("OK ate aqui");
         String query;
-        query = "insert into USUARIO (cpf,nome,email,endereco,telefone,datanascimento,nacionalidade,tipousuario,cpftitular,senhaadm) "
-                + "values (cpf,nome,email,endereco,telefone,datanascimento,nacionalidade,tipousuario,cpftitular,senhaadm)";
+        query = "INSERT INTO usuario VALUES ('1234','1234','1234','1234','1234','1234','1234','1234','1234','1234')";
         executaDB(query);
-        desconectaDB();
+        //conexao.close();
     }
 }
