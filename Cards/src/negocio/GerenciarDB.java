@@ -2,7 +2,6 @@ package negocio;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 /**
@@ -28,17 +27,21 @@ public class GerenciarDB {
         }
     }
     
+    public static void desconectaDB()throws Exception{
+        conexao.close();
+    }
+    
     public static void executaDB(String query)throws Exception{
         Statement exe = conexao.createStatement();
         exe.executeUpdate(query);
-        
+        exe.close();
     }
     
     public void addUsuario(String CPF,String nome,String email,String endereco,String telefone,String datanascimento,String nacionalidade,String tipousuario,String CPFtitular,String senhaADM) throws Exception{
         conectaDB();
         String query;
-        query = "INSERT INTO usuario VALUES ('1234','1234','1234','1234','1234','1234','1234','1234','1234','1234')";
+        query = "INSERT INTO usuario (CPF, nome, email,endereco, telefone, datanascimento, nacionalidade, tipousuario, CPFtitular, senhaADM) VALUES ('"+CPF+"','"+nome+"','"+email+"','"+endereco+"','"+telefone+"','"+datanascimento+"','"+nacionalidade+"','"+tipousuario+"','"+CPFtitular+"','"+senhaADM+"')";
         executaDB(query);
-        //conexao.close();
+        desconectaDB();
     }
 }
