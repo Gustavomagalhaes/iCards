@@ -14,7 +14,7 @@ public class GerenciarDB {
    
     public static void conectaDB() throws ClassNotFoundException{ //FUNCIONANDO
         String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://icards.serveftp.com";
+        String url = "jdbc:mysql://icards.serveftp.com:3306/ICARDS";
         String login = "panda";
         String password = "bazinga";
         try {
