@@ -78,4 +78,36 @@ public class GerenciarDB {
         executaDB(query);
         desconectaDB(); 
     }
+    
+    public void delUsuario(String CPF)throws Exception{
+        conectaDB();
+        String query;
+        query = "DELETE FROM usuario WHERE CPF = '"+CPF+"'";
+        executaDB(query);
+        desconectaDB(); 
+    }
+    
+    public void delEstabelecimento(double CNPJ)throws Exception{
+        conectaDB();
+        String query;
+        query = "DELETE FROM estabelecimento WHERE CNPJ = '"+CNPJ+"'";
+        executaDB(query);
+        desconectaDB(); 
+    }
+    
+    public void delCartao(double IDcartao)throws Exception{
+        conectaDB();
+        String query;
+        query = "DELETE FROM cartao WHERE IDcartao = '"+IDcartao+"'";
+        executaDB(query);
+        desconectaDB(); 
+    }
+    
+    public void delExtrato(int IDextrato)throws Exception{
+        conectaDB();
+        String query;
+        query = "DELETE FROM extrato WHERE IDextrato = '"+IDextrato+"'";
+        executaDB(query);
+        desconectaDB(); 
+    }
 }
