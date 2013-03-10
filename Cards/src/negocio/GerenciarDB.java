@@ -44,4 +44,38 @@ public class GerenciarDB {
         executaDB(query);
         desconectaDB();
     }
+    
+    public void addEstabelecimento(double CNPJ, String nome, String telefone)throws Exception{
+        conectaDB();
+        String query;
+        double vendatotal = 0;
+        String senhaCNPJ = "Est1234";
+        query = "INSERT INTO estabelecimento (CNPJ, nome, telefone, vendatotal, senhaCNPJ) VALUES ('"+CNPJ+"','"+nome+"','"+telefone+"','"+vendatotal+"','"+senhaCNPJ+"')";
+        executaDB(query);
+        desconectaDB(); 
+    }
+    
+    public void addCartao(double IDcartao, String CPF)throws Exception{
+        conectaDB();
+        String query;
+        query = "INSERT INTO cartao (IDcartao, CPF, bloqueado) VALUES ('"+IDcartao+"','"+CPF+"',"+true+")";
+        executaDB(query);
+        desconectaDB(); 
+    }
+    
+    public void addExtratoDeposito(double IDcartao, String pessoa, double valor, String data)throws Exception{
+        conectaDB();
+        String query;
+        query = "INSERT INTO extrato (IDcartao, pessoa, valor, data) VALUES ('"+IDcartao+"','"+pessoa+"','"+valor+"','"+data+"')";
+        executaDB(query);
+        desconectaDB(); 
+    }
+    
+    public void addExtratoDebito(double CNPJ,double IDcartao, double valor, String data)throws Exception{
+        conectaDB();
+        String query;
+        query = "INSERT INTO extrato (CNPJ ,IDcartao, valor, data) VALUES ('"+CNPJ+"','"+IDcartao+"','"+valor+"','"+data+"')";
+        executaDB(query);
+        desconectaDB(); 
+    }
 }
