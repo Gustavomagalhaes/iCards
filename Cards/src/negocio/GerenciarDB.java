@@ -2,6 +2,8 @@ package negocio;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 /**
@@ -110,4 +112,35 @@ public class GerenciarDB {
         executaDB(query);
         desconectaDB(); 
     }
+    
+    public boolean checkSenhaDB(double IDcartao, String senha, int tipo)throws Exception{
+        conectaDB();
+        String query;
+        query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+
+        ResultSet retorno = exe.executeQuery();
+        String passcartao = null;
+        String passtitular = null;
+        String passdependente = null;
+        while (retorno.next()) { 
+           passcartao = retorno.getString(2);
+           passtitular = retorno.getString(4);
+           passdependente = retorno.getString(5);
+        }
+        exe.close();
+        boolean resp;
+        if (tipo == 0){
+            resp = senha.equals(passcartao);
+        } else if(tipo == 1){
+            resp = senha.equals(passtitular);
+        } else if (tipo == 2){
+            resp = senha.equals(passdependente);
+        } else {
+            resp = false;
+        }
+        return resp;
+    }
 }
+//sql = "update departamentos set coordenador='%s' where id_departamento='%s'" %(coordenador, id_dep)
+  
