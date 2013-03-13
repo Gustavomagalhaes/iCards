@@ -22,6 +22,14 @@ public class mainTeste {
         //banco.delEstabelecimento(12345);
         //banco.delCartao(13);
         
-        System.out.println(banco.checkSenhaDB(15, "1234", 0));
+        //System.out.println(banco.checkSenhaCartaoDB(15, "1234", 0)); //true
+        //banco.updateSenhaCartaoDB(15,"12345",0); //muda
+        //System.out.println(banco.checkSenhaCartaoDB(15, "1234", 0)); //false
+        //System.out.println(banco.checkSenhaCartaoDB(15, "12345", 0)); //true
+        
+        System.out.println(banco.getSaldoCartaoDB(15));
+        banco.updateSaldoCartaoDB(15,banco.getSaldoCartaoDB(15), "MAIS", 15.35);
+        banco.updateSaldoCartaoDB(15,banco.getSaldoCartaoDB(15), "MENO222S", 0.35);
+        System.out.println(banco.getSaldoCartaoDB(15));
     }
 }

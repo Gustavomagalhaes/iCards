@@ -113,7 +113,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public boolean checkSenhaDB(double IDcartao, String senha, int tipo)throws Exception{
+    public boolean checkSenhaCartaoDB(double IDcartao, String senha, int tipo)throws Exception{
         conectaDB();
         String query;
         query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
@@ -128,7 +128,7 @@ public class GerenciarDB {
            passtitular = retorno.getString(4);
            passdependente = retorno.getString(5);
         }
-        exe.close();
+        desconectaDB();
         boolean resp;
         if (tipo == 0){
             resp = senha.equals(passcartao);
@@ -141,6 +141,54 @@ public class GerenciarDB {
         }
         return resp;
     }
-}
-//sql = "update departamentos set coordenador='%s' where id_departamento='%s'" %(coordenador, id_dep)
-  
+    
+    public void updateSenhaCartaoDB(double IDcartao, String senha, int tipo)throws Exception{
+        conectaDB();
+        String query;
+        if (tipo == 0){
+            query = "UPDATE cartao SET senhacartao = '"+senha+"' WHERE IDcartao = '"+IDcartao+"'";
+            executaDB(query);
+        } else if(tipo == 1){
+            query = "UPDATE cartao SET senhaonlinetitular = '"+senha+"' WHERE IDcartao = '"+IDcartao+"'";
+            executaDB(query);
+        } else if (tipo == 2){
+            query = "UPDATE cartao SET senhaonlinedependente = '"+senha+"' WHERE IDcartao = '"+IDcartao+"'";
+            executaDB(query);
+        }
+        desconectaDB();
+    }
+    
+    public double getSaldoCartaoDB(double IDcartao)throws Exception{
+        conectaDB();
+        String query;
+        query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+        ResultSet retorno = exe.executeQuery();
+        String saldodocartao;
+        double saldo = 0;
+        while (retorno.next()) { 
+           saldodocartao = retorno.getString(3);
+           saldo = Double.parseDouble(saldodocartao);
+        }
+        desconectaDB();
+        return saldo; 
+    }
+    
+public void updateSaldoCartaoDB(double IDcartao, double saldoatual, String operation, double valor)throws Exception{
+        conectaDB();
+        String query;
+        double novosaldo;
+        GerenciarDB interno = new GerenciarDB();
+        if (operation.equalsIgnoreCase("MAIS")) {
+            novosaldo = saldoatual+valor;
+        } else if (operation.equalsIgnoreCase("MENOS")){
+            novosaldo = saldoatual-valor;
+        } else {
+            novosaldo = saldoatual;
+        }
+        query = "UPDATE cartao SET saldo = '"+novosaldo+"' WHERE IDcartao = '"+IDcartao+"'";
+        executaDB(query);
+        desconectaDB();
+    }
+} 
+
