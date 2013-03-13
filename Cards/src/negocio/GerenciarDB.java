@@ -178,7 +178,6 @@ public void updateSaldoCartaoDB(double IDcartao, double saldoatual, String opera
         conectaDB();
         String query;
         double novosaldo;
-        GerenciarDB interno = new GerenciarDB();
         if (operation.equalsIgnoreCase("MAIS")) {
             novosaldo = saldoatual+valor;
         } else if (operation.equalsIgnoreCase("MENOS")){
@@ -187,6 +186,20 @@ public void updateSaldoCartaoDB(double IDcartao, double saldoatual, String opera
             novosaldo = saldoatual;
         }
         query = "UPDATE cartao SET saldo = '"+novosaldo+"' WHERE IDcartao = '"+IDcartao+"'";
+        executaDB(query);
+        desconectaDB();
+    }
+
+    public void bloquearCartaoDB(double IDcartao, String operation)throws Exception{
+        conectaDB();
+        String query;
+        int block = 0;
+        if (operation.equalsIgnoreCase("BLOQUEAR")) {
+            block = 1;
+        } else if (operation.equalsIgnoreCase("DESBLOQUEAR")){
+            block = 0;
+        }
+        query = "UPDATE cartao SET bloqueado = '"+block+"' WHERE IDcartao = '"+IDcartao+"'";
         executaDB(query);
         desconectaDB();
     }

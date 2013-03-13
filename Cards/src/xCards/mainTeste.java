@@ -27,9 +27,14 @@ public class mainTeste {
         //System.out.println(banco.checkSenhaCartaoDB(15, "1234", 0)); //false
         //System.out.println(banco.checkSenhaCartaoDB(15, "12345", 0)); //true
         
-        System.out.println(banco.getSaldoCartaoDB(15));
-        banco.updateSaldoCartaoDB(15,banco.getSaldoCartaoDB(15), "MAIS", 15.35);
-        banco.updateSaldoCartaoDB(15,banco.getSaldoCartaoDB(15), "MENO222S", 0.35);
-        System.out.println(banco.getSaldoCartaoDB(15));
+        //System.out.println(banco.getSaldoCartaoDB(15));
+        //banco.updateSaldoCartaoDB(15,banco.getSaldoCartaoDB(15), "MAIS", 15.35);
+        //banco.updateSaldoCartaoDB(15,banco.getSaldoCartaoDB(15), "MENO222S", 0.35);
+        //System.out.println(banco.getSaldoCartaoDB(15));
+        
+        //System.out.println(banco.checkStatusCartaoBloqueadoDB(15));
+        
+        //banco.bloquearCartaoDB(15,"BLOQUEAR");
+        //banco.bloquearCartaoDB(15, "DESBLOQUEAR");
     }
 }
