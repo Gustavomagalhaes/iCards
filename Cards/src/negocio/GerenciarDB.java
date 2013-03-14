@@ -134,7 +134,7 @@ public class GerenciarDB {
         return resp;
     }
     
-    public void updateSenhaCartaoDB(double IDcartao, String senha, int tipo)throws Exception{
+    public void updateSenhaCartaoDB(int IDcartao, String senha, int tipo)throws Exception{
         conectaDB();
         String query;
         if (tipo == 0){
