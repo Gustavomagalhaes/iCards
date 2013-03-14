@@ -39,7 +39,7 @@ public class GerenciarDB {
         exe.close();
     }
     
-    public void addUsuario(String CPF,String nome,String email,String endereco,String telefone,String datanascimento,String nacionalidade,String tipousuario,String CPFtitular,String senhaADM) throws Exception{
+    public void addUsuario(int CPF,String nome,String email,String endereco,String telefone,String datanascimento,String nacionalidade,String tipousuario,String CPFtitular,String senhaADM) throws Exception{
         conectaDB();
         String query;
         query = "INSERT INTO usuario (CPF, nome, email,endereco, telefone, datanascimento, nacionalidade, tipousuario, CPFtitular, senhaADM) VALUES ('"+CPF+"','"+nome+"','"+email+"','"+endereco+"','"+telefone+"','"+datanascimento+"','"+nacionalidade+"','"+tipousuario+"','"+CPFtitular+"','"+senhaADM+"')";
@@ -47,7 +47,7 @@ public class GerenciarDB {
         desconectaDB();
     }
     
-    public void addEstabelecimento(double CNPJ, String nome, String telefone)throws Exception{
+    public void addEstabelecimento(int CNPJ, String nome, String telefone)throws Exception{
         conectaDB();
         String query;
         double vendatotal = 0;
@@ -57,7 +57,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void addCartao(double IDcartao, String CPF)throws Exception{
+    public void addCartao(int IDcartao, int CPF)throws Exception{
         conectaDB();
         String query;
         query = "INSERT INTO cartao (IDcartao, CPF, bloqueado) VALUES ('"+IDcartao+"','"+CPF+"',"+true+")";
@@ -65,23 +65,15 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void addExtratoDeposito(double IDcartao, String pessoa, double valor, String data)throws Exception{
+    public void addExtrato(String pessoa, double valor, String data, int CNPJ, int IDcartao)throws Exception{
         conectaDB();
         String query;
-        query = "INSERT INTO extrato (IDcartao, pessoa, valor, data) VALUES ('"+IDcartao+"','"+pessoa+"','"+valor+"','"+data+"')";
+        query = "INSERT INTO extrato (pessoa, valor, data, CNPJ, IDcartao) VALUES ('"+pessoa+"','"+valor+"','"+data+"','"+CNPJ+"','"+IDcartao+"')";
         executaDB(query);
         desconectaDB(); 
     }
     
-    public void addExtratoDebito(double CNPJ,double IDcartao, double valor, String data)throws Exception{
-        conectaDB();
-        String query;
-        query = "INSERT INTO extrato (CNPJ ,IDcartao, valor, data) VALUES ('"+CNPJ+"','"+IDcartao+"','"+valor+"','"+data+"')";
-        executaDB(query);
-        desconectaDB(); 
-    }
-    
-    public void delUsuario(String CPF)throws Exception{
+    public void delUsuario(int CPF)throws Exception{
         conectaDB();
         String query;
         query = "DELETE FROM usuario WHERE CPF = '"+CPF+"'";
@@ -89,7 +81,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void delEstabelecimento(double CNPJ)throws Exception{
+    public void delEstabelecimento(int CNPJ)throws Exception{
         conectaDB();
         String query;
         query = "DELETE FROM estabelecimento WHERE CNPJ = '"+CNPJ+"'";
@@ -97,7 +89,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void delCartao(double IDcartao)throws Exception{
+    public void delCartao(int IDcartao)throws Exception{
         conectaDB();
         String query;
         query = "DELETE FROM cartao WHERE IDcartao = '"+IDcartao+"'";
@@ -113,7 +105,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public boolean checkSenhaCartaoDB(double IDcartao, String senha, int tipo)throws Exception{
+    public boolean checkSenhaCartaoDB(int IDcartao, String senha, int tipo)throws Exception{
         conectaDB();
         String query;
         query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
@@ -158,7 +150,7 @@ public class GerenciarDB {
         desconectaDB();
     }
     
-    public double getSaldoCartaoDB(double IDcartao)throws Exception{
+    public double getSaldoCartaoDB(int IDcartao)throws Exception{
         conectaDB();
         String query;
         query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
@@ -174,7 +166,21 @@ public class GerenciarDB {
         return saldo; 
     }
     
-public void updateSaldoCartaoDB(double IDcartao, double saldoatual, String operation, double valor)throws Exception{
+        public String getEstabelecimentoDB(int CNPJ)throws Exception{
+        conectaDB();
+        String query;
+        query = "SELECT * FROM estabelecimento WHERE CNPJ = '"+CNPJ+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+        ResultSet retorno = exe.executeQuery();
+        String nome = null;
+        while (retorno.next()) { 
+           nome = retorno.getString(2);
+        }
+        desconectaDB();
+        return nome; 
+    }
+    
+    public void updateSaldoCartaoDB(int IDcartao, double saldoatual, String operation, double valor)throws Exception{
         conectaDB();
         String query;
         double novosaldo;
@@ -190,18 +196,41 @@ public void updateSaldoCartaoDB(double IDcartao, double saldoatual, String opera
         desconectaDB();
     }
 
-    public void bloquearCartaoDB(double IDcartao, String operation)throws Exception{
+    public void bloquearCartaoDB(int IDcartao, String operation)throws Exception{
         conectaDB();
         String query;
-        int block = 0;
+        String block = "";
         if (operation.equalsIgnoreCase("BLOQUEAR")) {
-            block = 1;
+            block = "SIM";
         } else if (operation.equalsIgnoreCase("DESBLOQUEAR")){
-            block = 0;
+            block = "NÃO";
         }
         query = "UPDATE cartao SET bloqueado = '"+block+"' WHERE IDcartao = '"+IDcartao+"'";
         executaDB(query);
         desconectaDB();
+    }
+    
+    public boolean checkStatusCartaoBloqueadoDB(int IDcartao)throws Exception{
+        conectaDB();
+        String query;
+        query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+        ResultSet retorno = exe.executeQuery();
+        String nome = null;
+        while (retorno.next()) { 
+           nome = retorno.getString(6);
+        }
+        desconectaDB();
+        boolean resp;
+        if (nome.equalsIgnoreCase("NÃO")) {
+            resp = false;
+        } else if (nome.equalsIgnoreCase("SIM")){
+            resp = true;
+        } else {
+            resp = true;
+        }
+        //return nome; //Se quiser retornar SIM/NÃO como String
+        return resp; 
     }
 } 
 
