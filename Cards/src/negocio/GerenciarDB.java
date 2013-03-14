@@ -195,6 +195,31 @@ public class GerenciarDB {
         executaDB(query);
         desconectaDB();
     }
+    
+    public double getVendaTotalEstabelecimentoDB(int CNPJ)throws Exception{
+        conectaDB();
+        String query;
+        query = "SELECT * FROM estabelecimento WHERE CNPJ = '"+CNPJ+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+        ResultSet retorno = exe.executeQuery();
+        String saldodocartao;
+        double valor = 0;
+        while (retorno.next()) { 
+           saldodocartao = retorno.getString(4);
+           valor = Double.parseDouble(saldodocartao);
+        }
+        desconectaDB();
+        return valor; 
+    }
+    
+    public void updateVendaTotalEstabelecimentoDB(int CNPJ, double saldoatual, double valor)throws Exception{
+        conectaDB();
+        String query;
+        double novosaldo = saldoatual+valor;
+        query = "UPDATE estabelecimento SET vendatotal = '"+novosaldo+"' WHERE CNPJ = '"+CNPJ+"'";
+        executaDB(query);
+        desconectaDB();
+    }
 
     public void bloquearCartaoDB(int IDcartao, String operation)throws Exception{
         conectaDB();
@@ -229,8 +254,36 @@ public class GerenciarDB {
         } else {
             resp = true;
         }
-        //return nome; //Se quiser retornar SIM/NÃO como String
+        //return nome; //Se quiser retornar SIM/NÃO como e
         return resp; 
+    }
+    
+    public void updateSenhaEstabelecimentoDB(int CNPJ, String senha)throws Exception{
+        conectaDB();
+        String query;
+        query = "UPDATE estabelecimento SET senhaCNPJ = '"+senha+"' WHERE CNPJ = '"+CNPJ+"'";
+        executaDB(query);
+        desconectaDB();
+    }
+    
+    public boolean checkSenhaEstabelecimentoDB(int CNPJ, String senha)throws Exception{
+        conectaDB();
+        String query;
+        query = "SELECT * FROM estabelecimento WHERE CNPJ = '"+CNPJ+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+        ResultSet retorno = exe.executeQuery();
+        String password = null;
+        while (retorno.next()) { 
+           password = retorno.getString(5);
+        }
+        desconectaDB();
+        boolean resp;
+        if (password.equals(senha)){
+            resp = true;
+        } else {
+            resp = false;
+        }
+        return resp;
     }
 } 
 
