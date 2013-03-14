@@ -31,7 +31,7 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
 
         iStoreLabel = new javax.swing.JLabel();
         NumCartaoLabel = new javax.swing.JLabel();
-        NumCartao = new javax.swing.JTextField();
+        NumCartaoUsuario = new javax.swing.JTextField();
         ValorLabel = new javax.swing.JLabel();
         Valor = new javax.swing.JTextField();
         SenhaLabel = new javax.swing.JLabel();
@@ -49,7 +49,15 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
 
         NumCartaoLabel.setText("Número do cartão:");
         getContentPane().add(NumCartaoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 110, -1));
-        getContentPane().add(NumCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 148, 30));
+
+        NumCartaoUsuario.setToolTipText("Digite o número do cartão");
+        try{  
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("####-####");  
+            NumCartaoUsuario = new javax.swing.JFormattedTextField(data);  
+        }  
+        catch (Exception e){  
+        }
+        getContentPane().add(NumCartaoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 150, 30));
 
         ValorLabel.setText("Valor:");
         getContentPane().add(ValorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 50, -1));
@@ -83,21 +91,20 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
 
     private void BotaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEnviarActionPerformed
         // TODO add your handling code here:
-        NumCartao.getText();
+        NumCartaoUsuario.getText();
         Valor.getText();
         SenhaCartao.getText();
         
-            if ((NumCartao.getText().length()>0)
+            if ((NumCartaoUsuario.getText().length()>0)
                 &&(Valor.getText().length()>0)
-                    &&(SenhaCartao.getText().length()>0)
-                        &&(TelLoja.getText().length()>0)){
-                JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso.");
+                    &&(SenhaCartao.getText().length()>0)){
+                JOptionPane.showMessageDialog(null, "Compra realizada com sucesso.");
                 this.dispose();
                 JanelaInicialiCards frame = new JanelaInicialiCards();
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);   
             }else{
-                JOptionPane.showMessageDialog(null, "Existe algum campo em branco..");
+                JOptionPane.showMessageDialog(null, "Existe algum campo em branco.");
             }
     }//GEN-LAST:event_BotaoEnviarActionPerformed
 
@@ -137,8 +144,8 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoEnviar;
-    private javax.swing.JTextField NumCartao;
     private javax.swing.JLabel NumCartaoLabel;
+    private javax.swing.JTextField NumCartaoUsuario;
     private javax.swing.JPasswordField SenhaCartao;
     private javax.swing.JLabel SenhaLabel;
     private javax.swing.JTextField Valor;

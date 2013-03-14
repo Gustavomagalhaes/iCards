@@ -51,10 +51,16 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="NumCartao">
+    <Component class="javax.swing.JTextField" name="NumCartaoUsuario">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Digite o n&#xfa;mero do cart&#xe3;o"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{  &#xd;&#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;####-####&quot;);  &#xd;&#xa;   NumCartaoUsuario = new javax.swing.JFormattedTextField(data);  &#xd;&#xa;}  &#xd;&#xa;   catch (Exception e){  &#xd;&#xa;}   "/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="330" y="90" width="148" height="30"/>
+          <AbsoluteConstraints x="330" y="90" width="150" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
