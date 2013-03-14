@@ -24,9 +24,22 @@
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-    <Property name="useNullLayout" type="boolean" value="true"/>
+    <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JLabel" name="iRecharge">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="36" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="iRecharge"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="269" y="11" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
     <Component class="javax.swing.JLabel" name="NomedoDepositante">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nome do depositante:"/>
@@ -54,29 +67,16 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="BotaoConfirmarRecarga">
+    <Component class="javax.swing.JFormattedTextField" name="NumCartaoRecarga">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Confirmar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Digite o n&#xfa;mero do cart&#xe3;o para recarga"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoConfirmarRecargaActionPerformed"/>
-      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{  &#xd;&#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;####-####&quot;);  &#xd;&#xa;   NumCartaoRecarga = new javax.swing.JFormattedTextField(data);  &#xd;&#xa;}  &#xd;&#xa;   catch (Exception e){  &#xd;&#xa;}   "/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="300" y="230" width="100" height="30"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="36" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="iRecharge"/>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="269" y="11" width="-1" height="-1"/>
+          <AbsoluteConstraints x="260" y="130" width="130" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -100,28 +100,16 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="MarcaPanda">
+    <Component class="javax.swing.JButton" name="BotaoConfirmarRecarga">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/visaoTeste/panda_bg.png"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="Confirmar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoConfirmarRecargaActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="520" y="280" width="200" height="200"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="NumCartaoRecarga">
-      <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Digite o n&#xfa;mero do cart&#xe3;o para recarga"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{  &#xd;&#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;####-####&quot;);  &#xd;&#xa;   NumCartaoRecarga = new javax.swing.JFormattedTextField(data);  &#xd;&#xa;}  &#xd;&#xa;   catch (Exception e){  &#xd;&#xa;}   "/>
-      </AuxValues>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="260" y="130" width="130" height="30"/>
+          <AbsoluteConstraints x="300" y="230" width="100" height="30"/>
         </Constraint>
       </Constraints>
     </Component>

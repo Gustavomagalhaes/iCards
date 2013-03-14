@@ -19,7 +19,6 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
      */
     public JanelaInicialiCards() {
         initComponents();
-        setIcon();
     }
 
     /**
@@ -31,7 +30,6 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MarcaPanda = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         MenuInicial = new javax.swing.JMenuBar();
@@ -49,26 +47,16 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iAdmin");
-        getContentPane().setLayout(null);
-
-        MarcaPanda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visaoTeste/panda_bg.png"))); // NOI18N
-        MarcaPanda.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                MarcaPandaFocusGained(evt);
-            }
-        });
-        getContentPane().add(MarcaPanda);
-        MarcaPanda.setBounds(520, 280, 200, 200);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Cooper Black", 1, 48)); // NOI18N
         jLabel1.setText("Bem-Vindo");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(50, 40, 610, 140);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 610, 140));
 
         jLabel2.setFont(new java.awt.Font("Cooper Black", 1, 48)); // NOI18N
         jLabel2.setText("ao iCards!");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(190, 150, 280, 150);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 280, 150));
 
         Usuário.setText("Usuário");
         Usuário.setToolTipText("Acessar sua conta");
@@ -148,13 +136,9 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
 
         setJMenuBar(MenuInicial);
 
-        setSize(new java.awt.Dimension(728, 514));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void MarcaPandaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MarcaPandaFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MarcaPandaFocusGained
 
     private void NovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoUsuarioActionPerformed
         // TODO add your handling code here:
@@ -241,7 +225,6 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
     private javax.swing.JMenuItem ExcluirEstabelecimento;
     private javax.swing.JMenuItem ExcluirUsuario;
     private javax.swing.JMenuItem IrJanelaUsuario;
-    private javax.swing.JLabel MarcaPanda;
     private javax.swing.JMenu MenuEstabelecimento;
     private javax.swing.JMenuBar MenuInicial;
     private javax.swing.JMenu MenuUsuario;
@@ -252,7 +235,4 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 
-    private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
-    }
 }

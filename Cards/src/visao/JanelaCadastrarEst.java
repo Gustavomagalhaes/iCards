@@ -17,7 +17,6 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
      */
     public JanelaCadastrarEst() {
         initComponents();
-        setIcon();
         
     }
 
@@ -30,17 +29,16 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MarcaPanda = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         Nome = new javax.swing.JLabel();
-        CNPJ = new javax.swing.JLabel();
-        Endereco = new javax.swing.JLabel();
-        Telefone = new javax.swing.JLabel();
         NomeLoja = new javax.swing.JTextField();
-        EnderecoLoja = new javax.swing.JTextField();
+        CNPJ = new javax.swing.JLabel();
         CNPJLoja = new javax.swing.JFormattedTextField();
+        Endereco = new javax.swing.JLabel();
+        EnderecoLoja = new javax.swing.JTextField();
+        Telefone = new javax.swing.JLabel();
         TelLoja = new javax.swing.JFormattedTextField();
-        jLabel1 = new javax.swing.JLabel();
         BotaoCadastrarLoja = new javax.swing.JButton();
         BotaoApagarCamposLoja = new javax.swing.JButton();
         BotaoCancelarLoja = new javax.swing.JButton();
@@ -48,22 +46,17 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        MarcaPanda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visaoTeste/panda_bg.png"))); // NOI18N
-        getContentPane().add(MarcaPanda, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 302, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setText("Cadastrar Loja");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         Nome.setText("Nome:");
 
-        CNPJ.setText("CNPJ:");
-
-        Endereco.setText("Endereço:");
-
-        Telefone.setText("Telefone:");
-
         NomeLoja.setToolTipText("Nome do Estabelecimento");
 
-        EnderecoLoja.setToolTipText("Endereço do estabelecimento");
+        CNPJ.setText("CNPJ:");
 
         CNPJLoja.setToolTipText("CNPJ do estabelecimento");
         try{  
@@ -72,6 +65,12 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         }  
         catch (Exception e){  
         }
+
+        Endereco.setText("Endereço:");
+
+        EnderecoLoja.setToolTipText("Endereço do estabelecimento");
+
+        Telefone.setText("Telefone:");
 
         TelLoja.setToolTipText("Telefone do estabelecimento");
         try{  
@@ -87,29 +86,28 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Nome)
+                            .addComponent(CNPJ))
+                        .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(CNPJ)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Telefone)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Endereco)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(EnderecoLoja))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Nome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Telefone)
+                            .addComponent(Endereco))
+                        .addGap(15, 15, 15)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EnderecoLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Nome)
                     .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -128,11 +126,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 690, 170));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setText("Cadastrar Loja");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 690, 200));
 
         BotaoCadastrarLoja.setText("Confirmar");
         BotaoCadastrarLoja.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +134,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                 BotaoCadastrarLojaActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoCadastrarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, -1, -1));
+        getContentPane().add(BotaoCadastrarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
 
         BotaoApagarCamposLoja.setText("Limpar");
         BotaoApagarCamposLoja.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +142,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                 BotaoApagarCamposLojaActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoApagarCamposLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 80, -1));
+        getContentPane().add(BotaoApagarCamposLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 80, -1));
 
         BotaoCancelarLoja.setText("Cancelar");
         BotaoCancelarLoja.addActionListener(new java.awt.event.ActionListener() {
@@ -156,9 +150,10 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                 BotaoCancelarLojaActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoCancelarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 80, -1));
+        getContentPane().add(BotaoCancelarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 80, -1));
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoApagarCamposLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoApagarCamposLojaActionPerformed
@@ -240,7 +235,6 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField CNPJLoja;
     private javax.swing.JLabel Endereco;
     private javax.swing.JTextField EnderecoLoja;
-    private javax.swing.JLabel MarcaPanda;
     private javax.swing.JLabel Nome;
     private javax.swing.JTextField NomeLoja;
     private javax.swing.JFormattedTextField TelLoja;
@@ -248,8 +242,6 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-    private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
-    }
+
 }
 

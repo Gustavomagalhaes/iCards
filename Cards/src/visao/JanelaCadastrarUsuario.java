@@ -19,7 +19,6 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
      */
     public JanelaCadastrarUsuario() {
         initComponents();
-        setIcon();
     }
 
     /**
@@ -33,14 +32,13 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
 
         GrupoTipoUsuario = new javax.swing.ButtonGroup();
         GrupoSexo = new javax.swing.ButtonGroup();
-        BarraRolagemCadastroUsuario = new javax.swing.JScrollPane();
         PainelCadastroUsuario = new javax.swing.JPanel();
         PainelPessoal = new javax.swing.JPanel();
-        CPF = new javax.swing.JLabel();
-        DataNasc = new javax.swing.JLabel();
-        Sexo = new javax.swing.JLabel();
-        NomeUsuario = new javax.swing.JTextField();
         Nome = new javax.swing.JLabel();
+        NomeUsuario = new javax.swing.JTextField();
+        CPF = new javax.swing.JLabel();
+        CPFUsuario = new javax.swing.JFormattedTextField();
+        DataNasc = new javax.swing.JLabel();
         DataNascUsuario = new javax.swing.JFormattedTextField();
         try{  
             javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");  
@@ -50,17 +48,10 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         }
         Nacionalidade = new javax.swing.JLabel();
         NacionalidadeUsuario = new javax.swing.JTextField();
-        UsuarioFeminino = new javax.swing.JRadioButton();
-        UsuarioMasculino = new javax.swing.JRadioButton();
-        CPFUsuario = new javax.swing.JFormattedTextField();
+        EmailLabel = new javax.swing.JLabel();
+        Email = new javax.swing.JTextField();
         PainelEndereco = new javax.swing.JPanel();
         Endereco = new javax.swing.JLabel();
-        Bairro = new javax.swing.JLabel();
-        Cidade = new javax.swing.JLabel();
-        UF = new javax.swing.JLabel();
-        UFUsuario = new javax.swing.JTextField();
-        CidadeUsuario = new javax.swing.JTextField();
-        BairroUsuario = new javax.swing.JTextField();
         EnderecoUsuario = new javax.swing.JTextField();
         Telefone = new javax.swing.JLabel();
         TelUsuario = new javax.swing.JFormattedTextField();
@@ -72,7 +63,6 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         CPFDependente = new javax.swing.JFormattedTextField();
         Senha = new javax.swing.JLabel();
         SenhaUsuario = new javax.swing.JPasswordField();
-        MarcaPanda = new javax.swing.JLabel();
         CancelarCadastroUsuario = new javax.swing.JButton();
         LimparCadastroUsuario = new javax.swing.JButton();
         CadastrarUsuario = new javax.swing.JButton();
@@ -83,33 +73,13 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BarraRolagemCadastroUsuario.setWheelScrollingEnabled(false);
-
         PainelPessoal.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações Pessoais"));
-
-        CPF.setText("CPF:");
-
-        DataNasc.setText("Data de Nascimento:");
-
-        Sexo.setText("Sexo:");
-
-        NomeUsuario.setToolTipText("Nome");
 
         Nome.setText("Nome:");
 
-        DataNascUsuario.setToolTipText("Data de Nascimento");
+        NomeUsuario.setToolTipText("Nome");
 
-        Nacionalidade.setText("Nacionalidade:");
-
-        NacionalidadeUsuario.setToolTipText("Nacionalidade");
-
-        GrupoSexo.add(UsuarioFeminino);
-        UsuarioFeminino.setText("Feminino");
-        UsuarioFeminino.setToolTipText("Selecione Feminino");
-
-        GrupoSexo.add(UsuarioMasculino);
-        UsuarioMasculino.setText("Masculino");
-        UsuarioMasculino.setToolTipText("Selecione Masculino");
+        CPF.setText("CPF:");
 
         CPFUsuario.setToolTipText("CPF do Usuário");
         try{  
@@ -119,6 +89,22 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         catch (Exception e){  
         }
 
+        DataNasc.setText("Data de Nascimento:");
+
+        DataNascUsuario.setToolTipText("Data de Nascimento");
+
+        Nacionalidade.setText("Nacionalidade:");
+
+        NacionalidadeUsuario.setToolTipText("Nacionalidade");
+
+        EmailLabel.setText("Email:");
+
+        Email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmailActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelPessoalLayout = new javax.swing.GroupLayout(PainelPessoal);
         PainelPessoal.setLayout(PainelPessoalLayout);
         PainelPessoalLayout.setHorizontalGroup(
@@ -127,27 +113,26 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelPessoalLayout.createSequentialGroup()
-                        .addComponent(Sexo)
-                        .addGap(18, 18, 18)
-                        .addComponent(UsuarioFeminino)
-                        .addGap(18, 18, 18)
-                        .addComponent(UsuarioMasculino))
-                    .addGroup(PainelPessoalLayout.createSequentialGroup()
                         .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Nome)
                             .addComponent(CPF))
                         .addGap(18, 18, 18)
                         .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CPFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(PainelPessoalLayout.createSequentialGroup()
+                                .addComponent(CPFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(DataNasc)
+                                .addGap(18, 18, 18)
+                                .addComponent(DataNascUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(PainelPessoalLayout.createSequentialGroup()
-                        .addComponent(DataNasc)
+                        .addComponent(EmailLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(DataNascUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
+                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(Nacionalidade)
                         .addGap(18, 18, 18)
-                        .addComponent(NacionalidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(NacionalidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PainelPessoalLayout.setVerticalGroup(
@@ -160,36 +145,22 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CPF)
-                    .addComponent(CPFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CPFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DataNasc)
-                    .addComponent(DataNascUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nacionalidade)
-                    .addComponent(NacionalidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DataNascUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Sexo)
-                    .addComponent(UsuarioFeminino)
-                    .addComponent(UsuarioMasculino))
-                .addContainerGap(11, Short.MAX_VALUE))
+                    .addComponent(Nacionalidade)
+                    .addComponent(NacionalidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(EmailLabel)
+                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PainelEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações de Endereço"));
 
         Endereco.setText("Endereço:");
-
-        Bairro.setText("Bairro:");
-
-        Cidade.setText("Cidade:");
-
-        UF.setText("UF:");
-
-        UFUsuario.setToolTipText("Digite UF");
-
-        CidadeUsuario.setToolTipText("Digite Cidade");
-
-        BairroUsuario.setToolTipText("Digite Bairro");
 
         EnderecoUsuario.setToolTipText("Digite Endereço");
 
@@ -211,26 +182,13 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PainelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelEnderecoLayout.createSequentialGroup()
-                        .addComponent(Bairro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BairroUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(Cidade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(UF)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(UFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))
-                    .addGroup(PainelEnderecoLayout.createSequentialGroup()
                         .addComponent(Endereco)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(EnderecoUsuario)
-                        .addContainerGap())
+                        .addGap(18, 18, 18)
+                        .addComponent(EnderecoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(PainelEnderecoLayout.createSequentialGroup()
                         .addComponent(Telefone)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(TelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
@@ -243,17 +201,9 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                     .addComponent(EnderecoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PainelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Bairro)
-                    .addComponent(Cidade)
-                    .addComponent(UF)
-                    .addComponent(UFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BairroUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Telefone)
                     .addComponent(TelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PainelTipo.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações de Tipo"));
@@ -301,7 +251,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                         .addComponent(Senha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(SenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(486, Short.MAX_VALUE))
         );
         PainelTipoLayout.setVerticalGroup(
             PainelTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,6 +273,30 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        CancelarCadastroUsuario.setText("Cancelar");
+        CancelarCadastroUsuario.setToolTipText("Cancelar Operação");
+        CancelarCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarCadastroUsuarioActionPerformed(evt);
+            }
+        });
+
+        LimparCadastroUsuario.setText("Limpar");
+        LimparCadastroUsuario.setToolTipText("Limpar Campos");
+        LimparCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimparCadastroUsuarioActionPerformed(evt);
+            }
+        });
+
+        CadastrarUsuario.setText("Cadastrar");
+        CadastrarUsuario.setToolTipText("Cadastrar Usuário");
+        CadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastrarUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelCadastroUsuarioLayout = new javax.swing.GroupLayout(PainelCadastroUsuario);
         PainelCadastroUsuario.setLayout(PainelCadastroUsuarioLayout);
         PainelCadastroUsuarioLayout.setHorizontalGroup(
@@ -336,58 +310,40 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(PainelTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(PainelCadastroUsuarioLayout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(CadastrarUsuario)
+                .addGap(79, 79, 79)
+                .addComponent(LimparCadastroUsuario)
+                .addGap(87, 87, 87)
+                .addComponent(CancelarCadastroUsuario)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PainelCadastroUsuarioLayout.setVerticalGroup(
             PainelCadastroUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelCadastroUsuarioLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(PainelPessoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PainelEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PainelTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PainelCadastroUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CadastrarUsuario)
+                    .addComponent(LimparCadastroUsuario)
+                    .addComponent(CancelarCadastroUsuario))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        BarraRolagemCadastroUsuario.setViewportView(PainelCadastroUsuario);
-
-        getContentPane().add(BarraRolagemCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 690, 260));
-
-        MarcaPanda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visaoTeste/panda_bg.png"))); // NOI18N
-        getContentPane().add(MarcaPanda, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
-
-        CancelarCadastroUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/testesgraficos/Fwdw_icons/grey/gif/24x24/001_05.gif"))); // NOI18N
-        CancelarCadastroUsuario.setToolTipText("Cancelar Operação");
-        CancelarCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarCadastroUsuarioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(CancelarCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, -1));
-
-        LimparCadastroUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/testesgraficos/Fwdw_icons/grey/gif/24x24/001_39.gif"))); // NOI18N
-        LimparCadastroUsuario.setToolTipText("Limpar Campos");
-        LimparCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LimparCadastroUsuarioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(LimparCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, -1, -1));
-
-        CadastrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/testesgraficos/Fwdw_icons/grey/gif/24x24/001_06.gif"))); // NOI18N
-        CadastrarUsuario.setToolTipText("Cadastrar Usuário");
-        CadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastrarUsuarioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(CadastrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
+        getContentPane().add(PainelCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         iCadastro.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         iCadastro.setText("iCadastro");
         getContentPane().add(iCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelarCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarCadastroUsuarioActionPerformed
@@ -405,13 +361,9 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         DataNascUsuario.setText("");
         SenhaUsuario.setText("");
         NacionalidadeUsuario.setText("");
-        BairroUsuario.setText("");
+        Email.setText("");
         EnderecoUsuario.setText("");
-        CidadeUsuario.setText("");
-        UFUsuario.setText("");
         TelUsuario.setText("");
-        UsuarioMasculino.setSelected(false);
-        UsuarioFeminino.setSelected(false);
         Dependente.setSelected(false);
         Titular.setSelected(false);
        
@@ -424,10 +376,8 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         String dataNasc = DataNascUsuario.getText();
         String senhaUsuario = SenhaUsuario.getText();
         String nacionalidadeUsuario = NacionalidadeUsuario.getText();
-        String bairroUsuario = BairroUsuario.getText();
+        String email = Email.getText();
         String enderecoUsuario = EnderecoUsuario.getText();
-        String cidadeUsuario = CidadeUsuario.getText();
-        String ufUsuario = UFUsuario.getText();
         String telUsuario = TelUsuario.getText();
         JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");
         this.dispose();
@@ -436,6 +386,10 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         frame.setVisible(true);
         
     }//GEN-LAST:event_CadastrarUsuarioActionPerformed
+
+    private void EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -473,26 +427,22 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Bairro;
-    private javax.swing.JTextField BairroUsuario;
-    private javax.swing.JScrollPane BarraRolagemCadastroUsuario;
     private javax.swing.JLabel CPF;
     private javax.swing.JFormattedTextField CPFDependente;
     private javax.swing.JFormattedTextField CPFUsuario;
     private javax.swing.JLabel CPFdoDependente;
     private javax.swing.JButton CadastrarUsuario;
     private javax.swing.JButton CancelarCadastroUsuario;
-    private javax.swing.JLabel Cidade;
-    private javax.swing.JTextField CidadeUsuario;
     private javax.swing.JLabel DataNasc;
     private javax.swing.JFormattedTextField DataNascUsuario;
     private javax.swing.JRadioButton Dependente;
+    private javax.swing.JTextField Email;
+    private javax.swing.JLabel EmailLabel;
     private javax.swing.JLabel Endereco;
     private javax.swing.JTextField EnderecoUsuario;
     private javax.swing.ButtonGroup GrupoSexo;
     private javax.swing.ButtonGroup GrupoTipoUsuario;
     private javax.swing.JButton LimparCadastroUsuario;
-    private javax.swing.JLabel MarcaPanda;
     private javax.swing.JLabel Nacionalidade;
     private javax.swing.JTextField NacionalidadeUsuario;
     private javax.swing.JLabel Nome;
@@ -503,19 +453,11 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel PainelTipo;
     private javax.swing.JLabel Senha;
     private javax.swing.JPasswordField SenhaUsuario;
-    private javax.swing.JLabel Sexo;
     private javax.swing.JFormattedTextField TelUsuario;
     private javax.swing.JLabel Telefone;
     private javax.swing.JLabel TipodeUsuario;
     private javax.swing.JRadioButton Titular;
-    private javax.swing.JLabel UF;
-    private javax.swing.JTextField UFUsuario;
-    private javax.swing.JRadioButton UsuarioFeminino;
-    private javax.swing.JRadioButton UsuarioMasculino;
     private javax.swing.JLabel iCadastro;
     // End of variables declaration//GEN-END:variables
-    
-    private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
-    }
+
 }

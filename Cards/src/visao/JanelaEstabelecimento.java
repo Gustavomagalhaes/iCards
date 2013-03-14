@@ -5,6 +5,7 @@
 package visao;
 
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +18,6 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
      */
     public JanelaEstabelecimento() {
         initComponents();
-        setIcon();
     }
 
     /**
@@ -29,42 +29,41 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        iStoreLabel = new javax.swing.JLabel();
+        NumCartaoLabel = new javax.swing.JLabel();
+        NumCartao = new javax.swing.JTextField();
+        ValorLabel = new javax.swing.JLabel();
+        Valor = new javax.swing.JTextField();
+        SenhaLabel = new javax.swing.JLabel();
+        SenhaCartao = new javax.swing.JPasswordField();
         BotaoEnviar = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iStore");
-        getContentPane().setLayout(null);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setText("iStore");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(306, 11, 108, 44);
+        iStoreLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        iStoreLabel.setText("iStore");
+        getContentPane().add(iStoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 11, -1, -1));
 
-        jLabel2.setText("Número do cartão:");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(220, 100, 110, 14);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(330, 90, 148, 30);
+        NumCartaoLabel.setText("Número do cartão:");
+        getContentPane().add(NumCartaoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 110, -1));
+        getContentPane().add(NumCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 148, 30));
 
-        jLabel3.setText("Valor:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(280, 140, 50, 14);
+        ValorLabel.setText("Valor:");
+        getContentPane().add(ValorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 50, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        Valor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                ValorActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(330, 130, 148, 30);
+        getContentPane().add(Valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 148, 30));
+
+        SenhaLabel.setText("Senha do cartão:");
+        getContentPane().add(SenhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 100, -1));
+        getContentPane().add(SenhaCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 148, 30));
 
         BotaoEnviar.setText("Enviar");
         BotaoEnviar.addActionListener(new java.awt.event.ActionListener() {
@@ -72,39 +71,35 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
                 BotaoEnviarActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoEnviar);
-        BotaoEnviar.setBounds(320, 220, 80, 30);
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(330, 170, 148, 30);
+        getContentPane().add(BotaoEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 80, 30));
 
-        jLabel4.setText("Senha do cartão:");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(230, 180, 100, 14);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visaoTeste/panda_bg.png"))); // NOI18N
-        jLabel5.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jLabel5FocusGained(evt);
-            }
-        });
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(520, 280, 200, 200);
-
-        setSize(new java.awt.Dimension(728, 514));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void ValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_ValorActionPerformed
 
     private void BotaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEnviarActionPerformed
         // TODO add your handling code here:
+        NumCartao.getText();
+        Valor.getText();
+        SenhaCartao.getText();
+        
+            if ((NumCartao.getText().length()>0)
+                &&(Valor.getText().length()>0)
+                    &&(SenhaCartao.getText().length()>0)
+                        &&(TelLoja.getText().length()>0)){
+                JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso.");
+                this.dispose();
+                JanelaInicialiCards frame = new JanelaInicialiCards();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);   
+            }else{
+                JOptionPane.showMessageDialog(null, "Existe algum campo em branco..");
+            }
     }//GEN-LAST:event_BotaoEnviarActionPerformed
-
-    private void jLabel5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel5FocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel5FocusGained
 
     /**
      * @param args the command line arguments
@@ -142,17 +137,13 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoEnviar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField NumCartao;
+    private javax.swing.JLabel NumCartaoLabel;
+    private javax.swing.JPasswordField SenhaCartao;
+    private javax.swing.JLabel SenhaLabel;
+    private javax.swing.JTextField Valor;
+    private javax.swing.JLabel ValorLabel;
+    private javax.swing.JLabel iStoreLabel;
     // End of variables declaration//GEN-END:variables
-    
-    private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
-    }
+
 }

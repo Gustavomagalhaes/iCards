@@ -17,7 +17,6 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
      */
     public JanelaEditarUsuario() {
         initComponents();
-        setIcon();
     }
 
     /**
@@ -29,7 +28,6 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BarraRolagemCadastroUsuario = new javax.swing.JScrollPane();
         PainelCadastroUsuario = new javax.swing.JPanel();
         PainelPessoal = new javax.swing.JPanel();
         CPF = new javax.swing.JLabel();
@@ -68,7 +66,6 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
         CPFDependente = new javax.swing.JFormattedTextField();
         Senha = new javax.swing.JLabel();
         SenhaUsuario = new javax.swing.JPasswordField();
-        MarcaPanda = new javax.swing.JLabel();
         Editar = new javax.swing.JLabel();
         ConfirmarEdicaoUsuario = new javax.swing.JButton();
         LimparEdicaoUsuario = new javax.swing.JButton();
@@ -76,8 +73,6 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BarraRolagemCadastroUsuario.setWheelScrollingEnabled(false);
 
         PainelPessoal.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações Pessoais"));
 
@@ -341,12 +336,7 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        BarraRolagemCadastroUsuario.setViewportView(PainelCadastroUsuario);
-
-        getContentPane().add(BarraRolagemCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 690, 260));
-
-        MarcaPanda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visaoTeste/panda_bg.png"))); // NOI18N
-        getContentPane().add(MarcaPanda, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
+        getContentPane().add(PainelCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Editar.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         Editar.setText("Editar");
@@ -449,7 +439,6 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Bairro;
     private javax.swing.JTextField BairroUsuario;
-    private javax.swing.JScrollPane BarraRolagemCadastroUsuario;
     private javax.swing.JLabel CPF;
     private javax.swing.JFormattedTextField CPFDependente;
     private javax.swing.JFormattedTextField CPFUsuario;
@@ -465,7 +454,6 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel Endereco;
     private javax.swing.JTextField EnderecoUsuario;
     private javax.swing.JButton LimparEdicaoUsuario;
-    private javax.swing.JLabel MarcaPanda;
     private javax.swing.JLabel Nacionalidade;
     private javax.swing.JTextField NacionalidadeUsuario;
     private javax.swing.JLabel Nome;
@@ -486,7 +474,5 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
     private javax.swing.JRadioButton UsuarioFeminino;
     private javax.swing.JRadioButton UsuarioMasculino;
     // End of variables declaration//GEN-END:variables
-    private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
-    }
+
 }

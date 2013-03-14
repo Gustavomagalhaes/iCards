@@ -17,7 +17,6 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
      */
     public JanelaAlterarSenha() {
         initComponents();
-        setIcon();
     }
 
     /**
@@ -29,22 +28,28 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        AlterarSenha = new javax.swing.JLabel();
+        SenhaAtualLabel = new javax.swing.JLabel();
         SenhaAtual = new javax.swing.JPasswordField();
+        NovaSenhaLabel = new javax.swing.JLabel();
         NovaSenha = new javax.swing.JPasswordField();
         ConfirmarAlterarSenha = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alterar Senha");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visaoTeste/panda_bg.png"))); // NOI18N
+        AlterarSenha.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        AlterarSenha.setText("Alterar Senha");
+        getContentPane().add(AlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 47, -1, -1));
 
-        jLabel2.setText("Digite sua senha atual:");
+        SenhaAtualLabel.setText("Digite sua senha atual:");
+        getContentPane().add(SenhaAtualLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 132, -1, -1));
+        getContentPane().add(SenhaAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 129, 130, -1));
 
-        jLabel3.setText("Digite sua nova senha:");
+        NovaSenhaLabel.setText("Digite sua nova senha:");
+        getContentPane().add(NovaSenhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 184, -1, -1));
+        getContentPane().add(NovaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 181, 130, -1));
 
         ConfirmarAlterarSenha.setText("Confirmar");
         ConfirmarAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -52,58 +57,10 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
                 ConfirmarAlterarSenhaActionPerformed(evt);
             }
         });
+        getContentPane().add(ConfirmarAlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 263, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel4.setText("Alterar Senha");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(ConfirmarAlterarSenha)
-                .addGap(100, 100, 100)
-                .addComponent(jLabel1))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(NovaSenha))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(SenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(259, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(219, 219, 219))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel4)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(SenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(NovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(ConfirmarAlterarSenha)
-                        .addGap(110, 110, 110))))
-        );
-
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfirmarAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarAlterarSenhaActionPerformed
@@ -153,21 +110,19 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new JanelaAlterarSenha().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AlterarSenha;
     private javax.swing.JButton ConfirmarAlterarSenha;
     private javax.swing.JPasswordField NovaSenha;
+    private javax.swing.JLabel NovaSenhaLabel;
     private javax.swing.JPasswordField SenhaAtual;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel SenhaAtualLabel;
     // End of variables declaration//GEN-END:variables
-    private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
-    }
+
 }

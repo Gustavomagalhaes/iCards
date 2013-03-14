@@ -19,7 +19,6 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
      */
     public JanelaInicioUsuario() {
         initComponents();
-        setIcon();
     }
 
     /**
@@ -31,15 +30,13 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        iCards = new javax.swing.JLabel();
         NumeroCartao = new javax.swing.JLabel();
-        SenhadeAcesso = new javax.swing.JLabel();
         NumCartaoUsuario = new javax.swing.JTextField();
+        SenhadeAcesso = new javax.swing.JLabel();
         SenhaAcessoUsuario = new javax.swing.JPasswordField();
         BotaoEntrarUsuario = new javax.swing.JButton();
         BotaoRecarregar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        MarcaPanda = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         IrHome = new javax.swing.JMenu();
         IrparaHome = new javax.swing.JMenuItem();
@@ -47,20 +44,14 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - Inicial");
         setResizable(false);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setText("iCards");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(310, 10, 115, 44);
+        iCards.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        iCards.setText("iCards");
+        getContentPane().add(iCards, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
         NumeroCartao.setText("Número do cartão:");
-        getContentPane().add(NumeroCartao);
-        NumeroCartao.setBounds(240, 90, 120, 30);
-
-        SenhadeAcesso.setText("Senha de acesso:");
-        getContentPane().add(SenhadeAcesso);
-        SenhadeAcesso.setBounds(240, 130, 120, 30);
+        getContentPane().add(NumeroCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 120, 30));
 
         NumCartaoUsuario.setToolTipText("Digite o número do cartão");
         try{  
@@ -69,10 +60,11 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
         }  
         catch (Exception e){  
         }
-        getContentPane().add(NumCartaoUsuario);
-        NumCartaoUsuario.setBounds(360, 90, 110, 30);
-        getContentPane().add(SenhaAcessoUsuario);
-        SenhaAcessoUsuario.setBounds(360, 130, 110, 30);
+        getContentPane().add(NumCartaoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 110, 30));
+
+        SenhadeAcesso.setText("Senha de acesso:");
+        getContentPane().add(SenhadeAcesso, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 120, 30));
+        getContentPane().add(SenhaAcessoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 110, 30));
 
         BotaoEntrarUsuario.setText("Entrar");
         BotaoEntrarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -80,8 +72,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
                 BotaoEntrarUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoEntrarUsuario);
-        BotaoEntrarUsuario.setBounds(320, 180, 80, 30);
+        getContentPane().add(BotaoEntrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 80, 30));
 
         BotaoRecarregar.setText("Recarregar");
         BotaoRecarregar.addActionListener(new java.awt.event.ActionListener() {
@@ -89,19 +80,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
                 BotaoRecarregarActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoRecarregar);
-        BotaoRecarregar.setBounds(290, 290, 130, 35);
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(520, 280, 0, 0);
-
-        MarcaPanda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visaoTeste/panda_bg.png"))); // NOI18N
-        MarcaPanda.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                MarcaPandaFocusGained(evt);
-            }
-        });
-        getContentPane().add(MarcaPanda);
-        MarcaPanda.setBounds(530, 290, 200, 200);
+        getContentPane().add(BotaoRecarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 130, 35));
 
         IrHome.setText("Home");
 
@@ -117,18 +96,14 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(736, 518));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-736)/2, (screenSize.height-518)/2, 736, 518);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoEntrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarUsuarioActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Your message.");
     }//GEN-LAST:event_BotaoEntrarUsuarioActionPerformed
-
-    private void MarcaPandaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MarcaPandaFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MarcaPandaFocusGained
 
     private void BotaoRecarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoRecarregarActionPerformed
         this.dispose();
@@ -184,17 +159,12 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
     private javax.swing.JButton BotaoRecarregar;
     private javax.swing.JMenu IrHome;
     private javax.swing.JMenuItem IrparaHome;
-    private javax.swing.JLabel MarcaPanda;
     private javax.swing.JTextField NumCartaoUsuario;
     private javax.swing.JLabel NumeroCartao;
     private javax.swing.JPasswordField SenhaAcessoUsuario;
     private javax.swing.JLabel SenhadeAcesso;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel iCards;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 
-    private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
-    }
 }

@@ -19,7 +19,6 @@ public class JanelaRecarga extends javax.swing.JFrame {
      */
     public JanelaRecarga() {
         initComponents();
-        setIcon();
     }
 
     /**
@@ -31,55 +30,29 @@ public class JanelaRecarga extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        iRecharge = new javax.swing.JLabel();
         NomedoDepositante = new javax.swing.JLabel();
         NomeDepositante = new javax.swing.JTextField();
         NumdoCartao = new javax.swing.JLabel();
-        BotaoConfirmarRecarga = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        NumCartaoRecarga = new javax.swing.JFormattedTextField();
         Valor = new javax.swing.JLabel();
         ValorRecarga = new javax.swing.JTextField();
-        MarcaPanda = new javax.swing.JLabel();
-        NumCartaoRecarga = new javax.swing.JFormattedTextField();
+        BotaoConfirmarRecarga = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iRecharge");
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        iRecharge.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        iRecharge.setText("iRecharge");
+        getContentPane().add(iRecharge, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 11, -1, -1));
 
         NomedoDepositante.setText("Nome do depositante:");
-        getContentPane().add(NomedoDepositante);
-        NomedoDepositante.setBounds(130, 90, 130, 14);
-        getContentPane().add(NomeDepositante);
-        NomeDepositante.setBounds(261, 85, 368, 30);
+        getContentPane().add(NomedoDepositante, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 130, -1));
+        getContentPane().add(NomeDepositante, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 85, 368, 30));
 
         NumdoCartao.setText("Nº do cartão a ser creditado:");
-        getContentPane().add(NumdoCartao);
-        NumdoCartao.setBounds(100, 140, 160, 14);
-
-        BotaoConfirmarRecarga.setText("Confirmar");
-        BotaoConfirmarRecarga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoConfirmarRecargaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BotaoConfirmarRecarga);
-        BotaoConfirmarRecarga.setBounds(300, 230, 100, 30);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setText("iRecharge");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(269, 11, 182, 44);
-
-        Valor.setText("Valor:");
-        getContentPane().add(Valor);
-        Valor.setBounds(210, 190, 50, 14);
-
-        ValorRecarga.setToolTipText("Valor para recarga");
-        getContentPane().add(ValorRecarga);
-        ValorRecarga.setBounds(260, 180, 70, 30);
-
-        MarcaPanda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visaoTeste/panda_bg.png"))); // NOI18N
-        getContentPane().add(MarcaPanda);
-        MarcaPanda.setBounds(520, 280, 200, 200);
+        getContentPane().add(NumdoCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 160, -1));
 
         NumCartaoRecarga.setToolTipText("Digite o número do cartão para recarga");
         try{  
@@ -88,11 +61,24 @@ public class JanelaRecarga extends javax.swing.JFrame {
         }  
         catch (Exception e){  
         }
-        getContentPane().add(NumCartaoRecarga);
-        NumCartaoRecarga.setBounds(260, 130, 130, 30);
+        getContentPane().add(NumCartaoRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 130, 30));
 
-        setSize(new java.awt.Dimension(728, 514));
-        setLocationRelativeTo(null);
+        Valor.setText("Valor:");
+        getContentPane().add(Valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 50, -1));
+
+        ValorRecarga.setToolTipText("Valor para recarga");
+        getContentPane().add(ValorRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 70, 30));
+
+        BotaoConfirmarRecarga.setText("Confirmar");
+        BotaoConfirmarRecarga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoConfirmarRecargaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BotaoConfirmarRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 100, 30));
+
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoConfirmarRecargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarRecargaActionPerformed
@@ -142,17 +128,13 @@ public class JanelaRecarga extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoConfirmarRecarga;
-    private javax.swing.JLabel MarcaPanda;
     private javax.swing.JTextField NomeDepositante;
     private javax.swing.JLabel NomedoDepositante;
     private javax.swing.JFormattedTextField NumCartaoRecarga;
     private javax.swing.JLabel NumdoCartao;
     private javax.swing.JLabel Valor;
     private javax.swing.JTextField ValorRecarga;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel iRecharge;
     // End of variables declaration//GEN-END:variables
 
-    private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
-    }
 }
