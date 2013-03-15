@@ -31,9 +31,13 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         AlterarSenha = new javax.swing.JLabel();
         SenhaAtualLabel = new javax.swing.JLabel();
         SenhaAtual = new javax.swing.JPasswordField();
+        RepitaSenhaLabel = new javax.swing.JLabel();
+        RepitaSenha = new javax.swing.JPasswordField();
+        ConfirmarAlterarSenha = new javax.swing.JButton();
         NovaSenhaLabel = new javax.swing.JLabel();
         NovaSenha = new javax.swing.JPasswordField();
-        ConfirmarAlterarSenha = new javax.swing.JButton();
+        todosCampos = new javax.swing.JLabel();
+        conferirSenha = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alterar Senha");
@@ -41,15 +45,15 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
 
         AlterarSenha.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         AlterarSenha.setText("Alterar Senha");
-        getContentPane().add(AlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 47, -1, -1));
+        getContentPane().add(AlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
         SenhaAtualLabel.setText("Digite sua senha atual:");
         getContentPane().add(SenhaAtualLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 132, -1, -1));
-        getContentPane().add(SenhaAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 129, 130, -1));
+        getContentPane().add(SenhaAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 130, 30));
 
-        NovaSenhaLabel.setText("Digite sua nova senha:");
-        getContentPane().add(NovaSenhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 184, -1, -1));
-        getContentPane().add(NovaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 181, 130, -1));
+        RepitaSenhaLabel.setText("Repita a senha atual:");
+        getContentPane().add(RepitaSenhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 184, -1, -1));
+        getContentPane().add(RepitaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 130, 30));
 
         ConfirmarAlterarSenha.setText("Confirmar");
         ConfirmarAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -57,7 +61,17 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
                 ConfirmarAlterarSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(ConfirmarAlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 263, -1, -1));
+        getContentPane().add(ConfirmarAlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(569, 413, 100, 30));
+
+        NovaSenhaLabel.setText("Digite sua nova senha:");
+        getContentPane().add(NovaSenhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
+        getContentPane().add(NovaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, 30));
+
+        todosCampos.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(todosCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 280, 30));
+
+        conferirSenha.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(conferirSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 210, 30));
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
@@ -65,24 +79,29 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
 
     private void ConfirmarAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarAlterarSenhaActionPerformed
         // TODO add your handling code here:
-        String velhasenha = SenhaAtual.getText();
+        String senhaatual = SenhaAtual.getText();
+        String repitasenha = RepitaSenha.getText();
         String novasenha = NovaSenha.getText();
+        boolean confereSenha = (senhaatual.equals(repitasenha));
         
-        //if ((velhasenha.length()>0)&&(novasenha.length()>0)){
-        if (velhasenha.isEmpty()||novasenha.isEmpty()){
-            JOptionPane.showMessageDialog(null, "senha não pode ficar em branco");
+        
+        
+        //if ((senhaatual.length()>0)&&(novasenha.length()>0)){
+        if (senhaatual.isEmpty()||repitasenha.isEmpty()||novasenha.isEmpty()){
+            //JOptionPane.showMessageDialog(null, "senha não pode ficar em branco");
+            todosCampos.setText("Você deve preencher todos os campos.");
             
-        }
-        else if (velhasenha.equals(novasenha)){
-             JOptionPane.showMessageDialog(null, "Senha alterada com sucesso.");
-             this.dispose();
+        }else if (confereSenha==false){
+            conferirSenha.setText("As senhas não conferem.");
+            
+        }else{
+             //JOptionPane.showMessageDialog(null, "Senha alterada com sucesso.");
             JanelaUsuario frame = new JanelaUsuario();
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
+            this.dispose();
             
              
-        }else{
-            JOptionPane.showMessageDialog(null, "As senhas não estão compatíveis.");
         }
         
     }//GEN-LAST:event_ConfirmarAlterarSenhaActionPerformed
@@ -127,8 +146,12 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
     private javax.swing.JButton ConfirmarAlterarSenha;
     private javax.swing.JPasswordField NovaSenha;
     private javax.swing.JLabel NovaSenhaLabel;
+    private javax.swing.JPasswordField RepitaSenha;
+    private javax.swing.JLabel RepitaSenhaLabel;
     private javax.swing.JPasswordField SenhaAtual;
     private javax.swing.JLabel SenhaAtualLabel;
+    private javax.swing.JLabel conferirSenha;
+    private javax.swing.JLabel todosCampos;
     // End of variables declaration//GEN-END:variables
 
 }
