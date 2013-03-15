@@ -149,12 +149,13 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                     .addComponent(DataNasc)
                     .addComponent(DataNascUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Nacionalidade)
-                    .addComponent(NacionalidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(EmailLabel)
-                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Nacionalidade)
+                        .addComponent(NacionalidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -342,8 +343,8 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         iCadastro.setText("iCadastro");
         getContentPane().add(iCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
+        setSize(new java.awt.Dimension(728, 514));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelarCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarCadastroUsuarioActionPerformed
@@ -379,11 +380,25 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         String email = Email.getText();
         String enderecoUsuario = EnderecoUsuario.getText();
         String telUsuario = TelUsuario.getText();
-        JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");
-        this.dispose();
-        JanelaInicialiCards frame = new JanelaInicialiCards();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        if((NomeUsuario.getText().isEmpty())&&(SenhaUsuario.getText().isEmpty())&&(Email.getText().isEmpty())){
+            JOptionPane.showMessageDialog(null, "Campos não podem ficar vazios");
+        }
+        else if(NomeUsuario.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "O nome é um campo necessário"); 
+        }
+        else if(SenhaUsuario.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "A senha é um campo necessário"); 
+        }
+        else if(Email.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "O email é um campo necessario"); 
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");
+            this.dispose();
+            JanelaInicialiCards frame = new JanelaInicialiCards();
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        }
         
     }//GEN-LAST:event_CadastrarUsuarioActionPerformed
 
