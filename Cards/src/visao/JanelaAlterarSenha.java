@@ -70,7 +70,7 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         
         //if ((velhasenha.length()>0)&&(novasenha.length()>0)){
         if (velhasenha.isEmpty()||novasenha.isEmpty()){
-            JOptionPane.showMessageDialog(null, "senha n pode ficar em branco");
+            JOptionPane.showMessageDialog(null, "senha não pode ficar em branco");
             
         }
         else if (velhasenha.equals(novasenha)){
