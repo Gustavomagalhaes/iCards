@@ -67,7 +67,13 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         // TODO add your handling code here:
         String velhasenha = SenhaAtual.getText();
         String novasenha = NovaSenha.getText();
-        if ((velhasenha.length()>0)&&(novasenha.length()>0)){
+        
+        //if ((velhasenha.length()>0)&&(novasenha.length()>0)){
+        if (velhasenha.isEmpty()||novasenha.isEmpty()){
+            JOptionPane.showMessageDialog(null, "senha n pode ficar em branco");
+            
+        }
+        else if (velhasenha.equals(novasenha)){
              JOptionPane.showMessageDialog(null, "Senha alterada com sucesso.");
              this.dispose();
             JanelaUsuario frame = new JanelaUsuario();
@@ -76,7 +82,7 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
             
              
         }else{
-            JOptionPane.showMessageDialog(null, "Existe campo em branco.");
+            JOptionPane.showMessageDialog(null, "As senhas não estão compatíveis.");
         }
         
     }//GEN-LAST:event_ConfirmarAlterarSenhaActionPerformed
