@@ -50,9 +50,7 @@ public class GerenciarDB {
     public void addEstabelecimento(int CNPJ, String nome, String telefone)throws Exception{
         conectaDB();
         String query;
-        double vendatotal = 0;
-        String senhaCNPJ = "Est1234";
-        query = "INSERT INTO estabelecimento (CNPJ, nome, telefone, vendatotal, senhaCNPJ) VALUES ('"+CNPJ+"','"+nome+"','"+telefone+"','"+vendatotal+"','"+senhaCNPJ+"')";
+        query = "INSERT INTO estabelecimento (CNPJ, nome, telefone, senhaCNPJ) VALUES ('"+CNPJ+"','"+nome+"','"+telefone+"',"+"'Est1234'"+")";
         executaDB(query);
         desconectaDB(); 
     }
@@ -60,7 +58,7 @@ public class GerenciarDB {
     public void addCartao(int IDcartao, int CPF)throws Exception{
         conectaDB();
         String query;
-        query = "INSERT INTO cartao (IDcartao, CPF, bloqueado) VALUES ('"+IDcartao+"','"+CPF+"',"+true+")";
+        query = "INSERT INTO cartao (IDcartao, CPF, bloqueado) VALUES ('"+IDcartao+"','"+CPF+"',"+"'SIM'"+")";
         executaDB(query);
         desconectaDB(); 
     }
