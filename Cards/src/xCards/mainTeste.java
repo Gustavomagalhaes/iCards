@@ -28,7 +28,7 @@ public class mainTeste {
         
         
         //OPERACAO DE ADD/DEL DE CARTAO. 
-        //banco.addCartao(11111111,12345678);
+        //banco.addCartao(10000001,12341234);
         //banco.delCartao(11111111); //ADMIN
         
         
