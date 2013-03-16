@@ -38,6 +38,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
         BotaoEntrarUsuario = new javax.swing.JButton();
         BotaoRecarregar = new javax.swing.JButton();
         TipoUsuario = new javax.swing.JComboBox();
+        ErroAcessoUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         IrHome = new javax.swing.JMenu();
         IrparaHome = new javax.swing.JMenuItem();
@@ -86,6 +87,9 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
         TipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Titular", "Dependente" }));
         getContentPane().add(TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 140, 20));
 
+        ErroAcessoUsuario.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(ErroAcessoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, -1));
+
         IrHome.setText("Home");
 
         IrparaHome.setText("Ir para Home");
@@ -106,7 +110,27 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
 
     private void BotaoEntrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarUsuarioActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Your message.");
+        String numCatao = NumCartaoUsuario.getText();
+        String senha = SenhaAcessoUsuario.getText();
+        
+        String tipousuario = TipoUsuario.getSelectedItem().toString(); 
+        if (tipousuario=="Titular"){
+            int tipo = 0;
+        }
+        else{
+            int tipo =1;
+        }
+  
+        
+        //if (Acesso==true){
+            //this.dispose();
+            //JanelaUsuario frame = new JanelaUsuario();
+            //frame.setLocationRelativeTo(null);
+            //frame.setVisible(true);
+        //}
+        //else{
+            //ErroAcessoUsuario.setText("Número do Cartão ou senha incorreta.")
+        //}
     }//GEN-LAST:event_BotaoEntrarUsuarioActionPerformed
 
     private void BotaoRecarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoRecarregarActionPerformed
@@ -161,6 +185,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoEntrarUsuario;
     private javax.swing.JButton BotaoRecarregar;
+    private javax.swing.JLabel ErroAcessoUsuario;
     private javax.swing.JMenu IrHome;
     private javax.swing.JMenuItem IrparaHome;
     private javax.swing.JTextField NumCartaoUsuario;
