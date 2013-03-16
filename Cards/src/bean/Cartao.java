@@ -5,34 +5,25 @@ package bean;
  * @author gustavopereira
  */
 public class Cartao {
-    private long numero;
-    private int numcontrole;
-    private float saldo;
+    private String numero;
+    private double saldo;
     
     public Cartao() {
     }
 
-    public long getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(long numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
-
-    public int getNumcontrole() {
-        return numcontrole;
-    }
-
-    public void setNumcontrole(int numcontrole) {
-        this.numcontrole = numcontrole;
-    }
-
-    public float getSaldo() {
+    
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(float saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 }
