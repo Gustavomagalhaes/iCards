@@ -15,7 +15,7 @@
     </Property>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,2,0,0,2,-40"/>
+    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,75,0,0,2,-40"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="0"/>
     <SyntheticProperty name="generateSize" type="boolean" value="true"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
@@ -39,52 +39,59 @@
     <Container class="javax.swing.JPanel" name="PainelCadastroUsuario">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+          <AbsoluteConstraints x="0" y="0" width="-1" height="610"/>
         </Constraint>
       </Constraints>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="PainelEndereco" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="PainelPessoal" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="PainelTipo" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
-                  <Component id="CadastrarUsuario" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="79" pref="79" max="-2" attributes="0"/>
-                  <Component id="LimparCadastroUsuario" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="87" pref="87" max="-2" attributes="0"/>
-                  <Component id="CancelarCadastroUsuario" min="-2" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="todosCampos" min="-2" pref="235" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
+                          <Component id="CadastrarUsuario" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="79" pref="79" max="-2" attributes="0"/>
+                          <Component id="LimparCadastroUsuario" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="87" pref="87" max="-2" attributes="0"/>
+                          <Component id="CancelarCadastroUsuario" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="PainelEndereco" min="-2" max="-2" attributes="0"/>
+                              <Component id="PainelPessoal" min="-2" max="-2" attributes="0"/>
+                              <Component id="PainelTipo" alignment="0" min="-2" pref="696" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="todosCampos" min="-2" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="PainelPessoal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="PainelEndereco" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="PainelTipo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="PainelTipo" min="-2" pref="183" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="CadastrarUsuario" min="-2" max="-2" attributes="0"/>
                       <Component id="LimparCadastroUsuario" min="-2" max="-2" attributes="0"/>
                       <Component id="CancelarCadastroUsuario" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace pref="73" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -112,13 +119,17 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="NomeUsuario" min="-2" pref="616" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="CPFUsuario" min="-2" pref="130" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
                                       <Component id="DataNasc" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="DataNascUsuario" min="-2" pref="77" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="NomeUsuario" min="-2" pref="366" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="erroNome" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -132,19 +143,24 @@
                               <Component id="NacionalidadeUsuario" min="-2" pref="165" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="42" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Nome" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="NomeUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="Nome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NomeUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="erroNome" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="CPF" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="CPFUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -177,6 +193,9 @@
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Nome"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NomeUsuarioActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="CPF">
               <Properties>
@@ -224,6 +243,8 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmailActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="erroNome">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="PainelEndereco">
@@ -245,7 +266,7 @@
                               <Component id="Endereco" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="EnderecoUsuario" min="-2" pref="500" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="107" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="Telefone" min="-2" max="-2" attributes="0"/>
@@ -308,6 +329,9 @@
                 <TitledBorder title="Informa&#xe7;&#xf5;es de Tipo"/>
               </Border>
             </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[740, 203]"/>
+            </Property>
           </Properties>
 
           <Layout>
@@ -333,9 +357,11 @@
                               <Component id="Senha" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="SenhaUsuario" min="-2" pref="125" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                              <Component id="ErroSenha" min="-2" pref="364" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="486" max="32767" attributes="0"/>
+                      <EmptySpace pref="85" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -358,8 +384,9 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Senha" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="SenhaUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ErroSenha" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -409,6 +436,8 @@
                 <Property name="toolTipText" type="java.lang.String" value="Senha"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="ErroSenha">
+            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="CancelarCadastroUsuario">
@@ -437,6 +466,8 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastrarUsuarioActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="todosCampos">
         </Component>
       </SubComponents>
     </Container>
