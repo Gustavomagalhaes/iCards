@@ -39,7 +39,7 @@ public class GerenciarDB {
         exe.close();
     }
     
-    public void addUsuario(int CPF,String nome,String email,String endereco,String telefone,String datanascimento,String nacionalidade,String tipousuario,String CPFtitular,String senhaADM) throws Exception{
+    public void addUsuario(String CPF,String nome,String email,String endereco,String telefone,String datanascimento,String nacionalidade,String tipousuario,String CPFtitular,String senhaADM) throws Exception{
         conectaDB();
         String query;
         query = "INSERT INTO usuario (CPF, nome, email,endereco, telefone, datanascimento, nacionalidade, tipousuario, CPFtitular, senhaADM) VALUES ('"+CPF+"','"+nome+"','"+email+"','"+endereco+"','"+telefone+"','"+datanascimento+"','"+nacionalidade+"','"+tipousuario+"','"+CPFtitular+"','"+senhaADM+"')";
@@ -47,7 +47,7 @@ public class GerenciarDB {
         desconectaDB();
     }
     
-    public void addEstabelecimento(int CNPJ, String nome, String telefone)throws Exception{
+    public void addEstabelecimento(String CNPJ, String nome, String telefone)throws Exception{
         conectaDB();
         String query;
         query = "INSERT INTO estabelecimento (CNPJ, nome, telefone, senhaCNPJ) VALUES ('"+CNPJ+"','"+nome+"','"+telefone+"',"+"'Est1234'"+")";
@@ -55,7 +55,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void addCartao(int IDcartao, int CPF)throws Exception{
+    public void addCartao(String IDcartao, String CPF)throws Exception{
         conectaDB();
         String query;
         query = "INSERT INTO cartao (IDcartao, CPF, bloqueado) VALUES ('"+IDcartao+"','"+CPF+"',"+"'SIM'"+")";
@@ -63,7 +63,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void addExtrato(String pessoa, double valor, String data, int CNPJ, int IDcartao)throws Exception{
+    public void addExtrato(String pessoa, double valor, String data, String CNPJ, String IDcartao)throws Exception{
         conectaDB();
         String query;
         query = "INSERT INTO extrato (pessoa, valor, data, CNPJ, IDcartao) VALUES ('"+pessoa+"','"+valor+"','"+data+"','"+CNPJ+"','"+IDcartao+"')";
@@ -71,7 +71,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void delUsuario(int CPF)throws Exception{
+    public void delUsuario(String CPF)throws Exception{
         conectaDB();
         String query;
         query = "DELETE FROM usuario WHERE CPF = '"+CPF+"'";
@@ -79,7 +79,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void delEstabelecimento(int CNPJ)throws Exception{
+    public void delEstabelecimento(String CNPJ)throws Exception{
         conectaDB();
         String query;
         query = "DELETE FROM estabelecimento WHERE CNPJ = '"+CNPJ+"'";
@@ -87,7 +87,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void delCartao(int IDcartao)throws Exception{
+    public void delCartao(String IDcartao)throws Exception{
         conectaDB();
         String query;
         query = "DELETE FROM cartao WHERE IDcartao = '"+IDcartao+"'";
@@ -95,7 +95,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void delExtrato(int IDextrato)throws Exception{
+    public void delExtrato(String IDextrato)throws Exception{
         conectaDB();
         String query;
         query = "DELETE FROM extrato WHERE IDextrato = '"+IDextrato+"'";
@@ -103,7 +103,7 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public boolean checkSenhaCartaoDB(int IDcartao, String senha, int tipo)throws Exception{
+    public boolean checkSenhaCartaoDB(String IDcartao, String senha, int tipo)throws Exception{
         conectaDB();
         String query;
         query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
@@ -132,7 +132,7 @@ public class GerenciarDB {
         return resp;
     }
     
-    public void updateSenhaCartaoDB(int IDcartao, String senha, int tipo)throws Exception{
+    public void updateSenhaCartaoDB(String IDcartao, String senha, int tipo)throws Exception{
         conectaDB();
         String query;
         if (tipo == 0){
@@ -148,7 +148,7 @@ public class GerenciarDB {
         desconectaDB();
     }
     
-    public double getSaldoCartaoDB(int IDcartao)throws Exception{
+    public double getSaldoCartaoDB(String IDcartao)throws Exception{
         conectaDB();
         String query;
         query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
@@ -164,7 +164,7 @@ public class GerenciarDB {
         return saldo; 
     }
     
-        public String getEstabelecimentoDB(int CNPJ)throws Exception{
+        public String getEstabelecimentoDB(String CNPJ)throws Exception{
         conectaDB();
         String query;
         query = "SELECT * FROM estabelecimento WHERE CNPJ = '"+CNPJ+"'";
@@ -178,7 +178,7 @@ public class GerenciarDB {
         return nome; 
     }
     
-    public void updateSaldoCartaoDB(int IDcartao, double saldoatual, String operation, double valor)throws Exception{
+    public void updateSaldoCartaoDB(String IDcartao, double saldoatual, String operation, double valor)throws Exception{
         conectaDB();
         String query;
         double novosaldo;
@@ -194,7 +194,7 @@ public class GerenciarDB {
         desconectaDB();
     }
     
-    public double getVendaTotalEstabelecimentoDB(int CNPJ)throws Exception{
+    public double getVendaTotalEstabelecimentoDB(String CNPJ)throws Exception{
         conectaDB();
         String query;
         query = "SELECT * FROM estabelecimento WHERE CNPJ = '"+CNPJ+"'";
@@ -210,7 +210,7 @@ public class GerenciarDB {
         return valor; 
     }
     
-    public void updateVendaTotalEstabelecimentoDB(int CNPJ, double saldoatual, double valor)throws Exception{
+    public void updateVendaTotalEstabelecimentoDB(String CNPJ, double saldoatual, double valor)throws Exception{
         conectaDB();
         String query;
         double novosaldo = saldoatual+valor;
@@ -219,7 +219,7 @@ public class GerenciarDB {
         desconectaDB();
     }
 
-    public void bloquearCartaoDB(int IDcartao, String operation)throws Exception{
+    public void bloquearCartaoDB(String IDcartao, String operation)throws Exception{
         conectaDB();
         String query;
         String block = "";
@@ -233,7 +233,7 @@ public class GerenciarDB {
         desconectaDB();
     }
     
-    public boolean checkStatusCartaoBloqueadoDB(int IDcartao)throws Exception{
+    public boolean checkStatusCartaoBloqueadoDB(String IDcartao)throws Exception{
         conectaDB();
         String query;
         query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
@@ -256,7 +256,7 @@ public class GerenciarDB {
         return resp; 
     }
     
-    public void updateSenhaEstabelecimentoDB(int CNPJ, String senha)throws Exception{
+    public void updateSenhaEstabelecimentoDB(String CNPJ, String senha)throws Exception{
         conectaDB();
         String query;
         query = "UPDATE estabelecimento SET senhaCNPJ = '"+senha+"' WHERE CNPJ = '"+CNPJ+"'";
@@ -264,7 +264,7 @@ public class GerenciarDB {
         desconectaDB();
     }
     
-    public boolean checkSenhaEstabelecimentoDB(int CNPJ, String senha)throws Exception{
+    public boolean checkSenhaEstabelecimentoDB(String CNPJ, String senha)throws Exception{
         conectaDB();
         String query;
         query = "SELECT * FROM estabelecimento WHERE CNPJ = '"+CNPJ+"'";
