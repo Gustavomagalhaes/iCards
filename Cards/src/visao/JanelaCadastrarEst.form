@@ -57,28 +57,37 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="Nome" min="-2" max="-2" attributes="0"/>
-                              <Component id="CNPJ" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="infoErro" min="-2" pref="247" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="Telefone" min="-2" max="-2" attributes="0"/>
-                              <Component id="Endereco" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="Nome" min="-2" max="-2" attributes="0"/>
+                                      <Component id="CNPJ" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="Telefone" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Endereco" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="todosCampos" alignment="0" min="-2" pref="417" max="-2" attributes="0"/>
+                              <Component id="CNPJLoja" min="-2" pref="127" max="-2" attributes="0"/>
+                              <Component id="EnderecoLoja" min="-2" pref="500" max="-2" attributes="0"/>
+                              <Component id="NomeLoja" min="-2" pref="500" max="-2" attributes="0"/>
+                              <Component id="TelLoja" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="CNPJLoja" min="-2" pref="127" max="-2" attributes="0"/>
-                      <Component id="EnderecoLoja" min="-2" pref="500" max="-2" attributes="0"/>
-                      <Component id="NomeLoja" min="-2" pref="500" max="-2" attributes="0"/>
-                      <Component id="TelLoja" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="103" max="32767" attributes="0"/>
               </Group>
@@ -87,7 +96,8 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <Component id="todosCampos" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Nome" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="NomeLoja" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -102,7 +112,9 @@
                       <Component id="Endereco" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="EnderecoLoja" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="infoErro" min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Telefone" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="TelLoja" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -158,6 +170,10 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{  &#xd;&#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;(##)####-####&quot;);  &#xd;&#xa;   TelLoja = new javax.swing.JFormattedTextField(data);  &#xd;&#xa;}  &#xd;&#xa;   catch (Exception e){  &#xd;&#xa;}   "/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="todosCampos">
+        </Component>
+        <Component class="javax.swing.JLabel" name="infoErro">
         </Component>
       </SubComponents>
     </Container>

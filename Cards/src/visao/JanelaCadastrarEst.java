@@ -39,6 +39,8 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         EnderecoLoja = new javax.swing.JTextField();
         Telefone = new javax.swing.JLabel();
         TelLoja = new javax.swing.JFormattedTextField();
+        todosCampos = new javax.swing.JLabel();
+        infoErro = new javax.swing.JLabel();
         BotaoCadastrarLoja = new javax.swing.JButton();
         BotaoApagarCamposLoja = new javax.swing.JButton();
         BotaoCancelarLoja = new javax.swing.JButton();
@@ -85,29 +87,36 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Nome)
-                            .addComponent(CNPJ))
-                        .addGap(18, 18, 18))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Telefone)
-                            .addComponent(Endereco))
-                        .addGap(15, 15, 15)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EnderecoLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(infoErro, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Nome)
+                                    .addComponent(CNPJ))
+                                .addGap(18, 18, 18))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Telefone)
+                                    .addComponent(Endereco))
+                                .addGap(15, 15, 15)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EnderecoLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(todosCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Nome)
                     .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -119,7 +128,9 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Endereco)
                     .addComponent(EnderecoLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
+                .addComponent(infoErro, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Telefone)
                     .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -152,8 +163,8 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         });
         getContentPane().add(BotaoCancelarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 80, -1));
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
+        setSize(new java.awt.Dimension(728, 514));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoApagarCamposLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoApagarCamposLojaActionPerformed
@@ -179,17 +190,20 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
          EnderecoLoja.getText();
          TelLoja.getText();
         
-            if ((NomeLoja.getText().length()>0)
-                &&(CNPJLoja.getText().length()>0)
-                    &&(EnderecoLoja.getText().length()>0)
-                        &&(TelLoja.getText().length()>0)){
-                JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso.");
+            if ((NomeLoja.getText().isEmpty())&&(EnderecoLoja.getText().isEmpty())&&(TelLoja.getText().isEmpty())){
+                
+                todosCampos.setText("Você deve preencher todos os campos.");
+                   
+            }
+            else if(NomeLoja.getText().isEmpty()){
+                infoErro.setText("Nome é um campo necessário.");
+            }
+            
+            else{
                 this.dispose();
                 JanelaInicialiCards frame = new JanelaInicialiCards();
                 frame.setLocationRelativeTo(null);
-                frame.setVisible(true);   
-            }else{
-                JOptionPane.showMessageDialog(null, "Existe algum campo em branco..");
+                frame.setVisible(true); 
             }
     }//GEN-LAST:event_BotaoCadastrarLojaActionPerformed
 
@@ -239,8 +253,10 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
     private javax.swing.JTextField NomeLoja;
     private javax.swing.JFormattedTextField TelLoja;
     private javax.swing.JLabel Telefone;
+    private javax.swing.JLabel infoErro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel todosCampos;
     // End of variables declaration//GEN-END:variables
 
 }
