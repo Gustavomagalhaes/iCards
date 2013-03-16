@@ -14,7 +14,7 @@ public class GerenciarCartao {
         this.cartao = cartao;
     }
     
-    public float visualizarSaldo(){
+    public double visualizarSaldo(){
         return this.cartao.getSaldo();
     }
     
