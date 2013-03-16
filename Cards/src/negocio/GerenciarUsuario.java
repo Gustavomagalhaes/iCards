@@ -9,7 +9,7 @@ import bean.Usuario;
 public class GerenciarUsuario {
     private Usuario usuario;
 
-    public GerenciarUsuario(Usuario usuario) {
+    public GerenciarUsuario (Usuario usuario) {
         this.usuario = usuario;
     }
     

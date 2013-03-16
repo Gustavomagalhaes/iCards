@@ -8,7 +8,7 @@ import bean.Debito;
 public class GerenciarDebito {
     private Debito debito;
 
-    public GerenciarDebito(Debito debito) {
+    public GerenciarDebito (Debito debito) {
         this.debito = debito;
     }
     

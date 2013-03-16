@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public class GerenciarCartao {
     private Cartao cartao;
 
-    public GerenciarCartao(Cartao cartao) {
+    public GerenciarCartao (Cartao cartao) {
         this.cartao = cartao;
     }
     
