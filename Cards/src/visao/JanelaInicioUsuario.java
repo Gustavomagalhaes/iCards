@@ -37,6 +37,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
         SenhaAcessoUsuario = new javax.swing.JPasswordField();
         BotaoEntrarUsuario = new javax.swing.JButton();
         BotaoRecarregar = new javax.swing.JButton();
+        TipoUsuario = new javax.swing.JComboBox();
         jMenuBar1 = new javax.swing.JMenuBar();
         IrHome = new javax.swing.JMenu();
         IrparaHome = new javax.swing.JMenuItem();
@@ -72,7 +73,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
                 BotaoEntrarUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoEntrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 80, 30));
+        getContentPane().add(BotaoEntrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 80, 30));
 
         BotaoRecarregar.setText("Recarregar");
         BotaoRecarregar.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +81,10 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
                 BotaoRecarregarActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoRecarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 130, 35));
+        getContentPane().add(BotaoRecarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 130, 35));
+
+        TipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Titular", "Dependente" }));
+        getContentPane().add(TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 100, 20));
 
         IrHome.setText("Home");
 
@@ -96,8 +100,8 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-736)/2, (screenSize.height-518)/2, 736, 518);
+        setSize(new java.awt.Dimension(736, 518));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoEntrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarUsuarioActionPerformed
@@ -163,6 +167,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel NumeroCartao;
     private javax.swing.JPasswordField SenhaAcessoUsuario;
     private javax.swing.JLabel SenhadeAcesso;
+    private javax.swing.JComboBox TipoUsuario;
     private javax.swing.JLabel iCards;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
