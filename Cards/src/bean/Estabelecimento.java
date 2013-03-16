@@ -8,7 +8,7 @@ public class Estabelecimento {
     private String nome;
     private String endereco;
     private String telefone;
-    private int CNPJ;
+    private String CNPJ;
     
     public Estabelecimento() {
     }
@@ -37,11 +37,11 @@ public class Estabelecimento {
         this.telefone = telefone;
     }
 
-    public int getCNPJ() {
+    public String getCNPJ() {
         return CNPJ;
     }
 
-    public void setCNPJ(int CNPJ) {
+    public void setCNPJ(String CNPJ) {
         this.CNPJ = CNPJ;
     }
     
