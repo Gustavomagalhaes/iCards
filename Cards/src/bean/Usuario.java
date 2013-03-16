@@ -7,7 +7,7 @@ package bean;
 public class Usuario {
     private String nome;
     private String cpf;
-    private int tipoUsuario;
+    private String tipoUsuario;
     private String email;
     private String senhaOnline;
     private String senhaCatao;
@@ -36,11 +36,11 @@ public class Usuario {
          return cpf;
     }
  
-    public void setTipoUsuario(int tipoUsuario){
+    public void setTipoUsuario(String tipoUsuario){
          this.tipoUsuario = tipoUsuario;
     }   
     
-    public int getTipoUsuario(){
+    public String getTipoUsuario(){
          return tipoUsuario;
     }
     public void setEmail(String email){

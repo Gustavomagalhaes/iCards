@@ -7,7 +7,7 @@ package bean;
 public class Debito {
     private Cartao cartao;
     private Estabelecimento local;
-    private float valor;
+    private double valor;
     private String data;
     
     public Debito() {
@@ -29,11 +29,11 @@ public class Debito {
         this.local = local;
     }
 
-    public float getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 

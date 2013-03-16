@@ -5,15 +5,14 @@ package bean;
  * @author gustavopereira
  */
 public class Recarga {
-    private float valor;
+    private double valor;
     private String pessoa;
     private String data;
-    private String mensagem;
 
     public Recarga() {    
     }
 
-    public float getValor() {
+    public double getValor() {
         return valor;
     }
 
@@ -36,13 +35,4 @@ public class Recarga {
     public void setData(String data) {
         this.data = data;
     }
-
-    public String getMensagem() {
-        return mensagem;
-    }
-
-    public void setMensagem(String mensagem) {
-        this.mensagem = mensagem;
-    }
-    
 }
