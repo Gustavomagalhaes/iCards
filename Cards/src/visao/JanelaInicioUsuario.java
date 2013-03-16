@@ -4,9 +4,14 @@
  */
 package visao;
 
+import bean.Cartao;
 import visao.JanelaInicialiCards;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import negocio.GerenciarCartao;
+import negocio.GerenciarDB;
 
 /**
  *
@@ -109,28 +114,35 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoEntrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarUsuarioActionPerformed
-        // TODO add your handling code here:
-        String numCatao = NumCartaoUsuario.getText();
-        String senha = SenhaAcessoUsuario.getText();
-        
-        String tipousuario = TipoUsuario.getSelectedItem().toString(); 
-        if (tipousuario=="Titular"){
-            int tipo = 0;
-        }
-        else{
-            int tipo =1;
-        }
-  
-        
-        //if (Acesso==true){
-            //this.dispose();
-            //JanelaUsuario frame = new JanelaUsuario();
-            //frame.setLocationRelativeTo(null);
-            //frame.setVisible(true);
-        //}
-        //else{
-            //ErroAcessoUsuario.setText("Número do Cartão ou senha incorreta.")
-        //}
+        try {
+            // TODO add your handling code here:
+            String numCartao = NumCartaoUsuario.getText();
+            String senha = SenhaAcessoUsuario.getText();
+            int tipo;
+            
+            String tipousuario = TipoUsuario.getSelectedItem().toString(); 
+            if (tipousuario=="Titular"){
+                tipo = 0;
+            }
+            else{
+                tipo =1;
+            }
+            
+            GerenciarDB banco = new GerenciarDB();
+            boolean acesso = banco.checkSenhaCartaoDB(numCartao, senha, tipo);
+            
+            //if (acesso==true){
+                //this.dispose();
+                //JanelaUsuario frame = new JanelaUsuario();
+                //frame.setLocationRelativeTo(null);
+                //frame.setVisible(true);
+            //}
+            //else{
+                //ErroAcessoUsuario.setText("Número do Cartão ou senha incorreta.")
+            //}
+        } catch (Exception ex) {
+            Logger.getLogger(JanelaInicioUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }             
     }//GEN-LAST:event_BotaoEntrarUsuarioActionPerformed
 
     private void BotaoRecarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoRecarregarActionPerformed
