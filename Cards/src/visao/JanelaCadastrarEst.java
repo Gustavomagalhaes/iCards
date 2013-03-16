@@ -39,8 +39,9 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         EnderecoLoja = new javax.swing.JTextField();
         Telefone = new javax.swing.JLabel();
         TelLoja = new javax.swing.JFormattedTextField();
-        todosCampos = new javax.swing.JLabel();
-        infoErro = new javax.swing.JLabel();
+        CNPJErro = new javax.swing.JLabel();
+        ErroCampoVazio = new javax.swing.JLabel();
+        NomeErro = new javax.swing.JLabel();
         BotaoCadastrarLoja = new javax.swing.JButton();
         BotaoApagarCamposLoja = new javax.swing.JButton();
         BotaoCancelarLoja = new javax.swing.JButton();
@@ -82,59 +83,74 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         catch (Exception e){  
         }
 
+        CNPJErro.setForeground(new java.awt.Color(255, 0, 0));
+
+        ErroCampoVazio.setForeground(new java.awt.Color(255, 0, 0));
+
+        NomeErro.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(infoErro, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(Nome)
-                                    .addComponent(CNPJ))
-                                .addGap(18, 18, 18))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(Telefone)
-                                    .addComponent(Endereco))
-                                .addGap(15, 15, 15)))
+                                .addGap(19, 19, 19)
+                                .addComponent(Endereco))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(Telefone)))
+                        .addGap(18, 18, 18)
+                        .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(ErroCampoVazio))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Nome)
+                            .addComponent(CNPJ))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(CNPJErro, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(EnderecoLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(103, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(NomeErro, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(todosCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Nome)
-                    .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Nome)
+                        .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NomeErro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CNPJErro, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Endereco)
                     .addComponent(EnderecoLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(infoErro, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Telefone)
-                    .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ErroCampoVazio, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Telefone)))
+                .addGap(72, 72, 72))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 690, 200));
@@ -190,21 +206,21 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
          EnderecoLoja.getText();
          TelLoja.getText();
         
-            if ((NomeLoja.getText().isEmpty())&&(CNPJLoja.getText().isEmpty())&&(EnderecoLoja.getText().isEmpty())&&(TelLoja.getText().isEmpty())){
+            if ((NomeLoja.getText().isEmpty())||(CNPJLoja.getText().isEmpty())||(EnderecoLoja.getText().isEmpty())||(TelLoja.getText().isEmpty())){
+                ErroCampoVazio.setText("Existem campos vazios.");
                 
-                todosCampos.setText("Você deve preencher todos os campos.");
-                   
+                if((NomeLoja.getText().isEmpty()) ||(CNPJ.getText().isEmpty())){
+                    NomeErro.setText("*");
+                    CNPJErro.setText("*");
+                    ErroCampoVazio.setText("Existem campos obrigatórios vazios.");
+                }
             }
-            else if(NomeLoja.getText().isEmpty()){
-                infoErro.setText("Nome é um campo necessário.");
-            }
-            
-            else{
+           else{
                 this.dispose();
                 JanelaInicialiCards frame = new JanelaInicialiCards();
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true); 
-            }
+          }
     }//GEN-LAST:event_BotaoCadastrarLojaActionPerformed
 
     /**
@@ -246,17 +262,18 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
     private javax.swing.JButton BotaoCadastrarLoja;
     private javax.swing.JButton BotaoCancelarLoja;
     private javax.swing.JLabel CNPJ;
+    private javax.swing.JLabel CNPJErro;
     private javax.swing.JFormattedTextField CNPJLoja;
     private javax.swing.JLabel Endereco;
     private javax.swing.JTextField EnderecoLoja;
+    private javax.swing.JLabel ErroCampoVazio;
     private javax.swing.JLabel Nome;
+    private javax.swing.JLabel NomeErro;
     private javax.swing.JTextField NomeLoja;
     private javax.swing.JFormattedTextField TelLoja;
     private javax.swing.JLabel Telefone;
-    private javax.swing.JLabel infoErro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel todosCampos;
     // End of variables declaration//GEN-END:variables
 
 }
