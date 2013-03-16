@@ -12,8 +12,9 @@ public class GerenciarDebito {
         this.debito = debito;
     }
     
-    public void debitar(float valor){
-        //Desenvolver
+    public void debitar() throws Exception {
+        GerenciarDB banco = new GerenciarDB();
+        banco.updateSaldoCartaoDB(debito.getCartao().getNumero(), debito.getCartao().getSaldo(), "MAIS", debito.getValor());
     }
     
     public void salvarExtrato(){

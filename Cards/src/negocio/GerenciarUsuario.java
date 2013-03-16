@@ -13,8 +13,14 @@ public class GerenciarUsuario {
         this.usuario = usuario;
     }
     
-    public void alterarSenhaOnline(String senha){
-        //Desenvolver
+    public void alterarSenhaOnlineTitular(Usuario usuario, String senha) throws Exception{        
+        GerenciarDB banco = new GerenciarDB();
+        banco.updateSenhaCartaoDB(usuario.getCartao().getNumero(), senha, 1);
+    }
+    
+    public void alterarSenhaOnlineDependente(Usuario usuario, String senha) throws Exception{        
+        GerenciarDB banco = new GerenciarDB();
+        banco.updateSenhaCartaoDB(usuario.getCartao().getNumero(), senha, 2);
     }
     
     public void alterarSenhaCartao(int senha){
@@ -35,7 +41,6 @@ public class GerenciarUsuario {
     
     public void alterarCartao(Cartao cartao){
         this.usuario.setCartao(cartao);
-        //Desenvolver
     }
     
     

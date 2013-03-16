@@ -1,5 +1,7 @@
 package negocio;
 import bean.Cartao;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,17 +21,21 @@ public class GerenciarCartao {
     public void imprimirExtrato(){
         //Desenvolver
     }
-    
-    public void desbloquearCartao(){
-        //Desenvolver
+     
+    public void desbloquearCartao() throws Exception{
+        GerenciarDB banco = new GerenciarDB();
+        banco.bloquearCartaoDB(cartao.getNumero(), "DESBLOQUEAR");
     }
     
-    public void verificarSaldo(){
-        //Desenvolver
+    public double verificarSaldo() throws Exception{
+        GerenciarDB banco = new GerenciarDB();
+        double saldoCartao = banco.getSaldoCartaoDB(cartao.getNumero());
+        return saldoCartao;
     }
     
-    public void bloquearCartao(){
-        //Desenvolver
+    public void bloquearCartao() throws Exception{
+        GerenciarDB banco = new GerenciarDB();
+        banco.bloquearCartaoDB(cartao.getNumero(), "BLOQUEAR");
     }
     
 }
