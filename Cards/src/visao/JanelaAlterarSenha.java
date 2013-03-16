@@ -38,6 +38,7 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         NovaSenha = new javax.swing.JPasswordField();
         todosCampos = new javax.swing.JLabel();
         conferirSenha = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alterar Senha");
@@ -48,11 +49,23 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         getContentPane().add(AlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
         SenhaAtualLabel.setText("Digite sua senha atual:");
-        getContentPane().add(SenhaAtualLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 132, -1, -1));
+        getContentPane().add(SenhaAtualLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+
+        SenhaAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SenhaAtualActionPerformed(evt);
+            }
+        });
         getContentPane().add(SenhaAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 130, 30));
 
-        RepitaSenhaLabel.setText("Repita a senha atual:");
-        getContentPane().add(RepitaSenhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 184, -1, -1));
+        RepitaSenhaLabel.setText("Digite sua nova senha:");
+        getContentPane().add(RepitaSenhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
+
+        RepitaSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RepitaSenhaActionPerformed(evt);
+            }
+        });
         getContentPane().add(RepitaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 130, 30));
 
         ConfirmarAlterarSenha.setText("Confirmar");
@@ -63,8 +76,14 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         });
         getContentPane().add(ConfirmarAlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(569, 413, 100, 30));
 
-        NovaSenhaLabel.setText("Digite sua nova senha:");
-        getContentPane().add(NovaSenhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
+        NovaSenhaLabel.setText("Repita sua nova senha:");
+        getContentPane().add(NovaSenhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
+
+        NovaSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NovaSenhaActionPerformed(evt);
+            }
+        });
         getContentPane().add(NovaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 130, 30));
 
         todosCampos.setForeground(new java.awt.Color(255, 0, 0));
@@ -72,27 +91,32 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
 
         conferirSenha.setForeground(new java.awt.Color(255, 0, 0));
         getContentPane().add(conferirSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 210, 30));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 300, 30));
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
+        setSize(new java.awt.Dimension(728, 514));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfirmarAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarAlterarSenhaActionPerformed
         // TODO add your handling code here:
         String senhaatual = SenhaAtual.getText();
-        String repitasenha = RepitaSenha.getText();
-        String novasenha = NovaSenha.getText();
-        boolean confereSenha = (senhaatual.equals(repitasenha));
+        String novasenha = RepitaSenha.getText();
+        String repitasenha = NovaSenha.getText();
+        boolean confereSenha = (novasenha.equals(repitasenha));
         
+
+ 
+
         
         
         //if ((senhaatual.length()>0)&&(novasenha.length()>0)){
         if (senhaatual.isEmpty()||repitasenha.isEmpty()||novasenha.isEmpty()){
             //JOptionPane.showMessageDialog(null, "senha não pode ficar em branco");
             todosCampos.setText("Você deve preencher todos os campos.");
+
             
         }else if (confereSenha==false){
-            conferirSenha.setText("As senhas não conferem.");
+            conferirSenha.setText("Senhas inválidas. Digite novamente.");
             
         }else{
              //JOptionPane.showMessageDialog(null, "Senha alterada com sucesso.");
@@ -101,10 +125,21 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
             frame.setVisible(true);
             this.dispose();
             
-             
-        }
-        
+             }
+            
     }//GEN-LAST:event_ConfirmarAlterarSenhaActionPerformed
+
+    private void SenhaAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenhaAtualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SenhaAtualActionPerformed
+
+    private void RepitaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RepitaSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RepitaSenhaActionPerformed
+
+    private void NovaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovaSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NovaSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +186,7 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
     private javax.swing.JPasswordField SenhaAtual;
     private javax.swing.JLabel SenhaAtualLabel;
     private javax.swing.JLabel conferirSenha;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel todosCampos;
     // End of variables declaration//GEN-END:variables
 
