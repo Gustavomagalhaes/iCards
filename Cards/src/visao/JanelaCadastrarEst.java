@@ -190,7 +190,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
          EnderecoLoja.getText();
          TelLoja.getText();
         
-            if ((NomeLoja.getText().isEmpty())&&(EnderecoLoja.getText().isEmpty())&&(TelLoja.getText().isEmpty())){
+            if ((NomeLoja.getText().isEmpty())&&(CNPJLoja.getText().isEmpty())&&(EnderecoLoja.getText().isEmpty())&&(TelLoja.getText().isEmpty())){
                 
                 todosCampos.setText("Você deve preencher todos os campos.");
                    

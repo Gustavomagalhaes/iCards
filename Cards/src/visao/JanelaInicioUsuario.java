@@ -84,7 +84,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
         getContentPane().add(BotaoRecarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 130, 35));
 
         TipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Titular", "Dependente" }));
-        getContentPane().add(TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 100, 20));
+        getContentPane().add(TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 140, 20));
 
         IrHome.setText("Home");
 
