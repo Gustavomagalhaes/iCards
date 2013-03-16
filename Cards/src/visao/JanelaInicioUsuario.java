@@ -4,9 +4,14 @@
  */
 package visao;
 
+import bean.Cartao;
 import visao.JanelaInicialiCards;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import negocio.GerenciarCartao;
+import negocio.GerenciarDB;
 
 /**
  *
@@ -30,17 +35,15 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TipoUsuario = new javax.swing.ButtonGroup();
         iCards = new javax.swing.JLabel();
         NumeroCartao = new javax.swing.JLabel();
         NumCartaoUsuario = new javax.swing.JTextField();
-        TipoCartao = new javax.swing.JLabel();
+        SenhadeAcesso = new javax.swing.JLabel();
         SenhaAcessoUsuario = new javax.swing.JPasswordField();
         BotaoEntrarUsuario = new javax.swing.JButton();
         BotaoRecarregar = new javax.swing.JButton();
-        TipoTitular = new javax.swing.JRadioButton();
-        TipoDependente = new javax.swing.JRadioButton();
-        SenhadeAcesso = new javax.swing.JLabel();
+        TipoUsuario = new javax.swing.JComboBox();
+        ErroAcessoUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         IrHome = new javax.swing.JMenu();
         IrparaHome = new javax.swing.JMenuItem();
@@ -66,8 +69,8 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
         }
         getContentPane().add(NumCartaoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 110, 30));
 
-        TipoCartao.setText("Tipo de cartão:");
-        getContentPane().add(TipoCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 120, 30));
+        SenhadeAcesso.setText("Senha de acesso:");
+        getContentPane().add(SenhadeAcesso, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 120, 30));
         getContentPane().add(SenhaAcessoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 110, 30));
 
         BotaoEntrarUsuario.setText("Entrar");
@@ -76,7 +79,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
                 BotaoEntrarUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoEntrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 80, 30));
+        getContentPane().add(BotaoEntrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 80, 30));
 
         BotaoRecarregar.setText("Recarregar");
         BotaoRecarregar.addActionListener(new java.awt.event.ActionListener() {
@@ -84,19 +87,13 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
                 BotaoRecarregarActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoRecarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 140, 35));
+        getContentPane().add(BotaoRecarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 130, 35));
 
-        TipoUsuario.add(TipoTitular);
-        TipoTitular.setSelected(true);
-        TipoTitular.setText("Titular");
-        getContentPane().add(TipoTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, -1));
+        TipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Titular", "Dependente" }));
+        getContentPane().add(TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 140, 20));
 
-        TipoUsuario.add(TipoDependente);
-        TipoDependente.setText("Dependente");
-        getContentPane().add(TipoDependente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, -1, -1));
-
-        SenhadeAcesso.setText("Senha de acesso:");
-        getContentPane().add(SenhadeAcesso, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 120, 30));
+        ErroAcessoUsuario.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(ErroAcessoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, -1));
 
         IrHome.setText("Home");
 
@@ -112,18 +109,40 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-736)/2, (screenSize.height-518)/2, 736, 518);
+        setSize(new java.awt.Dimension(736, 518));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoEntrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarUsuarioActionPerformed
-        // TODO add your handling code here:
-        String numCartao = NumCartaoUsuario.getText();
-        String senhaAcesso = SenhaAcessoUsuario.getText();
-        
-        numCartao = numCartao.replace("-", "");
-        System.out.println(numCartao);
-        //JOptionPane.showMessageDialog(null, "Your message.");
+        try {
+            // TODO add your handling code here:
+            String numCartao = NumCartaoUsuario.getText();
+            String senha = SenhaAcessoUsuario.getText();
+            int tipo;
+            
+            String tipousuario = TipoUsuario.getSelectedItem().toString(); 
+            if (tipousuario=="Titular"){
+                tipo = 0;
+            }
+            else{
+                tipo =1;
+            }
+            
+            GerenciarDB banco = new GerenciarDB();
+            boolean acesso = banco.checkSenhaCartaoDB(numCartao, senha, tipo);
+            
+            //if (acesso==true){
+                //this.dispose();
+                //JanelaUsuario frame = new JanelaUsuario();
+                //frame.setLocationRelativeTo(null);
+                //frame.setVisible(true);
+            //}
+            //else{
+                //ErroAcessoUsuario.setText("Número do Cartão ou senha incorreta.")
+            //}
+        } catch (Exception ex) {
+            Logger.getLogger(JanelaInicioUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }             
     }//GEN-LAST:event_BotaoEntrarUsuarioActionPerformed
 
     private void BotaoRecarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoRecarregarActionPerformed
@@ -135,10 +154,10 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
 
     private void IrparaHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IrparaHomeActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         JanelaInicialiCards frame = new JanelaInicialiCards();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_IrparaHomeActionPerformed
 
     /**
@@ -178,16 +197,14 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoEntrarUsuario;
     private javax.swing.JButton BotaoRecarregar;
+    private javax.swing.JLabel ErroAcessoUsuario;
     private javax.swing.JMenu IrHome;
     private javax.swing.JMenuItem IrparaHome;
     private javax.swing.JTextField NumCartaoUsuario;
     private javax.swing.JLabel NumeroCartao;
     private javax.swing.JPasswordField SenhaAcessoUsuario;
     private javax.swing.JLabel SenhadeAcesso;
-    private javax.swing.JLabel TipoCartao;
-    private javax.swing.JRadioButton TipoDependente;
-    private javax.swing.JRadioButton TipoTitular;
-    private javax.swing.ButtonGroup TipoUsuario;
+    private javax.swing.JComboBox TipoUsuario;
     private javax.swing.JLabel iCards;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
