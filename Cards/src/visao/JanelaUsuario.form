@@ -138,7 +138,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="BloquearCartao">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Bloquear cart&#xe3;o"/>
+        <Property name="text" type="java.lang.String" value="Desbloquear cart&#xe3;o"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BloquearCartaoActionPerformed"/>

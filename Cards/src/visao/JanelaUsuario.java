@@ -79,7 +79,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
         ImprimirExtrato.setText("Imprimir extrato");
         getContentPane().add(ImprimirExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 322, 140, 35));
 
-        BloquearCartao.setText("Bloquear cartão");
+        BloquearCartao.setText("Desbloquear cartão");
         BloquearCartao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BloquearCartaoActionPerformed(evt);
@@ -107,8 +107,10 @@ public class JanelaUsuario extends javax.swing.JFrame {
             
             if (banco.checkStatusCartaoBloqueadoDB(IDcartao)) {
                 gerenciarCartao.desbloquearCartao();
+                BloquearCartao.setText("Bloquear cartão");
             } else {
                 gerenciarCartao.bloquearCartao();
+                BloquearCartao.setText("Desbloquear cartão");
             }
             
         } catch (Exception ex) {
