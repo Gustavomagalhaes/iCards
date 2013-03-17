@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package visao;
 
 import bean.Cartao;
@@ -9,13 +5,15 @@ import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import negocio.GerenciarCartao;
+import negocio.GerenciarDB;
 
 /**
  *
  * @author Uguinho
  */
 public class JanelaUsuario extends javax.swing.JFrame {
-    public String idCartao;
+    public String IDcartao;
+    public int tipo;
     /**
      * Creates new form JanelaUsuario
      */
@@ -94,7 +92,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarSenhaActionPerformed
-        // TODO add your handling code here:
+
         this.dispose();
         JanelaAlterarSenha frame = new JanelaAlterarSenha();
         frame.setLocationRelativeTo(null);
@@ -103,9 +101,16 @@ public class JanelaUsuario extends javax.swing.JFrame {
 
     private void BloquearCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BloquearCartaoActionPerformed
         try {
-            Cartao cartao = new Cartao(idCartao);
+            Cartao cartao = new Cartao(IDcartao);
             GerenciarCartao gerenciarCartao = new GerenciarCartao(cartao);
-            gerenciarCartao.bloquearCartao();
+            GerenciarDB banco = new GerenciarDB();
+            
+            if (banco.checkStatusCartaoBloqueadoDB(IDcartao)) {
+                gerenciarCartao.desbloquearCartao();
+            } else {
+                gerenciarCartao.bloquearCartao();
+            }
+            
         } catch (Exception ex) {
             Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
