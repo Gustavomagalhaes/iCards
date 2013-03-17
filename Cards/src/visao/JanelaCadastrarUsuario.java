@@ -487,7 +487,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
 
     private void TitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitularActionPerformed
         // TODO add your handling code here:
-        Titular.isSelected()
+        Titular.isSelected();
     }//GEN-LAST:event_TitularActionPerformed
 
     /**

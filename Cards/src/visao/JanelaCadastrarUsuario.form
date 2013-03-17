@@ -84,7 +84,7 @@
                       <Component id="LimparCadastroUsuario" min="-2" max="-2" attributes="0"/>
                       <Component id="CancelarCadastroUsuario" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="67" max="32767" attributes="0"/>
+                  <EmptySpace pref="73" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -433,7 +433,7 @@
                           </Group>
                           <Component id="todosCampos" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="42" max="32767" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
