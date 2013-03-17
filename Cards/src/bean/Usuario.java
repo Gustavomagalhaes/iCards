@@ -9,8 +9,6 @@ public class Usuario {
     private String cpf;
     private String tipoUsuario;
     private String email;
-    private String senhaOnline;
-    private String senhaCatao;
     private String endereco;
     private String datanascimento;
     private String nacionalidade;
@@ -48,21 +46,6 @@ public class Usuario {
     }   
     public String getEmail(){
          return email;
-    }
- 
-    public void setSenha(String senhaOnline){
-         this.senhaOnline = senhaOnline;
-    }   
-    public String getSenha(){
-         return senhaOnline;
-    }
- 
-    public void setSenhaCartao(String senhaCartao){
-         this.senhaCatao = senhaCartao;
-    }   
-    
-    public String getSenhaCartao(){
-         return senhaCatao;
     }
  
     public void setEndereco(String endereco){
