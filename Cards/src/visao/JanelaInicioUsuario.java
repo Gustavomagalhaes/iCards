@@ -118,6 +118,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
             // TODO add your handling code here:
             String numCartao = NumCartaoUsuario.getText();
             String senha = SenhaAcessoUsuario.getText();
+            double saldo;
             int tipo;
             numCartao = numCartao.replaceAll("[-]","");
             
@@ -130,12 +131,16 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
             }
             
             GerenciarDB banco = new GerenciarDB();
+            Cartao cartao = new Cartao(numCartao);
+            GerenciarCartao gerCartao = new GerenciarCartao(cartao);
+            saldo=gerCartao.verificarSaldo();
             boolean acesso = banco.checkSenhaCartaoDB(numCartao, senha, tipo);
             
             if (acesso){
                 this.dispose();
                 JanelaUsuario frame = new JanelaUsuario();
                 frame.idCartao = numCartao;
+                frame.Saldo.setText(saldo+"");
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
             }

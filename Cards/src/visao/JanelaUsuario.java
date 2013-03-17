@@ -151,7 +151,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
     private javax.swing.JButton BloquearCartao;
     private javax.swing.JScrollPane Historico;
     private javax.swing.JButton ImprimirExtrato;
-    private javax.swing.JLabel Saldo;
+    protected javax.swing.JLabel Saldo;
     private javax.swing.JLabel SaldoLabel;
     private javax.swing.JLabel iCliente;
     private javax.swing.JTable jTable1;
