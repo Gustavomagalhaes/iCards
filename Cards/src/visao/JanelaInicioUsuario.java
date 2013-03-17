@@ -122,10 +122,10 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
             
             String tipousuario = TipoUsuario.getSelectedItem().toString(); 
             if (tipousuario=="Titular"){
-                tipo = 0;
+                tipo = 1;
             }
             else{
-                tipo =1;
+                tipo = 2;
             }
             
             GerenciarDB banco = new GerenciarDB();
@@ -134,6 +134,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
             if (acesso==true){
                 this.dispose();
                 JanelaUsuario frame = new JanelaUsuario();
+                frame.idCartao = numCartao;
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
             }

@@ -4,14 +4,18 @@
  */
 package visao;
 
+import bean.Cartao;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import negocio.GerenciarCartao;
 
 /**
  *
  * @author Uguinho
  */
 public class JanelaUsuario extends javax.swing.JFrame {
-
+    public String idCartao;
     /**
      * Creates new form JanelaUsuario
      */
@@ -78,6 +82,11 @@ public class JanelaUsuario extends javax.swing.JFrame {
         getContentPane().add(ImprimirExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 322, 140, 35));
 
         BloquearCartao.setText("Bloquear cartão");
+        BloquearCartao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BloquearCartaoActionPerformed(evt);
+            }
+        });
         getContentPane().add(BloquearCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 363, 140, 35));
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -91,6 +100,16 @@ public class JanelaUsuario extends javax.swing.JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }//GEN-LAST:event_AlterarSenhaActionPerformed
+
+    private void BloquearCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BloquearCartaoActionPerformed
+        try {
+            Cartao cartao = new Cartao(idCartao);
+            GerenciarCartao gerenciarCartao = new GerenciarCartao(cartao);
+            gerenciarCartao.bloquearCartao();
+        } catch (Exception ex) {
+            Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BloquearCartaoActionPerformed
 
     /**
      * @param args the command line arguments
