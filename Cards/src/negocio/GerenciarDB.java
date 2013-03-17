@@ -63,9 +63,14 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void addExtrato(String pessoa, double valor, String data, String CNPJ, String IDcartao)throws Exception{
+    public void addExtrato(String pessoa, String valor, String data, String CNPJ, String IDcartao)throws Exception{
         conectaDB();
         String query;
+        if (CNPJ==null){
+            valor = "(+)"+valor;
+        } else {
+            valor = "(-)"+valor;
+        }
         query = "INSERT INTO extrato (pessoa, valor, data, CNPJ, IDcartao) VALUES ('"+pessoa+"','"+valor+"','"+data+"','"+CNPJ+"','"+IDcartao+"')";
         executaDB(query);
         desconectaDB(); 
