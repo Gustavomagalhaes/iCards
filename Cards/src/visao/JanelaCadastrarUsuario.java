@@ -137,7 +137,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                                 .addComponent(CPFErro))
                             .addGroup(PainelPessoalLayout.createSequentialGroup()
                                 .addComponent(NomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(49, 49, 49)
                                 .addComponent(erroNome, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(PainelPessoalLayout.createSequentialGroup()
                         .addComponent(EmailLabel)
@@ -279,26 +279,28 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PainelTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelTipoLayout.createSequentialGroup()
-                        .addComponent(TipodeUsuario)
-                        .addGap(18, 18, 18)
                         .addGroup(PainelTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Titular)
-                            .addComponent(Dependente))
-                        .addGap(18, 18, 18)
-                        .addComponent(ErroTipoUsuario))
-                    .addGroup(PainelTipoLayout.createSequentialGroup()
-                        .addComponent(CPFdoDependente)
-                        .addGap(18, 18, 18)
-                        .addComponent(CPFDependente, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PainelTipoLayout.createSequentialGroup()
+                                .addComponent(TipodeUsuario)
+                                .addGap(18, 18, 18)
+                                .addGroup(PainelTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Titular)
+                                    .addComponent(Dependente))
+                                .addGap(18, 18, 18)
+                                .addComponent(ErroTipoUsuario))
+                            .addGroup(PainelTipoLayout.createSequentialGroup()
+                                .addComponent(CPFdoDependente)
+                                .addGap(18, 18, 18)
+                                .addComponent(CPFDependente, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(464, Short.MAX_VALUE))
                     .addGroup(PainelTipoLayout.createSequentialGroup()
                         .addComponent(Senha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(SenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(ErroSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(362, 362, 362)
-                        .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(157, 157, 157)
+                        .addComponent(todosCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         PainelTipoLayout.setVerticalGroup(
             PainelTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,18 +320,14 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                 .addGroup(PainelTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CPFdoDependente)
                     .addComponent(CPFDependente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PainelTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelTipoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(PainelTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Senha)
-                            .addComponent(SenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ErroSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(48, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelTipoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))))
+                    .addComponent(ErroSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PainelTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Senha)
+                        .addComponent(SenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         CancelarCadastroUsuario.setText("Cancelar");
@@ -391,10 +389,10 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                     .addComponent(CadastrarUsuario)
                     .addComponent(LimparCadastroUsuario)
                     .addComponent(CancelarCadastroUsuario))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
-        getContentPane().add(PainelCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 610));
+        getContentPane().add(PainelCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 610));
 
         iCadastro.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         iCadastro.setText("iCadastro");
@@ -430,7 +428,9 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
     private void CadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarUsuarioActionPerformed
         // TODO add your handling code here:
         String nomeUsuario = NomeUsuario.getText();
-        String cpfUsuario = CPFUsuario.getText();
+        String cpfUsuario = CPFUsuario.getText().replaceAll(".","");
+        String cpfUsuario1 = cpfUsuario.replaceAll("-","");
+        
         String dataNasc = DataNascUsuario.getText();
         String senhaUsuario = SenhaUsuario.getText();
         String nacionalidadeUsuario = NacionalidadeUsuario.getText();
@@ -440,21 +440,21 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         String cpfDependente = CPFDependente.getText();
         
         
-        if((NomeUsuario.getText().isEmpty())&&(CPFUsuario.getText().isEmpty())&&(Email.getText().isEmpty())
-                &&(SenhaUsuario.getText().isEmpty())){
+        if((nomeUsuario.isEmpty())&&(cpfUsuario1.isEmpty())&&(email.isEmpty())
+                &&(senhaUsuario.isEmpty())){
             todosCampos.setText( "* Campos obrigatórios não podem ficar vazios");
             
-            if (NomeUsuario.getText().isEmpty()){
-                erroNome.setText("*");
+            if (nomeUsuario.isEmpty()){
+                erroNome.setText("Nome é necessário");
             }
-            if (CPFUsuario.getText().isEmpty()){
-                CPFErro.setText("*");
+            if (cpfUsuario1.isEmpty()){
+                CPFErro.setText("CPF é necessário");
             }
-            if (Email.getText().isEmpty()){
-                ErroEmail.setText("*");
+            if (email.isEmpty()){
+                ErroEmail.setText("email é necessário");
             }
-            if (SenhaUsuario.getText().isEmpty()){
-                ErroSenha.setText("*");
+            if (senhaUsuario.isEmpty()){
+                ErroSenha.setText("senha é necessário");
             }
         }
         //else if(NomeUsuario.getText().isEmpty()){
@@ -464,7 +464,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
            //ErroSenha.setText("A senha é um campo necessário"); 
         //}
         else{
-            todosCampos.setText("PARABEMS");
+            todosCampos.setText("PARABENS");
             //this.dispose();
            // JanelaInicialiCards frame = new JanelaInicialiCards();
           //  frame.setLocationRelativeTo(null);
