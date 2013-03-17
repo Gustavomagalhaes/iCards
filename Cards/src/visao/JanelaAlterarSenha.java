@@ -4,14 +4,18 @@
  */
 package visao;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import negocio.GerenciarCartao;
 
 /**
  *
  * @author Leandro
  */
 public class JanelaAlterarSenha extends javax.swing.JFrame {
-
+    public String IDcartao;
+    public int tipo;
     /**
      * Creates new form JanelaAlterarSenha
      */
@@ -103,27 +107,37 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         String novasenha = RepitaSenha.getText();
         String repitasenha = NovaSenha.getText();
         boolean confereSenha = (novasenha.equals(repitasenha));
-        
 
- 
-
-        
-        
         //if ((senhaatual.length()>0)&&(novasenha.length()>0)){
         if (senhaatual.isEmpty()||repitasenha.isEmpty()||novasenha.isEmpty()){
             //JOptionPane.showMessageDialog(null, "senha não pode ficar em branco");
             todosCampos.setText("Você deve preencher todos os campos.");
 
             
-        }else if (confereSenha==false){
+        } else if (confereSenha==false){
             conferirSenha.setText("Senhas inválidas. Digite novamente.");
             
-        }else{
-             //JOptionPane.showMessageDialog(null, "Senha alterada com sucesso.");
-            JanelaUsuario frame = new JanelaUsuario();
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-            this.dispose();
+        } else {
+            try {
+                GerenciarCartao cartao = new GerenciarCartao();
+                System.out.println("Teste");    
+                System.out.println(IDcartao);
+                System.out.println(senhaatual);
+                System.out.println(novasenha);
+                System.out.println(tipo);
+                if (cartao.alterarSenha(IDcartao, senhaatual, novasenha, tipo)) {
+                    JanelaUsuario frame = new JanelaUsuario();
+                    frame.setLocationRelativeTo(null);
+                    frame.setVisible(true);
+                    this.dispose();  
+                } else {
+                    conferirSenha.setText("Senha atual errada. Digite novamente."); 
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(JanelaAlterarSenha.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
             
              }
             

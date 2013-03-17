@@ -14,8 +14,24 @@ public class GerenciarCartao {
         this.cartao = cartao;
     }
     
+        public GerenciarCartao () {
+    }
+    
     public double visualizarSaldo(){
         return this.cartao.getSaldo();
+    }
+    
+    public boolean alterarSenha(String IDcartao, String senhaatual, String novasenha, int tipo) throws Exception{
+        GerenciarDB banco = new GerenciarDB();
+        boolean resp;
+        if (banco.checkSenhaCartaoDB(IDcartao, senhaatual, tipo)) {
+            banco.updateSenhaCartaoDB(IDcartao, novasenha, tipo);
+            resp = true;
+        } else {
+            resp = false;
+        }
+        System.out.println(resp);
+        return resp;
     }
     
     public void imprimirExtrato(){

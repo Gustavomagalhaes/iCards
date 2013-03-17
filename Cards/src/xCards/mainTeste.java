@@ -49,7 +49,7 @@ public class mainTeste {
         
         
         //VERIFICAR SENHAS DO CARTAO
-        //System.out.println(banco.checkSenhaCartaoDB("11111111", "123456", 1)); 
+        //System.out.println(banco.checkSenhaCartaoDB("11111111", "666666", 2)); 
         //banco.updateSenhaCartaoDB("11111111","1111",0); //muda
         //System.out.println(banco.checkSenhaCartaoDB("11111111", "1234", 0)); 
         //System.out.println(banco.checkSenhaCartaoDB("11111111", "123456", 1));

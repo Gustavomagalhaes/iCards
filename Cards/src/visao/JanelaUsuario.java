@@ -118,6 +118,8 @@ public class JanelaUsuario extends javax.swing.JFrame {
 
         this.dispose();
         JanelaAlterarSenha frame = new JanelaAlterarSenha();
+        frame.IDcartao = IDcartao;
+        frame.tipo = tipo;
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }//GEN-LAST:event_AlterarSenhaActionPerformed
