@@ -119,6 +119,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
             String numCartao = NumCartaoUsuario.getText();
             String senha = SenhaAcessoUsuario.getText();
             int tipo;
+            numCartao = numCartao.replaceAll("[-]","");
             
             String tipousuario = TipoUsuario.getSelectedItem().toString(); 
             if (tipousuario=="Titular"){
@@ -131,7 +132,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
             GerenciarDB banco = new GerenciarDB();
             boolean acesso = banco.checkSenhaCartaoDB(numCartao, senha, tipo);
             
-            if (acesso==true){
+            if (acesso){
                 this.dispose();
                 JanelaUsuario frame = new JanelaUsuario();
                 frame.idCartao = numCartao;
