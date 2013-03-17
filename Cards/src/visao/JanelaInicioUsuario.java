@@ -131,15 +131,15 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
             GerenciarDB banco = new GerenciarDB();
             boolean acesso = banco.checkSenhaCartaoDB(numCartao, senha, tipo);
             
-            //if (acesso==true){
-                //this.dispose();
-                //JanelaUsuario frame = new JanelaUsuario();
-                //frame.setLocationRelativeTo(null);
-                //frame.setVisible(true);
-            //}
-            //else{
-                //ErroAcessoUsuario.setText("Número do Cartão ou senha incorreta.")
-            //}
+            if (acesso==true){
+                this.dispose();
+                JanelaUsuario frame = new JanelaUsuario();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+            }
+            else{
+                ErroAcessoUsuario.setText("Número do Cartão ou senha incorreta.");
+            }
         } catch (Exception ex) {
             Logger.getLogger(JanelaInicioUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }             
