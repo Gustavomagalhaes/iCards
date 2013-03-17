@@ -8,7 +8,8 @@ public class Cartao {
     private String numero;
     private double saldo;
     
-    public Cartao() {
+    public Cartao(String numero) {
+        this.numero = numero;
     }
 
     public String getNumero() {
