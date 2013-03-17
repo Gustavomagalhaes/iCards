@@ -28,6 +28,8 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Tipo = new javax.swing.ButtonGroup();
+        jScrollPane1 = new javax.swing.JScrollPane();
         PainelCadastroUsuario = new javax.swing.JPanel();
         PainelPessoal = new javax.swing.JPanel();
         CPF = new javax.swing.JLabel();
@@ -66,7 +68,6 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
         CPFDependente = new javax.swing.JFormattedTextField();
         Senha = new javax.swing.JLabel();
         SenhaUsuario = new javax.swing.JPasswordField();
-        Editar = new javax.swing.JLabel();
         ConfirmarEdicaoUsuario = new javax.swing.JButton();
         LimparEdicaoUsuario = new javax.swing.JButton();
         CancelarEdicaoUsuario = new javax.swing.JButton();
@@ -112,7 +113,7 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
         PainelPessoalLayout.setHorizontalGroup(
             PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelPessoalLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelPessoalLayout.createSequentialGroup()
                         .addComponent(Sexo)
@@ -135,8 +136,7 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
                         .addGap(58, 58, 58)
                         .addComponent(Nacionalidade)
                         .addGap(18, 18, 18)
-                        .addComponent(NacionalidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(NacionalidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         PainelPessoalLayout.setVerticalGroup(
             PainelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +160,7 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
                     .addComponent(Sexo)
                     .addComponent(UsuarioFeminino)
                     .addComponent(UsuarioMasculino))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PainelEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações de Endereço"));
@@ -199,28 +199,29 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PainelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelEnderecoLayout.createSequentialGroup()
-                        .addComponent(Bairro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BairroUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(Cidade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(UF)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(UFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))
-                    .addGroup(PainelEnderecoLayout.createSequentialGroup()
-                        .addComponent(Endereco)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(EnderecoUsuario)
-                        .addContainerGap())
-                    .addGroup(PainelEnderecoLayout.createSequentialGroup()
                         .addComponent(Telefone)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(PainelEnderecoLayout.createSequentialGroup()
+                        .addGroup(PainelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Endereco)
+                            .addComponent(Bairro))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PainelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PainelEnderecoLayout.createSequentialGroup()
+                                .addComponent(BairroUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(Cidade)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(CidadeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(UF)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(UFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(EnderecoUsuario))
+                        .addContainerGap())))
         );
         PainelEnderecoLayout.setVerticalGroup(
             PainelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,10 +246,23 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
         );
 
         PainelTipo.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações de Tipo"));
+        PainelTipo.setPreferredSize(new java.awt.Dimension(680, 150));
 
+        Tipo.add(Dependente);
         Dependente.setText("Dependente");
+        Dependente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DependenteActionPerformed(evt);
+            }
+        });
 
+        Tipo.add(Titular);
         Titular.setText("Titular");
+        Titular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TitularActionPerformed(evt);
+            }
+        });
 
         TipodeUsuario.setText("Tipo de Usuário:");
 
@@ -262,6 +276,11 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
         }  
         catch (Exception e){  
         }
+        CPFDependente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CPFDependenteActionPerformed(evt);
+            }
+        });
 
         Senha.setText("Senha:");
 
@@ -307,7 +326,7 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
                 .addGroup(PainelTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Senha)
                     .addComponent(SenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PainelCadastroUsuarioLayout = new javax.swing.GroupLayout(PainelCadastroUsuario);
@@ -317,30 +336,26 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
             .addGroup(PainelCadastroUsuarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PainelCadastroUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PainelEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(PainelCadastroUsuarioLayout.createSequentialGroup()
-                        .addComponent(PainelPessoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(PainelTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PainelPessoal, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PainelEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
+                    .addComponent(PainelTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE))
                 .addContainerGap())
         );
         PainelCadastroUsuarioLayout.setVerticalGroup(
             PainelCadastroUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelCadastroUsuarioLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addComponent(PainelPessoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PainelEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(PainelTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addComponent(PainelTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        getContentPane().add(PainelCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jScrollPane1.setViewportView(PainelCadastroUsuario);
 
-        Editar.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        Editar.setText("Editar");
-        getContentPane().add(Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 420));
 
         ConfirmarEdicaoUsuario.setText("Confirmar");
         ConfirmarEdicaoUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -348,7 +363,7 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
                 ConfirmarEdicaoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(ConfirmarEdicaoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+        getContentPane().add(ConfirmarEdicaoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 100, 30));
 
         LimparEdicaoUsuario.setText("Limpar");
         LimparEdicaoUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -356,7 +371,7 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
                 LimparEdicaoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(LimparEdicaoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, -1));
+        getContentPane().add(LimparEdicaoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 100, 30));
 
         CancelarEdicaoUsuario.setText("Cancelar");
         CancelarEdicaoUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -364,9 +379,10 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
                 CancelarEdicaoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(CancelarEdicaoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, -1, -1));
+        getContentPane().add(CancelarEdicaoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, 100, 30));
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
 
     private void LimparEdicaoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparEdicaoUsuarioActionPerformed
@@ -399,6 +415,22 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }//GEN-LAST:event_CancelarEdicaoUsuarioActionPerformed
+
+    private void CPFDependenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPFDependenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CPFDependenteActionPerformed
+
+    private void TitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitularActionPerformed
+        // TODO add your handling code here:
+        CPFDependente.setEnabled(false);
+        CPFdoDependente.setForeground(new java.awt.Color(155, 155, 155));
+    }//GEN-LAST:event_TitularActionPerformed
+
+    private void DependenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DependenteActionPerformed
+        // TODO add your handling code here:
+        CPFDependente.setEnabled(true);
+        CPFdoDependente.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_DependenteActionPerformed
  
     
     /**
@@ -450,7 +482,6 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel DataNasc;
     private javax.swing.JFormattedTextField DataNascUsuario;
     private javax.swing.JRadioButton Dependente;
-    private javax.swing.JLabel Editar;
     private javax.swing.JLabel Endereco;
     private javax.swing.JTextField EnderecoUsuario;
     private javax.swing.JButton LimparEdicaoUsuario;
@@ -467,12 +498,14 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel Sexo;
     private javax.swing.JFormattedTextField TelUsuario;
     private javax.swing.JLabel Telefone;
+    private javax.swing.ButtonGroup Tipo;
     private javax.swing.JLabel TipodeUsuario;
     private javax.swing.JRadioButton Titular;
     private javax.swing.JLabel UF;
     private javax.swing.JTextField UFUsuario;
     private javax.swing.JRadioButton UsuarioFeminino;
     private javax.swing.JRadioButton UsuarioMasculino;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
 }
