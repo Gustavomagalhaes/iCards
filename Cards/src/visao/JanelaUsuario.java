@@ -51,22 +51,45 @@ public class JanelaUsuario extends javax.swing.JFrame {
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null}
             },
             new String [] {
                 "Data", "Estabelecimento", "Valor"
             }
-        ));
-        Historico.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
 
-        getContentPane().add(Historico, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 66, 375, 180));
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable1.setPreferredSize(new java.awt.Dimension(230, 0));
+        Historico.setViewportView(jTable1);
+        jTable1.getColumnModel().getColumn(0).setResizable(false);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(120);
+        jTable1.getColumnModel().getColumn(1).setResizable(false);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(400);
+        jTable1.getColumnModel().getColumn(2).setResizable(false);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
+
+        getContentPane().add(Historico, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 540, 180));
 
         SaldoLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         SaldoLabel.setText("Saldo atual:");
-        getContentPane().add(SaldoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 90, -1));
+        getContentPane().add(SaldoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 90, -1));
 
+        Saldo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Saldo.setText("$ 00,00");
-        getContentPane().add(Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 260, 50, -1));
+        getContentPane().add(Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 160, 30));
 
         AlterarSenha.setText("Alterar senha");
         AlterarSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +113,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void AlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarSenhaActionPerformed
 
         this.dispose();
@@ -105,7 +128,8 @@ public class JanelaUsuario extends javax.swing.JFrame {
             GerenciarCartao gerenciarCartao = new GerenciarCartao(cartao);
             GerenciarDB banco = new GerenciarDB();
             
-            if (banco.checkStatusCartaoBloqueadoDB(IDcartao)) {
+            if (tipo==1) {
+                if (banco.checkStatusCartaoBloqueadoDB(IDcartao)) {
                 gerenciarCartao.desbloquearCartao();
                 BloquearCartao.setText("Bloquear cartão");
             } else {
@@ -113,6 +137,9 @@ public class JanelaUsuario extends javax.swing.JFrame {
                 BloquearCartao.setText("Desbloquear cartão");
             }
             
+            }else{
+                BloquearCartao.setEnabled(false);
+            }
         } catch (Exception ex) {
             Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }

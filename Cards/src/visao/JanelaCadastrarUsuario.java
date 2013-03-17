@@ -248,6 +248,11 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
 
         GrupoTipoUsuario.add(Titular);
         Titular.setText("Titular");
+        Titular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TitularActionPerformed(evt);
+            }
+        });
 
         TipodeUsuario.setText("Tipo de Usuário:");
 
@@ -300,7 +305,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(ErroSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(157, 157, 157)
-                        .addComponent(todosCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(todosCampos, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))))
         );
         PainelTipoLayout.setVerticalGroup(
             PainelTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,7 +332,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                         .addComponent(Senha)
                         .addComponent(SenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         CancelarCadastroUsuario.setText("Cancelar");
@@ -389,7 +394,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                     .addComponent(CadastrarUsuario)
                     .addComponent(LimparCadastroUsuario)
                     .addComponent(CancelarCadastroUsuario))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         getContentPane().add(PainelCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 610));
@@ -398,8 +403,8 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         iCadastro.setText("iCadastro");
         getContentPane().add(iCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
-        setSize(new java.awt.Dimension(728, 587));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-728)/2, (screenSize.height-587)/2, 728, 587);
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelarCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarCadastroUsuarioActionPerformed
@@ -443,19 +448,18 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         if((nomeUsuario.isEmpty())&&(cpfUsuario1.isEmpty())&&(email.isEmpty())
                 &&(senhaUsuario.isEmpty())){
             todosCampos.setText( "* Campos obrigatórios não podem ficar vazios");
-            
-            if (nomeUsuario.isEmpty()){
+        }
+        if (nomeUsuario.isEmpty()){
                 erroNome.setText("Nome é necessário");
-            }
-            if (cpfUsuario1.isEmpty()){
+        }
+        if (cpfUsuario1.isEmpty()){
                 CPFErro.setText("CPF é necessário");
-            }
-            if (email.isEmpty()){
+        }
+        if (email.isEmpty()){
                 ErroEmail.setText("email é necessário");
-            }
-            if (senhaUsuario.isEmpty()){
+        }
+        if (senhaUsuario.isEmpty()){
                 ErroSenha.setText("senha é necessário");
-            }
         }
         //else if(NomeUsuario.getText().isEmpty()){
             //erroNome.setText("O nome é um campo necessário"); 
@@ -480,6 +484,11 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
     private void NomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeUsuarioActionPerformed
+
+    private void TitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitularActionPerformed
+        // TODO add your handling code here:
+        Titular.isSelected()
+    }//GEN-LAST:event_TitularActionPerformed
 
     /**
      * @param args the command line arguments

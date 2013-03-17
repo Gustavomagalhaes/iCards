@@ -123,7 +123,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
             numCartao = numCartao.replaceAll("[-]","");
             
             String tipousuario = TipoUsuario.getSelectedItem().toString(); 
-            if (tipousuario=="Titular"){
+            if ("Titular".equals(tipousuario)){
                 tipo = 1;
             }
             else{

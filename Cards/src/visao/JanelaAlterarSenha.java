@@ -40,7 +40,7 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         conferirSenha = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Alterar Senha");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -93,8 +93,8 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         getContentPane().add(conferirSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 210, 30));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 300, 30));
 
-        setSize(new java.awt.Dimension(728, 514));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfirmarAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarAlterarSenhaActionPerformed

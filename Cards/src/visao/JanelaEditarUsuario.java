@@ -71,7 +71,7 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
         LimparEdicaoUsuario = new javax.swing.JButton();
         CancelarEdicaoUsuario = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PainelPessoal.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações Pessoais"));

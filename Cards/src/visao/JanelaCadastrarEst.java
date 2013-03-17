@@ -46,7 +46,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         BotaoApagarCamposLoja = new javax.swing.JButton();
         BotaoCancelarLoja = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -179,8 +179,8 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         });
         getContentPane().add(BotaoCancelarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 80, -1));
 
-        setSize(new java.awt.Dimension(728, 514));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoApagarCamposLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoApagarCamposLojaActionPerformed
