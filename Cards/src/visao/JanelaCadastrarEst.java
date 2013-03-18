@@ -41,6 +41,9 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         CNPJLoja = new javax.swing.JFormattedTextField();
         Telefone = new javax.swing.JLabel();
         TelLoja = new javax.swing.JFormattedTextField();
+        ErroNome = new javax.swing.JLabel();
+        CNPJErro = new javax.swing.JLabel();
+        TelErro = new javax.swing.JLabel();
         ErroCampoVazio = new javax.swing.JLabel();
         BotaoCadastrarLoja = new javax.swing.JButton();
         BotaoApagarCamposLoja = new javax.swing.JButton();
@@ -85,6 +88,15 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         catch (Exception e){  
         }
         jPanel1.add(TelLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 108, -1));
+
+        ErroNome.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ErroNome.setForeground(new java.awt.Color(255, 0, 0));
+
+        CNPJErro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        CNPJErro.setForeground(new java.awt.Color(255, 0, 0));
+
+        TelErro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        TelErro.setForeground(new java.awt.Color(255, 0, 0));
 
         ErroCampoVazio.setForeground(new java.awt.Color(255, 0, 0));
         jPanel1.add(ErroCampoVazio, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 66, -1, 11));
@@ -149,34 +161,32 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
          telLoja = (telLoja.replaceAll("[(]",""));
          telLoja = telLoja.replaceAll("[)]","");
          telLoja = telLoja.replaceAll("[-]","");
-         
-     
+        
     
          if (((nomeLoja.isEmpty())||(cnpj.isEmpty())||("              ".equals(cnpj))||(telLoja.isEmpty())||("          ".equals(telLoja)))==true){
               ErroCampoVazio.setText("Existem campos vazios.");
               
               if (nomeLoja.isEmpty()==true){
-                   ErroCampoVazio.setText("Existem campos vazios.");
+                   //ErroNome.setText("*");
+                  ErroCampoVazio.setText("Existem campos vazios.");
+             
+              }else if (cnpj.isEmpty()==true){
+                   //CNPJErro.setText("*");
+                  ErroCampoVazio.setText("Existem campos vazios.");
+              }if(telLoja.isEmpty()==true){
+                  // TelErro.setText("*");
+                  ErroCampoVazio.setText("Existem campos vazios.");
               }
-              else if (cnpj.isEmpty()){
-                   ErroCampoVazio.setText("Existem campos vazios.");
-              }
-              if (telLoja.isEmpty()){
-                   ErroCampoVazio.setText("Existem campos vazios.");
-              }
-              
-    
-         
-  
          }
          else{
              try {
                  GerenciarDB estabelecimento = new GerenciarDB();
-                 estabelecimento.addEstabelecimento(telLoja, nomeLoja, telLoja);
+                 estabelecimento.addEstabelecimento(cnpj, nomeLoja, telLoja);
                  this.dispose();
                  JanelaInicialiCards frame = new JanelaInicialiCards();
                  frame.setLocationRelativeTo(null);
                  frame.setVisible(true);
+                 
 
             } catch (Exception ex) {
                 Logger.getLogger(JanelaCadastrarEst.class.getName()).log(Level.SEVERE, null, ex);
@@ -224,10 +234,13 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
     private javax.swing.JButton BotaoCadastrarLoja;
     private javax.swing.JButton BotaoCancelarLoja;
     private javax.swing.JLabel CNPJ;
+    private javax.swing.JLabel CNPJErro;
     private javax.swing.JFormattedTextField CNPJLoja;
     private javax.swing.JLabel ErroCampoVazio;
+    private javax.swing.JLabel ErroNome;
     private javax.swing.JLabel Nome;
     private javax.swing.JTextField NomeLoja;
+    private javax.swing.JLabel TelErro;
     private javax.swing.JFormattedTextField TelLoja;
     private javax.swing.JLabel Telefone;
     private javax.swing.JLabel jLabel1;
