@@ -30,8 +30,6 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         MenuInicial = new javax.swing.JMenuBar();
         Usuário = new javax.swing.JMenu();
         IrJanelaUsuario = new javax.swing.JMenuItem();
@@ -51,14 +49,6 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         setTitle("iCards - iAdmin");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Cooper Black", 1, 48)); // NOI18N
-        jLabel1.setText("Bem-Vindo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 610, 140));
-
-        jLabel2.setFont(new java.awt.Font("Cooper Black", 1, 48)); // NOI18N
-        jLabel2.setText("ao iCards!");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 280, 150));
 
         Usuário.setText("Usuário");
         Usuário.setToolTipText("Acessar sua conta");
@@ -255,8 +245,6 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem NovoEstabelecimento;
     private javax.swing.JMenuItem NovoUsuario;
     private javax.swing.JMenu Usuário;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 
 }

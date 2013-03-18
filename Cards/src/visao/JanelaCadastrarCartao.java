@@ -112,7 +112,7 @@ public class JanelaCadastrarCartao extends javax.swing.JFrame {
     private void CancelarCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarCadastroUsuarioActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        JanelaInicialiCards frame = new JanelaInicialiCards();
+        JanelaInicioAdmin frame = new JanelaInicioAdmin();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }//GEN-LAST:event_CancelarCadastroUsuarioActionPerformed
@@ -135,7 +135,7 @@ public class JanelaCadastrarCartao extends javax.swing.JFrame {
             try {
                  GerenciarDB cartao = new GerenciarDB();
                  cartao.addCartao(numeroCartao,cpfUsuario);
-                 JanelaInicialiCards frame = new JanelaInicialiCards();
+                 JanelaInicioAdmin frame = new JanelaInicioAdmin();
                  frame.setLocationRelativeTo(null);
                  frame.setVisible(true);
                  this.dispose();

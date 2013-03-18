@@ -5,7 +5,7 @@
 package visao;
 
 import bean.Cartao;
-import visao.JanelaInicialiCards;
+import visao.JanelaInicioAdmin;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -163,7 +163,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
     private void IrparaHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IrparaHomeActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        JanelaInicialiCards frame = new JanelaInicialiCards();
+        JanelaInicioAdmin frame = new JanelaInicioAdmin();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }//GEN-LAST:event_IrparaHomeActionPerformed

@@ -411,7 +411,7 @@ public class JanelaEditarUsuario extends javax.swing.JFrame {
     private void CancelarEdicaoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarEdicaoUsuarioActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        JanelaInicialiCards frame = new JanelaInicialiCards();
+        JanelaInicioAdmin frame = new JanelaInicioAdmin();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }//GEN-LAST:event_CancelarEdicaoUsuarioActionPerformed

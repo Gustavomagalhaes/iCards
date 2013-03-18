@@ -141,7 +141,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
     private void BotaoCancelarLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCancelarLojaActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        JanelaInicialiCards frame = new JanelaInicialiCards();
+        JanelaInicioAdmin frame = new JanelaInicioAdmin();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }//GEN-LAST:event_BotaoCancelarLojaActionPerformed
@@ -179,7 +179,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                  GerenciarDB estabelecimento = new GerenciarDB();
                  estabelecimento.addEstabelecimento(cnpj, nomeLoja, telLoja);
                  this.dispose();
-                 JanelaInicialiCards frame = new JanelaInicialiCards();
+                 JanelaInicioAdmin frame = new JanelaInicioAdmin();
                  frame.setLocationRelativeTo(null);
                  frame.setVisible(true);
                  
