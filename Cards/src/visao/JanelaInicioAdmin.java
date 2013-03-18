@@ -12,12 +12,12 @@ import java.awt.Toolkit;
  *
  * @author Uguinho
  */
-public class JanelaInicioAdmim extends javax.swing.JFrame {
+public class JanelaInicioAdmin extends javax.swing.JFrame {
 
     /**
      * Creates new form JanelaAdmin
      */
-    public JanelaInicioAdmim() {
+    public JanelaInicioAdmin() {
         initComponents();
     }
 
@@ -223,20 +223,20 @@ public class JanelaInicioAdmim extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JanelaInicioAdmim.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JanelaInicioAdmim.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JanelaInicioAdmim.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JanelaInicioAdmim.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JanelaInicioAdmim().setVisible(true);
+                new JanelaInicioAdmin().setVisible(true);
             }
         });
     }
