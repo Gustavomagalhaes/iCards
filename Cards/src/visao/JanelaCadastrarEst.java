@@ -178,14 +178,15 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         // TODO add your handling code here:
          String nomeLoja = NomeLoja.getText();
          String cnpj = CNPJLoja.getText();
-         cnpj = cnpj.replaceAll(".","");
-         cnpj = cnpj.replaceAll("-","");  
-         cnpj = cnpj.replaceAll("/","");  
+         cnpj = cnpj.replaceAll("[.]","");
+         cnpj = cnpj.replaceAll("[/]","");  
+         cnpj = cnpj.replaceAll("[-]",""); 
          String telLoja = TelLoja.getText();
-         telLoja = telLoja.replaceAll("(","");
-         telLoja = telLoja.replaceAll(")","");
-         telLoja = telLoja.replaceAll("-","");
-        
+         telLoja = (telLoja.replaceAll("[(]",""));
+         telLoja = telLoja.replaceAll("[)]","");
+         telLoja = telLoja.replaceAll("[-]","");
+         
+     
     
          if (((nomeLoja.isEmpty())||(cnpj.isEmpty())||(telLoja.isEmpty()))==true){
               ErroCampoVazio.setText("Existem campos vazios.");
@@ -199,6 +200,9 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
               if (telLoja.isEmpty()){
                    ErroCampoVazio.setText("Existem campos vazios.");
               }
+              
+    
+         
   
          }
          else{
@@ -213,6 +217,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(JanelaCadastrarEst.class.getName()).log(Level.SEVERE, null, ex);
             }
+             
          }
     }//GEN-LAST:event_BotaoCadastrarLojaActionPerformed
 
