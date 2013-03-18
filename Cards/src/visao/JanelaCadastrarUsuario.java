@@ -93,7 +93,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         PainelPessoal.add(NomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 33, 470, -1));
 
         CPF.setText("CPF:");
-        PainelPessoal.add(CPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 70, 40, -1));
+        PainelPessoal.add(CPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 70, 30, -1));
 
         CPFUsuario.setToolTipText("CPF do Usuário");
         try{  
@@ -111,7 +111,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         PainelPessoal.add(NacionalidadeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 220, -1));
 
         EmailLabel.setText("Email:");
-        PainelPessoal.add(EmailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 50, -1));
+        PainelPessoal.add(EmailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 60, -1));
         PainelPessoal.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 260, -1));
 
         DataNasc.setText("Data de Nascimento:");
@@ -119,13 +119,15 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
 
         DataNascUsuario.setToolTipText("Data de Nascimento");
         PainelPessoal.add(DataNascUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 77, -1));
+
+        erroNome.setForeground(new java.awt.Color(255, 0, 0));
         PainelPessoal.add(erroNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 17, 31));
 
         CPFErro.setForeground(new java.awt.Color(255, 0, 0));
-        PainelPessoal.add(CPFErro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 16, 20));
+        PainelPessoal.add(CPFErro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 16, 20));
 
         ErroEmail.setForeground(new java.awt.Color(255, 0, 0));
-        PainelPessoal.add(ErroEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 14, 20));
+        PainelPessoal.add(ErroEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 14, 20));
         PainelPessoal.add(erroNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 15, 20));
         PainelPessoal.add(ErroNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 17, 23));
 
@@ -164,6 +166,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         PainelTipo.add(TipodeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         GrupoTipoUsuario.add(Dependente);
+        Dependente.setSelected(true);
         Dependente.setText("Dependente");
         Dependente.setActionCommand("DEPENDENTE");
         Dependente.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +239,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         PainelCadastroUsuario.add(CadastrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 100, 30));
 
         todosCampos.setForeground(new java.awt.Color(255, 0, 0));
-        PainelCadastroUsuario.add(todosCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 202, 23));
+        PainelCadastroUsuario.add(todosCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 270, 30));
 
         getContentPane().add(PainelCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 710, 480));
 
@@ -266,68 +269,67 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         EnderecoUsuario.setText("");
         TelUsuario.setText("");
         CPFDependente.setText("");
-        GrupoTipoUsuario.clearSelection();   
+        Dependente.setSelected(true);
+        CPFDependente.setEditable(true);
+        CPFDependente.setEnabled(true);
+        CPFdoDependente.setForeground(new java.awt.Color(0, 0, 0));
+        ErroEmail.setText("");
+        ErroNac.setText("");
+        ErroTipoUsuario.setText("");
+        CPFErro.setText("");
+        erroCpfTit.setText("");
+        erroEnd.setText("");
+        erroNasc.setText("");
+        erroNome.setText("");
+        erroTel.setText("");
     }//GEN-LAST:event_LimparCadastroUsuarioActionPerformed
 
     private void CadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarUsuarioActionPerformed
         // TODO add your handling code here:
         String nomeUsuario = NomeUsuario.getText();
-        String cpfUsuario1 = CPFUsuario.getText().replaceAll("[.]","");
-        String cpfUsuario = cpfUsuario1.replaceAll("-","");
-        
+        String cpfUsuario = CPFUsuario.getText().replaceAll("[.]", "").replaceAll("-", "");
         String dataNasc = DataNascUsuario.getText().replaceAll("/", "");
         String nacionalidadeUsuario = NacionalidadeUsuario.getText();
         String email = Email.getText();
         String enderecoUsuario = EnderecoUsuario.getText();
-        String telUsuario1 = TelUsuario.getText().replaceAll("-", "");
-        String telUsuario2 = telUsuario1.replaceAll("[(]", "");
-        String telUsuario = telUsuario2.replaceAll("[)]", "");
-        
+        String telUsuario = TelUsuario.getText().replaceAll("-", "").replaceAll("[(]", "").replaceAll("[)]", "");
+
         String tipoUsuario = GrupoTipoUsuario.getSelection().getActionCommand();
-      
-        if((nomeUsuario.isEmpty())||(cpfUsuario.isEmpty())||(email.isEmpty())||(dataNasc.isEmpty())
-                ||(enderecoUsuario.isEmpty())||(nacionalidadeUsuario.isEmpty())
-                ||(telUsuario.isEmpty())||(tipoUsuario.isEmpty())){
-            todosCampos.setText( "* Todos os campos devem ser preenchidos");
         
-        if (nomeUsuario.isEmpty()){
+        if ("TITULAR".equals(tipoUsuario)) {
+            String cpfDependente = null;
+        } else {
+            String cpfDependente = CPFDependente.getText().replaceAll("[.]", "").replaceAll("-", "");
+        }
+
+        if ((nomeUsuario.isEmpty()) || (cpfUsuario.isEmpty()) || (email.isEmpty()) || (dataNasc.isEmpty())
+                || (enderecoUsuario.isEmpty()) || (nacionalidadeUsuario.isEmpty())
+                || (telUsuario.isEmpty()) || (tipoUsuario.isEmpty())) {
+            todosCampos.setText("* Todos os campos devem ser preenchidos");
+
+            if (nomeUsuario.isEmpty()) {
                 erroNome.setText("*");
-        }
-        else if (cpfUsuario1.isEmpty()){
+            } else if (cpfUsuario.length()<3) {
                 CPFErro.setText("*");
-        }
-        else if (email.isEmpty()){
+            } else if (email.isEmpty()) {
                 ErroEmail.setText("*");
-        }
-        else if (enderecoUsuario.isEmpty()){
+            } else if (enderecoUsuario.isEmpty()) {
                 erroEnd.setText("*");
-        }
-        else if (dataNasc.isEmpty()){
+            } else if (dataNasc.isEmpty()) {
                 erroNasc.setText("*");
-        }
-        else if (nacionalidadeUsuario.isEmpty()){
+            } else if (nacionalidadeUsuario.isEmpty()) {
                 ErroNac.setText("*");
-        }
-        else if (telUsuario.isEmpty()){
+            } else if (telUsuario.isEmpty()) {
                 erroTel.setText("*");
-        }
-        else if (tipoUsuario.isEmpty()){
+            } else if (tipoUsuario.isEmpty()) {
                 ErroTipoUsuario.setText("*");
-        }
-        }   
-        else{
+            }
+        } else {
             todosCampos.setText("PARABENS");
             //this.dispose();
-           // JanelaInicialiCards frame = new JanelaInicialiCards();
-          //  frame.setLocationRelativeTo(null);
-          //  frame.setVisible(true);
-        }
-        if (tipoUsuario =="TITULAR"){
-            String cpfDependente = null;
-        }
-        else{
-            String cpfDependente1 = CPFDependente.getText().replaceAll("[.]","");
-            String cpfDependente = cpfDependente1.replaceAll("-","");  
+            // JanelaInicialiCards frame = new JanelaInicialiCards();
+            //  frame.setLocationRelativeTo(null);
+            //  frame.setVisible(true);
         }
         
     }//GEN-LAST:event_CadastrarUsuarioActionPerformed
