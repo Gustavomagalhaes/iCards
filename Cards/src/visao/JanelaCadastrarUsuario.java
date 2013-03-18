@@ -4,7 +4,10 @@
  */
 package visao;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import negocio.GerenciarDB;
 
 /**
  *
@@ -17,7 +20,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
      */
     public JanelaCadastrarUsuario() {
         initComponents();
-        CPFDependente.setEditable(false);
+        CPFDependente.setEditable(true);
 
     }
 
@@ -187,11 +190,11 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         });
         PainelTipo.add(Titular, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
 
-        CPFdoDependente.setText("CPF Dependente:");
+        CPFdoDependente.setText("CPF Titular:");
         PainelTipo.add(CPFdoDependente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         CPFDependente.setEditable(false);
-        CPFDependente.setToolTipText("CPF do Dependente");
+        CPFDependente.setToolTipText("CPF do Titular");
         try{  
             javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("###.###.###-##");  
             CPFDependente = new javax.swing.JFormattedTextField(data);  
@@ -293,13 +296,18 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         String email = Email.getText();
         String enderecoUsuario = EnderecoUsuario.getText();
         String telUsuario = TelUsuario.getText().replaceAll("-", "").replaceAll("[(]", "").replaceAll("[)]", "");
+        String cpfDependente;
 
         String tipoUsuario = GrupoTipoUsuario.getSelection().getActionCommand();
+        System.out.println(tipoUsuario);
         
         if ("TITULAR".equals(tipoUsuario)) {
-            String cpfDependente = null;
+            cpfDependente = null;
         } else {
-            String cpfDependente = CPFDependente.getText().replaceAll("[.]", "").replaceAll("-", "");
+            cpfDependente = CPFDependente.getText();
+            cpfDependente = cpfDependente.replaceAll("[.]", "");
+            cpfDependente = cpfDependente.replaceAll("-", "");
+            System.out.println(cpfDependente);
         }
 
         if ((nomeUsuario.isEmpty()) || (cpfUsuario.isEmpty()) || (email.isEmpty()) || (dataNasc.isEmpty())
@@ -325,11 +333,17 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
                 ErroTipoUsuario.setText("*");
             }
         } else {
-            todosCampos.setText("PARABENS");
-            //this.dispose();
-            // JanelaInicialiCards frame = new JanelaInicialiCards();
-            //  frame.setLocationRelativeTo(null);
-            //  frame.setVisible(true);
+            try {
+                 GerenciarDB usuario = new GerenciarDB();
+                 usuario.addUsuario(cpfUsuario,nomeUsuario,email,enderecoUsuario,telUsuario,dataNasc,nacionalidadeUsuario,tipoUsuario,cpfDependente);
+                 JanelaInicialiCards frame = new JanelaInicialiCards();
+                 frame.setLocationRelativeTo(null);
+                 frame.setVisible(true);
+                 this.dispose();
+
+            } catch (Exception ex) {
+                Logger.getLogger(JanelaCadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
     }//GEN-LAST:event_CadastrarUsuarioActionPerformed
@@ -382,6 +396,7 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new JanelaCadastrarUsuario().setVisible(true);
             }
