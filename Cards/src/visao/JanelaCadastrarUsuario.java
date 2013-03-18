@@ -195,6 +195,11 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         }  
         catch (Exception e){  
         }
+        CPFDependente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CPFDependenteActionPerformed(evt);
+            }
+        });
         PainelTipo.add(CPFDependente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 107, -1));
 
         ErroTipoUsuario.setForeground(new java.awt.Color(255, 0, 0));
@@ -335,8 +340,14 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
     private void TitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitularActionPerformed
         // TODO add your handling code here:
         CPFDependente.setEditable(false);
+        CPFDependente.setEnabled(false);
+        CPFdoDependente.setForeground(new java.awt.Color(155, 155, 155));
         
     }//GEN-LAST:event_TitularActionPerformed
+
+    private void CPFDependenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPFDependenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CPFDependenteActionPerformed
 
     /**
      * @param args the command line arguments
