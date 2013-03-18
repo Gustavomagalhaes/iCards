@@ -299,7 +299,6 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         String cpfDependente;
 
         String tipoUsuario = GrupoTipoUsuario.getSelection().getActionCommand();
-        System.out.println(tipoUsuario);
         
         if ("TITULAR".equals(tipoUsuario)) {
             cpfDependente = null;
@@ -307,12 +306,12 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
             cpfDependente = CPFDependente.getText();
             cpfDependente = cpfDependente.replaceAll("[.]", "");
             cpfDependente = cpfDependente.replaceAll("-", "");
-            System.out.println(cpfDependente);
+    
         }
 
-        if ((nomeUsuario.isEmpty()) || (cpfUsuario.isEmpty()) || (email.isEmpty()) || (dataNasc.isEmpty())
+        if ((nomeUsuario.isEmpty()) || ("           ".equals(cpfDependente)) || ("           ".equals(cpfUsuario)) || (cpfUsuario.isEmpty()) || (email.isEmpty()) || (dataNasc.isEmpty())
                 || (enderecoUsuario.isEmpty()) || (nacionalidadeUsuario.isEmpty())
-                || (telUsuario.isEmpty()) || (tipoUsuario.isEmpty())) {
+                || (telUsuario.isEmpty()) || ("        ".equals(dataNasc)) || ("          ".equals(telUsuario)) || ("          ".equals(telUsuario)) || (tipoUsuario.isEmpty())) {
             todosCampos.setText("* Todos os campos devem ser preenchidos");
 
             if (nomeUsuario.isEmpty()) {

@@ -44,6 +44,8 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
         NovoEstabelecimento = new javax.swing.JMenuItem();
         EditarEstabelecimento = new javax.swing.JMenuItem();
         ExcluirEstabelecimento = new javax.swing.JMenuItem();
+        MenuCartao = new javax.swing.JMenu();
+        NovoCartao = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iAdmin");
@@ -132,6 +134,18 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
 
         Administrador.add(MenuEstabelecimento);
 
+        MenuCartao.setText("Cartão");
+
+        NovoCartao.setText("Novo");
+        NovoCartao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NovoCartaoActionPerformed(evt);
+            }
+        });
+        MenuCartao.add(NovoCartao);
+
+        Administrador.add(MenuCartao);
+
         MenuInicial.add(Administrador);
 
         setJMenuBar(MenuInicial);
@@ -184,6 +198,14 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_IrJanelaUsuarioActionPerformed
 
+    private void NovoCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoCartaoActionPerformed
+        // TODO add your handling code here:
+        JanelaCadastrarCartao frame = new JanelaCadastrarCartao();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_NovoCartaoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -225,9 +247,11 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
     private javax.swing.JMenuItem ExcluirEstabelecimento;
     private javax.swing.JMenuItem ExcluirUsuario;
     private javax.swing.JMenuItem IrJanelaUsuario;
+    private javax.swing.JMenu MenuCartao;
     private javax.swing.JMenu MenuEstabelecimento;
     private javax.swing.JMenuBar MenuInicial;
     private javax.swing.JMenu MenuUsuario;
+    private javax.swing.JMenuItem NovoCartao;
     private javax.swing.JMenuItem NovoEstabelecimento;
     private javax.swing.JMenuItem NovoUsuario;
     private javax.swing.JMenu Usuário;

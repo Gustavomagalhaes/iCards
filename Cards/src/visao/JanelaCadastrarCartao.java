@@ -121,6 +121,7 @@ public class JanelaCadastrarCartao extends javax.swing.JFrame {
         // TODO add your handling code here:
         NumeroCartao.setText("");
         CPFUsuario.setText("");
+        todosCampos.setText("");
     }//GEN-LAST:event_LimparCadastroUsuarioActionPerformed
 
     private void CadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarUsuarioActionPerformed
@@ -128,7 +129,7 @@ public class JanelaCadastrarCartao extends javax.swing.JFrame {
         String numeroCartao = NumeroCartao.getText().replaceAll("-", "");
         String cpfUsuario = CPFUsuario.getText().replaceAll("[.]", "").replaceAll("-", "");
 
-        if ((numeroCartao.isEmpty()) || (cpfUsuario.isEmpty())) {
+        if ((numeroCartao.isEmpty()) || ("        ".equals(numeroCartao)) || ("           ".equals(CPFUsuario)) || (cpfUsuario.isEmpty())) {
             todosCampos.setText("* Todos os campos devem ser preenchidos");
         } else {
             try {
