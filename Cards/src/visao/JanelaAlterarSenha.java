@@ -129,6 +129,8 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
                 if (CheckedPassword) {
                     cartao.updateSenhaCartaoDB(IDcartao, novasenha, tipo);
                     JanelaUsuario frame = new JanelaUsuario();
+                    frame.IDcartao = IDcartao;
+                    frame.tipo = tipo;
                     frame.setLocationRelativeTo(null);
                     frame.setVisible(true);
                     this.dispose();  
