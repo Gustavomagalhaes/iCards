@@ -51,15 +51,19 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Cadastrar Loja");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Nome.setText("Nome:");
+        jPanel1.add(Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         NomeLoja.setToolTipText("Nome do Estabelecimento");
+        jPanel1.add(NomeLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 500, -1));
 
         CNPJ.setText("CNPJ:");
+        jPanel1.add(CNPJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         CNPJLoja.setToolTipText("CNPJ do estabelecimento");
         try{  
@@ -68,8 +72,10 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         }  
         catch (Exception e){  
         }
+        jPanel1.add(CNPJLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 127, -1));
 
         Telefone.setText("Telefone:");
+        jPanel1.add(Telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         TelLoja.setToolTipText("Telefone do estabelecimento");
         try{  
@@ -78,56 +84,10 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         }  
         catch (Exception e){  
         }
+        jPanel1.add(TelLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 108, -1));
 
         ErroCampoVazio.setForeground(new java.awt.Color(255, 0, 0));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Nome)
-                            .addComponent(CNPJ))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(257, 257, 257)
-                                .addComponent(ErroCampoVazio))
-                            .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(Telefone)
-                        .addGap(18, 18, 18)
-                        .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(88, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Nome)
-                    .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(ErroCampoVazio, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Telefone))
-                .addGap(105, 105, 105))
-        );
+        jPanel1.add(ErroCampoVazio, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 66, -1, 11));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 660, 150));
 
@@ -137,7 +97,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                 BotaoCadastrarLojaActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoCadastrarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
+        getContentPane().add(BotaoCadastrarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 100, 30));
 
         BotaoApagarCamposLoja.setText("Limpar");
         BotaoApagarCamposLoja.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +105,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                 BotaoApagarCamposLojaActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoApagarCamposLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 80, -1));
+        getContentPane().add(BotaoApagarCamposLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 100, 30));
 
         BotaoCancelarLoja.setText("Cancelar");
         BotaoCancelarLoja.addActionListener(new java.awt.event.ActionListener() {
@@ -153,10 +113,10 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                 BotaoCancelarLojaActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoCancelarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 80, -1));
+        getContentPane().add(BotaoCancelarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 100, 30));
 
-        setSize(new java.awt.Dimension(728, 514));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoApagarCamposLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoApagarCamposLojaActionPerformed
@@ -178,9 +138,13 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         // TODO add your handling code here:
          String nomeLoja = NomeLoja.getText();
          String cnpj = CNPJLoja.getText();
+         System.out.println(cnpj);
          cnpj = cnpj.replaceAll("[.]","");
+         System.out.println(cnpj);
          cnpj = cnpj.replaceAll("[/]","");  
+         System.out.println(cnpj);
          cnpj = cnpj.replaceAll("[-]",""); 
+         System.out.println(cnpj);
          String telLoja = TelLoja.getText();
          telLoja = (telLoja.replaceAll("[(]",""));
          telLoja = telLoja.replaceAll("[)]","");
@@ -188,7 +152,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
          
      
     
-         if (((nomeLoja.isEmpty())||(cnpj.isEmpty())||(telLoja.isEmpty()))==true){
+         if (((nomeLoja.isEmpty())||(cnpj.isEmpty())||("              ".equals(cnpj))||(telLoja.isEmpty())||("          ".equals(telLoja)))==true){
               ErroCampoVazio.setText("Existem campos vazios.");
               
               if (nomeLoja.isEmpty()==true){
