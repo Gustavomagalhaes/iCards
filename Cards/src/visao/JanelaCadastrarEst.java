@@ -163,7 +163,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
          telLoja = telLoja.replaceAll("[-]","");
         
     
-         if (((nomeLoja.isEmpty())||(cnpj.isEmpty())||("              ".equals(cnpj))||(telLoja.isEmpty())||("          ".equals(telLoja)))==true){
+         if (((nomeLoja.isEmpty())||(cnpj.isEmpty())||(telLoja.isEmpty()))==true){
               ErroCampoVazio.setText("Existem campos vazios.");
               
               if (nomeLoja.isEmpty()==true){
