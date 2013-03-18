@@ -12,12 +12,12 @@ import java.awt.Toolkit;
  *
  * @author Uguinho
  */
-public class JanelaInicialiCards extends javax.swing.JFrame {
+public class JanelaInicioAdmim extends javax.swing.JFrame {
 
     /**
      * Creates new form JanelaAdmin
      */
-    public JanelaInicialiCards() {
+    public JanelaInicioAdmim() {
         initComponents();
     }
 
@@ -150,8 +150,8 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
 
         setJMenuBar(MenuInicial);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
+        setSize(new java.awt.Dimension(728, 514));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void NovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoUsuarioActionPerformed
@@ -223,20 +223,20 @@ public class JanelaInicialiCards extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JanelaInicialiCards.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioAdmim.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JanelaInicialiCards.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioAdmim.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JanelaInicialiCards.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioAdmim.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JanelaInicialiCards.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioAdmim.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JanelaInicialiCards().setVisible(true);
+                new JanelaInicioAdmim().setVisible(true);
             }
         });
     }
