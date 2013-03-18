@@ -35,8 +35,6 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         NomeLoja = new javax.swing.JTextField();
         CNPJ = new javax.swing.JLabel();
         CNPJLoja = new javax.swing.JFormattedTextField();
-        Endereco = new javax.swing.JLabel();
-        EnderecoLoja = new javax.swing.JTextField();
         Telefone = new javax.swing.JLabel();
         TelLoja = new javax.swing.JFormattedTextField();
         CNPJErro = new javax.swing.JLabel();
@@ -69,10 +67,6 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         catch (Exception e){  
         }
 
-        Endereco.setText("Endereço:");
-
-        EnderecoLoja.setToolTipText("Endereço do estabelecimento");
-
         Telefone.setText("Telefone:");
 
         TelLoja.setToolTipText("Telefone do estabelecimento");
@@ -96,13 +90,8 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(Endereco))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(Telefone)))
+                        .addGap(22, 22, 22)
+                        .addComponent(Telefone)
                         .addGap(18, 18, 18)
                         .addComponent(TelLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
@@ -118,7 +107,6 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                                 .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(CNPJErro, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(EnderecoLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(NomeLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -140,11 +128,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                         .addComponent(CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(CNPJErro, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Endereco)
-                    .addComponent(EnderecoLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ErroCampoVazio, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -153,7 +137,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                 .addGap(72, 72, 72))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 690, 200));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 690, 150));
 
         BotaoCadastrarLoja.setText("Confirmar");
         BotaoCadastrarLoja.addActionListener(new java.awt.event.ActionListener() {
@@ -179,15 +163,14 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         });
         getContentPane().add(BotaoCancelarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 80, -1));
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
+        setSize(new java.awt.Dimension(728, 514));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoApagarCamposLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoApagarCamposLojaActionPerformed
         // TODO add your handling code here:
         NomeLoja.setText("");
         CNPJLoja.setText("");
-        EnderecoLoja.setText("");
         TelLoja.setText("");
     }//GEN-LAST:event_BotaoApagarCamposLojaActionPerformed
 
@@ -203,10 +186,9 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         // TODO add your handling code here:
          NomeLoja.getText();
          CNPJLoja.getText();
-         EnderecoLoja.getText();
          TelLoja.getText();
         
-            if ((NomeLoja.getText().isEmpty())||(CNPJLoja.getText().isEmpty())||(EnderecoLoja.getText().isEmpty())||(TelLoja.getText().isEmpty())){
+            if ((NomeLoja.getText().isEmpty())||(CNPJLoja.getText().isEmpty())||(TelLoja.getText().isEmpty())){
                 ErroCampoVazio.setText("Existem campos vazios.");
                 
                 if((NomeLoja.getText().isEmpty()) ||(CNPJ.getText().isEmpty())){
@@ -215,7 +197,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
                     ErroCampoVazio.setText("Existem campos obrigatórios vazios.");
                 }
             }
-           else{
+            else{
                 this.dispose();
                 JanelaInicialiCards frame = new JanelaInicialiCards();
                 frame.setLocationRelativeTo(null);
@@ -264,8 +246,6 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
     private javax.swing.JLabel CNPJ;
     private javax.swing.JLabel CNPJErro;
     private javax.swing.JFormattedTextField CNPJLoja;
-    private javax.swing.JLabel Endereco;
-    private javax.swing.JTextField EnderecoLoja;
     private javax.swing.JLabel ErroCampoVazio;
     private javax.swing.JLabel Nome;
     private javax.swing.JLabel NomeErro;
