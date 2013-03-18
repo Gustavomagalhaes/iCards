@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author Uguinho
  */
-public class JanelaEstabelecimento extends javax.swing.JFrame {
+public class JanelaInicioEstabelecimento extends javax.swing.JFrame {
 
     /**
-     * Creates new form JanelaEstabelecimento
+     * Creates new form JanelaInicioEstabelecimento
      */
-    public JanelaEstabelecimento() {
+    public JanelaInicioEstabelecimento() {
         initComponents();
     }
 
@@ -81,8 +81,8 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
         });
         getContentPane().add(BotaoEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 80, 30));
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
+        setSize(new java.awt.Dimension(728, 514));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValorActionPerformed
@@ -100,7 +100,7 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
                     &&(SenhaCartao.getText().length()>0)){
                 JOptionPane.showMessageDialog(null, "Compra realizada com sucesso.");
                 this.dispose();
-                JanelaInicialiCards frame = new JanelaInicialiCards();
+                JanelaInicioAdmin frame = new JanelaInicioAdmin();
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);   
             }else{
@@ -125,20 +125,20 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JanelaEstabelecimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioEstabelecimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JanelaEstabelecimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioEstabelecimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JanelaEstabelecimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioEstabelecimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JanelaEstabelecimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaInicioEstabelecimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JanelaEstabelecimento().setVisible(true);
+                new JanelaInicioEstabelecimento().setVisible(true);
             }
         });
     }
