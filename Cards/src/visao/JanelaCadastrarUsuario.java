@@ -335,6 +335,8 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
     private void DependenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DependenteActionPerformed
         // TODO add your handling code here:
         CPFDependente.setEditable(true);
+        CPFDependente.setEnabled(true);
+        CPFdoDependente.setForeground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_DependenteActionPerformed
 
     private void TitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitularActionPerformed
