@@ -170,7 +170,7 @@ public class GerenciarDB {
         return saldo; 
     }
     
-        public String getEstabelecimentoDB(String CNPJ)throws Exception{
+    public String getEstabelecimentoDB(String CNPJ)throws Exception{
         conectaDB();
         String query;
         query = "SELECT * FROM estabelecimento WHERE CNPJ = '"+CNPJ+"'";
