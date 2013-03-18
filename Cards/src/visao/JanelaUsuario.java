@@ -129,7 +129,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
             Cartao cartao = new Cartao(IDcartao);
             GerenciarCartao gerenciarCartao = new GerenciarCartao(cartao);
             GerenciarDB banco = new GerenciarDB();
-            
+            System.out.println(tipo);
             if (tipo==1) {
                 if (banco.checkStatusCartaoBloqueadoDB(IDcartao)) {
                 gerenciarCartao.desbloquearCartao();

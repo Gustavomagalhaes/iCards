@@ -17,6 +17,10 @@ public class GerenciarCartao {
         public GerenciarCartao () {
     }
     
+    public void alterarSenha() {
+        //
+    }
+        
     public double visualizarSaldo(){
         return this.cartao.getSaldo();
     }

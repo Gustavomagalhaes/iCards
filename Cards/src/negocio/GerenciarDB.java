@@ -18,6 +18,7 @@ public class GerenciarDB {
         String url = "jdbc:mysql://icards.serveftp.com:3306/ICARDS";
         String login = "panda";
         String password = "bazinga";
+        //Funcionando
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url,login,password);

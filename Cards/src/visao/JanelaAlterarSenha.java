@@ -97,6 +97,13 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         String senhaatual = SenhaAtual.getText();
         String novasenha = RepitaSenha.getText();
         String repitasenha = NovaSenha.getText();
+        
+        
+        System.out.println(senhaatual+" "+novasenha);
+        System.out.println(IDcartao);
+        System.out.println(tipo);
+        
+        
         boolean confereSenha = (novasenha.equals(repitasenha));
         GerenciarDB cartao = new GerenciarDB();
 

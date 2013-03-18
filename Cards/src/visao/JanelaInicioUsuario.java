@@ -140,6 +140,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
                 this.dispose();
                 JanelaUsuario frame = new JanelaUsuario();
                 frame.IDcartao = numCartao;
+                frame.tipo = tipo;
                 frame.Saldo.setText(saldo+"");
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
