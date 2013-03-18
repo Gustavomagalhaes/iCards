@@ -150,13 +150,9 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
         // TODO add your handling code here:
          String nomeLoja = NomeLoja.getText();
          String cnpj = CNPJLoja.getText();
-         System.out.println(cnpj);
          cnpj = cnpj.replaceAll("[.]","");
-         System.out.println(cnpj);
          cnpj = cnpj.replaceAll("[/]","");  
-         System.out.println(cnpj);
          cnpj = cnpj.replaceAll("[-]",""); 
-         System.out.println(cnpj);
          String telLoja = TelLoja.getText();
          telLoja = (telLoja.replaceAll("[(]",""));
          telLoja = telLoja.replaceAll("[)]","");
