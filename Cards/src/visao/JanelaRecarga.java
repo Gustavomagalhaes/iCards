@@ -98,9 +98,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
         String depositante = NomeDepositante.getText();
         String CNPJ = null;
         String data = "19/03/2013";
-        JOptionPane.showMessageDialog(null, depositante + valorRecarga+ verNumCartao);
-        
-        
+   
         
         if (((verNumCartao.isEmpty())||(valorRecarga.isEmpty())||(depositante.isEmpty()))==true){
               ErroCampoVazio.setText("Existem campos vazios.");
