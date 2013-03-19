@@ -72,9 +72,9 @@ public class GerenciarDB {
         conectaDB();
         String query;
         if (CNPJ==null){
-            valor = "(+) R$ "+valor+",00";
+            valor = "+ R$ "+valor+",00";
         } else {
-            valor = "(-) R$ "+valor+",00";
+            valor = "- R$ "+valor+",00";
         }
         query = "INSERT INTO extrato (pessoa, valor, data, CNPJ, IDcartao) VALUES ('"+pessoa+"','"+valor+"','"+data+"','"+CNPJ+"','"+IDcartao+"')";
         executaDB(query);
@@ -262,7 +262,6 @@ public class GerenciarDB {
         } else {
             resp = true;
         }
-        //return nome; //Se quiser retornar SIM/NÃO como e
         return resp; 
     }
     
@@ -322,7 +321,6 @@ public class GerenciarDB {
     }
     
     public List getExtratoUsuario(String IDcartao)throws Exception {
-        String resp = "";
         conectaDB();
         String query;
         query = "SELECT * FROM extrato WHERE IDcartao = '"+IDcartao+"'";
