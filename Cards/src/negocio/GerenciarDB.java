@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 /**
  *
  * @author gustavopereira
@@ -70,9 +72,9 @@ public class GerenciarDB {
         conectaDB();
         String query;
         if (CNPJ==null){
-            valor = "(+)"+valor;
+            valor = "(+) R$ "+valor+",00";
         } else {
-            valor = "(-)"+valor;
+            valor = "(-) R$ "+valor+",00";
         }
         query = "INSERT INTO extrato (pessoa, valor, data, CNPJ, IDcartao) VALUES ('"+pessoa+"','"+valor+"','"+data+"','"+CNPJ+"','"+IDcartao+"')";
         executaDB(query);
@@ -317,6 +319,32 @@ public class GerenciarDB {
             resp = true;
         }
         return resp;
+    }
+    
+    public List getExtratoUsuario(String IDcartao)throws Exception {
+        String resp = "";
+        conectaDB();
+        String query;
+        query = "SELECT * FROM extrato WHERE IDcartao = '"+IDcartao+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+        ResultSet retorno = exe.executeQuery();
+     
+        List pessoas = new ArrayList();
+        List valores = new ArrayList();
+        List datas = new ArrayList();
+        List infos = new ArrayList();
+        
+        while (retorno.next()) { 
+           pessoas.add(retorno.getString(2));
+           valores.add(retorno.getString(3));
+           datas.add(retorno.getString(4));
+        }
+        desconectaDB();
+        infos.add(pessoas);
+        infos.add(valores);
+        infos.add(datas);
+        
+        return infos;
     }
 
 } 

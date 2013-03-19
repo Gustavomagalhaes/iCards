@@ -74,5 +74,11 @@ public class mainTeste {
         //Checar se existe cartão
         //System.out.println(banco.checkCartaoDB("11111111")); //true
         //System.out.println(banco.checkCartaoDB("00000000")); //false
+        
+        //Pegar Extrato do banco
+        //System.out.println(banco.getExtratoUsuario("11111111"));
+        //System.out.println(banco.getExtratoUsuario("11111111").get(0));
+        //System.out.println(banco.getExtratoUsuario("11111111").get(1));
+        //System.out.println(banco.getExtratoUsuario("11111111").get(2));
     }
 }
