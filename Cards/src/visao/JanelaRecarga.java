@@ -7,6 +7,10 @@ package visao;
 import visao.JanelaInicioUsuario;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
+import bean.Usuario;
+import negocio.GerenciarDB;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -38,6 +42,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
         Valor = new javax.swing.JLabel();
         ValorRecarga = new javax.swing.JTextField();
         BotaoConfirmarRecarga = new javax.swing.JButton();
+        ErroCampoVazio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iRecharge");
@@ -77,19 +82,56 @@ public class JanelaRecarga extends javax.swing.JFrame {
         });
         getContentPane().add(BotaoConfirmarRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 100, 30));
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
+        ErroCampoVazio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ErroCampoVazio.setForeground(new java.awt.Color(255, 51, 51));
+        getContentPane().add(ErroCampoVazio, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
+
+        setSize(new java.awt.Dimension(728, 514));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoConfirmarRecargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarRecargaActionPerformed
         // TODO add your handling code here:
         String verNumCartao = NumCartaoRecarga.getText();
-       
-        JOptionPane.showMessageDialog(null, "Recarga efetuada com Sucesso!");
-        this.dispose();
-        JanelaInicioUsuario frame = new JanelaInicioUsuario();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        verNumCartao = verNumCartao.replaceAll("[-]","");
+        String valorRecarga = ValorRecarga.getText();
+        String depositante = NomeDepositante.getText();
+        String CNPJ = null;
+        String data = "19/03/2013";
+        JOptionPane.showMessageDialog(null, depositante + valorRecarga+ verNumCartao);
+        
+        
+        
+        if (((verNumCartao.isEmpty())||(valorRecarga.isEmpty())||(depositante.isEmpty()))==true){
+              ErroCampoVazio.setText("Existem campos vazios.");
+              
+              if (verNumCartao.isEmpty()==true){
+                   //ErroNome.setText("*");
+                  ErroCampoVazio.setText("Existem campos vazios.");
+             
+              }else if (valorRecarga.isEmpty()==true){
+                   //CNPJErro.setText("*");
+                  ErroCampoVazio.setText("Existem campos vazios.");
+              }if(depositante.isEmpty()==true){
+                  // TelErro.setText("*");
+                  ErroCampoVazio.setText("Existem campos vazios.");
+              }
+         }
+         else{
+             try {
+                 GerenciarDB recarga = new GerenciarDB();
+                 recarga.addExtrato(depositante, valorRecarga, data,  CNPJ, verNumCartao);
+                 this.dispose();
+                 JanelaInicioAdmin frame = new JanelaInicioAdmin();
+                 frame.setLocationRelativeTo(null);
+                 frame.setVisible(true);
+ 
+            } catch (Exception ex) {
+                Logger.getLogger(JanelaCadastrarEst.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             
+         }
+
     }//GEN-LAST:event_BotaoConfirmarRecargaActionPerformed
 
     /**
@@ -128,6 +170,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoConfirmarRecarga;
+    private javax.swing.JLabel ErroCampoVazio;
     private javax.swing.JTextField NomeDepositante;
     private javax.swing.JLabel NomedoDepositante;
     private javax.swing.JFormattedTextField NumCartaoRecarga;
