@@ -35,25 +35,12 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         cadastrarUs = new javax.swing.JButton();
         excluirUs = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        novoCartao = new javax.swing.JButton();
+        cadastrarCartao = new javax.swing.JButton();
+        excluirCartao = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         LoginEst = new javax.swing.JButton();
         cadastrarEst = new javax.swing.JButton();
         excluirEst = new javax.swing.JButton();
-        MenuInicial = new javax.swing.JMenuBar();
-        Usuário = new javax.swing.JMenu();
-        IrJanelaUsuario = new javax.swing.JMenuItem();
-        Administrador = new javax.swing.JMenu();
-        MenuUsuario = new javax.swing.JMenu();
-        NovoUsuario = new javax.swing.JMenuItem();
-        EditarUsuario = new javax.swing.JMenuItem();
-        ExcluirUsuario = new javax.swing.JMenuItem();
-        MenuEstabelecimento = new javax.swing.JMenu();
-        NovoEstabelecimento = new javax.swing.JMenuItem();
-        EditarEstabelecimento = new javax.swing.JMenuItem();
-        ExcluirEstabelecimento = new javax.swing.JMenuItem();
-        MenuCartao = new javax.swing.JMenu();
-        NovoCartao = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iAdmin");
@@ -67,6 +54,11 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         jPanel1.setEnabled(false);
 
         LoginUs.setText("Login");
+        LoginUs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginUsActionPerformed(evt);
+            }
+        });
 
         cadastrarUs.setText("Cadastrar");
         cadastrarUs.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +104,14 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         jPanel2.setAlignmentX(0.0F);
         jPanel2.setAlignmentY(0.0F);
 
-        novoCartao.setText("Novo");
+        cadastrarCartao.setText("Cadastrar");
+        cadastrarCartao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarCartaoActionPerformed(evt);
+            }
+        });
+
+        excluirCartao.setText("Excluir");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -120,15 +119,19 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(novoCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(excluirCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastrarCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(novoCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addComponent(cadastrarCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
+                .addComponent(excluirCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 190, 360));
@@ -145,6 +148,11 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         });
 
         cadastrarEst.setText("Cadastrar");
+        cadastrarEst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarEstActionPerformed(evt);
+            }
+        });
 
         excluirEst.setText("Excluir");
 
@@ -174,154 +182,16 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 190, 360));
 
-        Usuário.setText("Usuário");
-        Usuário.setToolTipText("Acessar sua conta");
-
-        IrJanelaUsuario.setText("Início");
-        IrJanelaUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IrJanelaUsuarioActionPerformed(evt);
-            }
-        });
-        Usuário.add(IrJanelaUsuario);
-
-        MenuInicial.add(Usuário);
-
-        Administrador.setText("Administrador");
-
-        MenuUsuario.setText("Usuário");
-
-        NovoUsuario.setText("Novo");
-        NovoUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NovoUsuarioActionPerformed(evt);
-            }
-        });
-        MenuUsuario.add(NovoUsuario);
-
-        EditarUsuario.setText("Editar");
-        EditarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarUsuarioActionPerformed(evt);
-            }
-        });
-        MenuUsuario.add(EditarUsuario);
-
-        ExcluirUsuario.setText("Excluir");
-        ExcluirUsuario.setToolTipText("Excluir usuário");
-        ExcluirUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExcluirUsuarioActionPerformed(evt);
-            }
-        });
-        MenuUsuario.add(ExcluirUsuario);
-
-        Administrador.add(MenuUsuario);
-
-        MenuEstabelecimento.setText("Estabelecimento");
-        MenuEstabelecimento.setToolTipText("Cadastra novo usuário");
-
-        NovoEstabelecimento.setText("Novo");
-        NovoEstabelecimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NovoEstabelecimentoActionPerformed(evt);
-            }
-        });
-        MenuEstabelecimento.add(NovoEstabelecimento);
-
-        EditarEstabelecimento.setText("Editar");
-        EditarEstabelecimento.setToolTipText("Editar informações de usuário");
-        EditarEstabelecimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarEstabelecimentoActionPerformed(evt);
-            }
-        });
-        MenuEstabelecimento.add(EditarEstabelecimento);
-
-        ExcluirEstabelecimento.setText("Excluir");
-        ExcluirEstabelecimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExcluirEstabelecimentoActionPerformed(evt);
-            }
-        });
-        MenuEstabelecimento.add(ExcluirEstabelecimento);
-
-        Administrador.add(MenuEstabelecimento);
-
-        MenuCartao.setText("Cartão");
-
-        NovoCartao.setText("Novo");
-        NovoCartao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NovoCartaoActionPerformed(evt);
-            }
-        });
-        MenuCartao.add(NovoCartao);
-
-        Administrador.add(MenuCartao);
-
-        MenuInicial.add(Administrador);
-
-        setJMenuBar(MenuInicial);
-
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoUsuarioActionPerformed
-        // TODO add your handling code here:
-        JanelaCadastrarUsuario frame = new JanelaCadastrarUsuario();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_NovoUsuarioActionPerformed
-
-    private void EditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarUsuarioActionPerformed
-        // TODO add your handling code here:
-        JanelaCadastrarUsuario frame = new JanelaCadastrarUsuario();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_EditarUsuarioActionPerformed
-
-    private void ExcluirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ExcluirUsuarioActionPerformed
-
-    private void NovoEstabelecimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoEstabelecimentoActionPerformed
-        // TODO add your handling code here:
-        JanelaCadastrarEst frame = new JanelaCadastrarEst();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_NovoEstabelecimentoActionPerformed
-
-    private void EditarEstabelecimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarEstabelecimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EditarEstabelecimentoActionPerformed
-
-    private void ExcluirEstabelecimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirEstabelecimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ExcluirEstabelecimentoActionPerformed
-
-    private void IrJanelaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IrJanelaUsuarioActionPerformed
-        // TODO add your handling code here:
-        JanelaInicioUsuario frame = new JanelaInicioUsuario();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_IrJanelaUsuarioActionPerformed
-
-    private void NovoCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoCartaoActionPerformed
-        // TODO add your handling code here:
-        JanelaCadastrarCartao frame = new JanelaCadastrarCartao();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_NovoCartaoActionPerformed
-
     private void cadastrarUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarUsActionPerformed
-        // TODO add your handling code here:
+        // Encaminha para a janela de CadastrarUsuario
+        JanelaCadastrarUsuario frame = new JanelaCadastrarUsuario();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_cadastrarUsActionPerformed
 
     private void excluirUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirUsActionPerformed
@@ -331,6 +201,30 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
     private void LoginEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginEstActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LoginEstActionPerformed
+
+    private void LoginUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginUsActionPerformed
+        // Encamonha para a janela de InicioUsuario
+        JanelaInicioUsuario frame = new JanelaInicioUsuario();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_LoginUsActionPerformed
+
+    private void cadastrarEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarEstActionPerformed
+        // Encaminha para a janela de CadastrarEstabelecimento
+        JanelaCadastrarEst frame = new JanelaCadastrarEst();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cadastrarEstActionPerformed
+
+    private void cadastrarCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCartaoActionPerformed
+        // Encaminha para a janela de CadastrarCartao
+        JanelaCadastrarCartao frame = new JanelaCadastrarCartao();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cadastrarCartaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -367,30 +261,17 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Administrador;
-    private javax.swing.JMenuItem EditarEstabelecimento;
-    private javax.swing.JMenuItem EditarUsuario;
-    private javax.swing.JMenuItem ExcluirEstabelecimento;
-    private javax.swing.JMenuItem ExcluirUsuario;
-    private javax.swing.JMenuItem IrJanelaUsuario;
     private javax.swing.JButton LoginEst;
     private javax.swing.JButton LoginUs;
-    private javax.swing.JMenu MenuCartao;
-    private javax.swing.JMenu MenuEstabelecimento;
-    private javax.swing.JMenuBar MenuInicial;
-    private javax.swing.JMenu MenuUsuario;
-    private javax.swing.JMenuItem NovoCartao;
-    private javax.swing.JMenuItem NovoEstabelecimento;
-    private javax.swing.JMenuItem NovoUsuario;
-    private javax.swing.JMenu Usuário;
+    private javax.swing.JButton cadastrarCartao;
     private javax.swing.JButton cadastrarEst;
     private javax.swing.JButton cadastrarUs;
+    private javax.swing.JButton excluirCartao;
     private javax.swing.JButton excluirEst;
     private javax.swing.JButton excluirUs;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JButton novoCartao;
     // End of variables declaration//GEN-END:variables
 
 }
