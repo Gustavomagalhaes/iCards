@@ -43,8 +43,8 @@ public class JanelaRecarga extends javax.swing.JFrame {
         ValorRecarga = new javax.swing.JTextField();
         BotaoConfirmarRecarga = new javax.swing.JButton();
         ErroCampoVazio = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        CancelarRecarga = new javax.swing.JButton();
+        LimparRecarga = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iRecharge");
@@ -94,21 +94,21 @@ public class JanelaRecarga extends javax.swing.JFrame {
         ErroCampoVazio.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(ErroCampoVazio, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
 
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        CancelarRecarga.setText("Cancelar");
+        CancelarRecarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                CancelarRecargaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, 100, 30));
+        getContentPane().add(CancelarRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, 100, 30));
 
-        jButton2.setText("Limpar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        LimparRecarga.setText("Limpar");
+        LimparRecarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                LimparRecargaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 100, 30));
+        getContentPane().add(LimparRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 100, 30));
 
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
@@ -122,7 +122,16 @@ public class JanelaRecarga extends javax.swing.JFrame {
         String depositante = NomeDepositante.getText();
         String CNPJ = null;
         String data = "19/03/2013";
-   
+        
+        GerenciarDB cartao = new GerenciarDB();
+
+        boolean CheckedIDcartao = false;
+        try {
+            CheckedIDcartao = cartao.checkCartaoDB(verNumCartao);
+        } catch (Exception ex) {
+            Logger.getLogger(JanelaAlterarSenha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
         if (((verNumCartao.isEmpty())||(valorRecarga.isEmpty())||(depositante.isEmpty()))==true){
               ErroCampoVazio.setText("Existem campos vazios.");
@@ -141,15 +150,18 @@ public class JanelaRecarga extends javax.swing.JFrame {
          }
          else{
              try {
-                 GerenciarDB recarga = new GerenciarDB();
-                 recarga.addExtrato(depositante, valorRecarga, data,  CNPJ, verNumCartao);
-                 this.dispose();
-                 JanelaInicioAdmin frame = new JanelaInicioAdmin();
-                 frame.setLocationRelativeTo(null);
-                 frame.setVisible(true);
- 
+                 System.out.println("Teste");    
+                if (CheckedIDcartao) {
+                    cartao.addExtrato(depositante, valorRecarga, data, CNPJ, verNumCartao);
+                    JanelaInicioUsuario frame = new JanelaInicioUsuario();
+                    frame.setLocationRelativeTo(null);
+                    frame.setVisible(true);
+                    this.dispose();  
+                } else {
+                    ErroCampoVazio.setText("Número do cartão inválido. Digite novamente."); 
+                }
             } catch (Exception ex) {
-                Logger.getLogger(JanelaCadastrarEst.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(JanelaAlterarSenha.class.getName()).log(Level.SEVERE, null, ex);
             }
              
          }
@@ -160,21 +172,22 @@ public class JanelaRecarga extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeDepositanteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void CancelarRecargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarRecargaActionPerformed
         // TODO add your handling code here:
         this.dispose();
         JanelaInicioUsuario frame = new JanelaInicioUsuario();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_CancelarRecargaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void LimparRecargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparRecargaActionPerformed
         // TODO add your handling code here:
         NumCartaoRecarga.setText("");
         ValorRecarga.setText("");
         NomeDepositante.setText("");
+        ErroCampoVazio.setText("");
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_LimparRecargaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,7 +225,9 @@ public class JanelaRecarga extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoConfirmarRecarga;
+    private javax.swing.JButton CancelarRecarga;
     private javax.swing.JLabel ErroCampoVazio;
+    private javax.swing.JButton LimparRecarga;
     private javax.swing.JTextField NomeDepositante;
     private javax.swing.JLabel NomedoDepositante;
     private javax.swing.JFormattedTextField NumCartaoRecarga;
@@ -220,8 +235,6 @@ public class JanelaRecarga extends javax.swing.JFrame {
     private javax.swing.JLabel Valor;
     private javax.swing.JTextField ValorRecarga;
     private javax.swing.JLabel iRecharge;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 
 }
