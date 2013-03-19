@@ -1,5 +1,6 @@
 package negocio;
 
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,7 +10,6 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 /**
  *
  * @author gustavopereira
@@ -301,7 +301,7 @@ public class GerenciarDB {
     }
 
     public boolean checkCartaoDB(String IDcartao)throws Exception {
-        boolean resp = false;
+        boolean resp;
         conectaDB();
         String query;
         query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
@@ -347,6 +347,5 @@ public class GerenciarDB {
         }
         return Matrix;
     }
-
-} 
-
+    
+}

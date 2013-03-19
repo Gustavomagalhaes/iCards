@@ -82,7 +82,6 @@ public class mainTeste {
         for (i=0;i<mtx[0].length;i++){
             System.out.println(mtx[0][i]+"\t"+mtx[1][i]+"\t"+mtx[2][i]);
         }
-
         
     }
 }
