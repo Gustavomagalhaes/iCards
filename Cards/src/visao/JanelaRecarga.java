@@ -88,7 +88,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
                 BotaoConfirmarRecargaActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoConfirmarRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, 100, 30));
+        getContentPane().add(BotaoConfirmarRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 100, 30));
 
         ErroCampoVazio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ErroCampoVazio.setForeground(new java.awt.Color(255, 51, 51));
@@ -100,7 +100,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 100, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, 100, 30));
 
         jButton2.setText("Limpar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +108,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 100, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 100, 30));
 
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
