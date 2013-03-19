@@ -34,7 +34,7 @@ public class mainTeste {
         
         //OPERACAO DE ADD DE DINHEIRO NO CARTAO. 
         //banco.addExtrato("Robson Ugo", "120", "10/03/2013", null, "11111111");
-        //banco.updateSaldoCartaoDB(11111111,banco.getSaldoCartaoDB(11111111), "MAIS", 120);
+        //banco.updateSaldoCartaoDB("11111111",banco.getSaldoCartaoDB("11111111"), "MAIS", 120);
         //banco.delExtrato(4); //ADMIN
         
         

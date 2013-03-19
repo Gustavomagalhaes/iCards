@@ -116,12 +116,13 @@ public class JanelaRecarga extends javax.swing.JFrame {
 
     private void BotaoConfirmarRecargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarRecargaActionPerformed
         // TODO add your handling code here:
+        GerenciarDB banco = new GerenciarDB();
         String verNumCartao = NumCartaoRecarga.getText();
         verNumCartao = verNumCartao.replaceAll("[-]","");
         String valorRecarga = ValorRecarga.getText();
         String depositante = NomeDepositante.getText();
         String CNPJ = null;
-        String data = "20/03/2013";
+        String data = banco.getData();
         
      
         JOptionPane.showMessageDialog(null, verNumCartao); //testee
@@ -131,6 +132,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
         boolean CheckedIDcartao = false;
         try {
             CheckedIDcartao = cartao.checkCartaoDB(verNumCartao);
+            System.out.println(CheckedIDcartao);
         } catch (Exception ex) {
             Logger.getLogger(JanelaRecarga.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -155,7 +157,10 @@ public class JanelaRecarga extends javax.swing.JFrame {
              try {
                 System.out.println("Teste");    
                 if (CheckedIDcartao) {
+                    
                     cartao.addExtrato(depositante, valorRecarga, data, CNPJ, verNumCartao);
+                    double valor = Double.parseDouble(valorRecarga);
+                    banco.updateSaldoCartaoDB(verNumCartao,banco.getSaldoCartaoDB(verNumCartao), "MAIS", valor);
                     JanelaInicioUsuario frame = new JanelaInicioUsuario();
                     frame.setLocationRelativeTo(null);
                     frame.setVisible(true);
