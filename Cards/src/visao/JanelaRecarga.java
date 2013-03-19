@@ -121,15 +121,18 @@ public class JanelaRecarga extends javax.swing.JFrame {
         String valorRecarga = ValorRecarga.getText();
         String depositante = NomeDepositante.getText();
         String CNPJ = null;
-        String data = "19/03/2013";
+        String data = "20/03/2013";
+        
+     
+        JOptionPane.showMessageDialog(null, verNumCartao); //testee
         
         GerenciarDB cartao = new GerenciarDB();
-
+        
         boolean CheckedIDcartao = false;
         try {
             CheckedIDcartao = cartao.checkCartaoDB(verNumCartao);
         } catch (Exception ex) {
-            Logger.getLogger(JanelaAlterarSenha.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JanelaRecarga.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -150,7 +153,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
          }
          else{
              try {
-                 System.out.println("Teste");    
+                System.out.println("Teste");    
                 if (CheckedIDcartao) {
                     cartao.addExtrato(depositante, valorRecarga, data, CNPJ, verNumCartao);
                     JanelaInicioUsuario frame = new JanelaInicioUsuario();
@@ -161,7 +164,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
                     ErroCampoVazio.setText("Número do cartão inválido. Digite novamente."); 
                 }
             } catch (Exception ex) {
-                Logger.getLogger(JanelaAlterarSenha.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(JanelaRecarga.class.getName()).log(Level.SEVERE, null, ex);
             }
              
          }
