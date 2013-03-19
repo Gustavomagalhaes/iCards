@@ -43,6 +43,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
         ValorRecarga = new javax.swing.JTextField();
         BotaoConfirmarRecarga = new javax.swing.JButton();
         ErroCampoVazio = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iRecharge");
@@ -54,6 +55,12 @@ public class JanelaRecarga extends javax.swing.JFrame {
 
         NomedoDepositante.setText("Nome do depositante:");
         getContentPane().add(NomedoDepositante, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 130, -1));
+
+        NomeDepositante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NomeDepositanteActionPerformed(evt);
+            }
+        });
         getContentPane().add(NomeDepositante, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 85, 368, 30));
 
         NumdoCartao.setText("Nº do cartão a ser creditado:");
@@ -80,11 +87,19 @@ public class JanelaRecarga extends javax.swing.JFrame {
                 BotaoConfirmarRecargaActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoConfirmarRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 100, 30));
+        getContentPane().add(BotaoConfirmarRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 100, 30));
 
         ErroCampoVazio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ErroCampoVazio.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(ErroCampoVazio, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
+
+        jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 100, 30));
 
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
@@ -132,6 +147,18 @@ public class JanelaRecarga extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BotaoConfirmarRecargaActionPerformed
 
+    private void NomeDepositanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeDepositanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NomeDepositanteActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        JanelaInicioUsuario frame = new JanelaInicioUsuario();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -176,6 +203,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
     private javax.swing.JLabel Valor;
     private javax.swing.JTextField ValorRecarga;
     private javax.swing.JLabel iRecharge;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 
 }
