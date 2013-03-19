@@ -78,10 +78,10 @@ public class mainTeste {
         
         //Pegar Extrato do banco
         String[][] mtx = banco.getExtratoUsuario("11111111");
-        System.out.println(mtx[0][0]+"\t"+mtx[0][1]+"\t"+mtx[0][2]);
-        System.out.println(mtx[1][0]+"\t"+mtx[1][1]+"\t"+mtx[1][2]);
-        System.out.println(mtx[2][0]+"\t"+mtx[2][1]+"\t"+mtx[2][2]);
-        System.out.println(mtx[3][0]+"\t"+mtx[3][1]+"\t"+mtx[3][2]);
+        int i;
+        for (i=0;i<mtx[0].length;i++){
+            System.out.println(mtx[0][i]+"\t"+mtx[1][i]+"\t"+mtx[2][i]);
+        }
 
         
     }

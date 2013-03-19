@@ -338,12 +338,12 @@ public class GerenciarDB {
         }
         desconectaDB();
         
-        String[][] Matrix = new String[datas.size()][3];
+        String[][] Matrix = new String[3][datas.size()];
         int tamanho = datas.size();
         for (int i = 0; i<tamanho; i++){
-            Matrix[i][0] = datas.get(i)+"";
-            Matrix[i][1] = pessoas.get(i)+"";
-            Matrix[i][2] = valores.get(i)+"";
+            Matrix[0][i] = datas.get(i)+"";
+            Matrix[1][i] = pessoas.get(i)+"";
+            Matrix[2][i] = valores.get(i)+"";
         }
         return Matrix;
     }
