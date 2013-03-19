@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 /**
  *
  * @author gustavopereira
@@ -286,6 +288,33 @@ public class GerenciarDB {
             resp = true;
         } else {
             resp = false;
+        }
+        return resp;
+    }
+    
+    public String getData(){
+        Calendar data = Calendar.getInstance();
+        SimpleDateFormat now = new SimpleDateFormat("dd/MM/yyyy");
+        String today = now.format(data.getTime());
+        return today;
+    }
+
+    public boolean checkCartaoDB(String IDcartao)throws Exception {
+        boolean resp = false;
+        conectaDB();
+        String query;
+        query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+        ResultSet retorno = exe.executeQuery();
+        String cartao = null;
+        while (retorno.next()) { 
+           cartao = retorno.getString(1);
+        }
+        desconectaDB();
+        if (cartao==null){
+            resp = false;
+        } else {
+            resp = true;
         }
         return resp;
     }

@@ -68,6 +68,11 @@ public class mainTeste {
         //banco.bloquearCartaoDB("11111111", "DESBLOQUEAR");
         //System.out.println(banco.checkStatusCartaoBloqueadoDB("11111111"));
         
-    
+        //pegar data sistema
+        //System.out.println(banco.getData());
+        
+        //Checar se existe cartão
+        //System.out.println(banco.checkCartaoDB("11111111")); //true
+        //System.out.println(banco.checkCartaoDB("00000000")); //false
     }
 }
