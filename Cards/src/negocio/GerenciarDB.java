@@ -348,4 +348,44 @@ public class GerenciarDB {
         return Matrix;
     }
     
+    public boolean checkEstabelecimentoDB(String CNPJ)throws Exception {
+        boolean resp;
+        conectaDB();
+        String query;
+        query = "SELECT * FROM estabelecimento WHERE CNPJ = '"+CNPJ+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+        ResultSet retorno = exe.executeQuery();
+        String Est = null;
+        while (retorno.next()) { 
+           Est = retorno.getString(1);
+        }
+        desconectaDB();
+        if (Est==null){
+            resp = false;
+        } else {
+            resp = true;
+        }
+        return resp;
+    }
+        
+    public boolean checkUsuarioDB(String CPF)throws Exception {
+        boolean resp;
+        conectaDB();
+        String query;
+        query = "SELECT * FROM usuario WHERE CPF = '"+CPF+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+        ResultSet retorno = exe.executeQuery();
+        String user = null;
+        while (retorno.next()) { 
+           user = retorno.getString(1);
+        }
+        desconectaDB();
+        if (user==null){
+            resp = false;
+        } else {
+            resp = true;
+        }
+        return resp;
+    }
+    
 }
