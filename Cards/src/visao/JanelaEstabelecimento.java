@@ -37,6 +37,7 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
         SenhaLabel = new javax.swing.JLabel();
         SenhaCartao = new javax.swing.JPasswordField();
         BotaoEnviar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iStore");
@@ -79,7 +80,15 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
                 BotaoEnviarActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 80, 30));
+        getContentPane().add(BotaoEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 100, 30));
+
+        jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 100, 30));
 
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
@@ -107,6 +116,14 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Existe algum campo em branco.");
             }
     }//GEN-LAST:event_BotaoEnviarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        JanelaInicioAdmin frame = new JanelaInicioAdmin();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +168,7 @@ public class JanelaEstabelecimento extends javax.swing.JFrame {
     private javax.swing.JTextField Valor;
     private javax.swing.JLabel ValorLabel;
     private javax.swing.JLabel iStoreLabel;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 
 }
