@@ -320,29 +320,32 @@ public class GerenciarDB {
         return resp;
     }
     
-    public List getExtratoUsuario(String IDcartao)throws Exception {
+    public String[][] getExtratoUsuario(String IDcartao)throws Exception {
         conectaDB();
         String query;
         query = "SELECT * FROM extrato WHERE IDcartao = '"+IDcartao+"'";
         PreparedStatement exe = conexao.prepareStatement(query);
         ResultSet retorno = exe.executeQuery();
      
-        List pessoas = new ArrayList();
-        List valores = new ArrayList();
-        List datas = new ArrayList();
-        List infos = new ArrayList();
-        
-        while (retorno.next()) { 
+        ArrayList valores = new ArrayList();
+        ArrayList datas = new ArrayList();
+        ArrayList pessoas = new ArrayList();
+
+        while (retorno.next()) {
            pessoas.add(retorno.getString(2));
            valores.add(retorno.getString(3));
            datas.add(retorno.getString(4));
         }
         desconectaDB();
-        infos.add(pessoas);
-        infos.add(valores);
-        infos.add(datas);
         
-        return infos;
+        String[][] Matrix = new String[datas.size()][3];
+        int tamanho = datas.size();
+        for (int i = 0; i<tamanho; i++){
+            Matrix[i][0] = datas.get(i)+"";
+            Matrix[i][1] = pessoas.get(i)+"";
+            Matrix[i][2] = valores.get(i)+"";
+        }
+        return Matrix;
     }
 
 } 

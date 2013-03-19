@@ -1,5 +1,6 @@
 package xCards;
 
+import java.util.ArrayList;
 import negocio.GerenciarDB;
 
 /**
@@ -76,9 +77,12 @@ public class mainTeste {
         //System.out.println(banco.checkCartaoDB("00000000")); //false
         
         //Pegar Extrato do banco
-        //System.out.println(banco.getExtratoUsuario("11111111"));
-        //System.out.println(banco.getExtratoUsuario("11111111").get(0));
-        //System.out.println(banco.getExtratoUsuario("11111111").get(1));
-        //System.out.println(banco.getExtratoUsuario("11111111").get(2));
+        String[][] mtx = banco.getExtratoUsuario("11111111");
+        System.out.println(mtx[0][0]+"\t"+mtx[0][1]+"\t"+mtx[0][2]);
+        System.out.println(mtx[1][0]+"\t"+mtx[1][1]+"\t"+mtx[1][2]);
+        System.out.println(mtx[2][0]+"\t"+mtx[2][1]+"\t"+mtx[2][2]);
+        System.out.println(mtx[3][0]+"\t"+mtx[3][1]+"\t"+mtx[3][2]);
+
+        
     }
 }
