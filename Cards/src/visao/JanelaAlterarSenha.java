@@ -34,6 +34,8 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         todosCampos = new javax.swing.JLabel();
         conferirSenha = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Alterar Senha");
@@ -69,7 +71,7 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
                 ConfirmarAlterarSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(ConfirmarAlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(569, 413, 100, 30));
+        getContentPane().add(ConfirmarAlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 100, 30));
 
         NovaSenhaLabel.setText("Repita sua nova senha:");
         getContentPane().add(NovaSenhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
@@ -88,8 +90,24 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         getContentPane().add(conferirSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 210, 30));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 300, 30));
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
+        jButton1.setText("Limpar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 100, 30));
+
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 420, 100, 30));
+
+        setSize(new java.awt.Dimension(728, 514));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfirmarAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarAlterarSenhaActionPerformed
@@ -156,6 +174,21 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NovaSenhaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Limpar
+        SenhaAtual.setText("");
+        RepitaSenha.setText("");
+        NovaSenha.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        JanelaUsuario frame = new JanelaUsuario();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -201,6 +234,8 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
     private javax.swing.JPasswordField SenhaAtual;
     private javax.swing.JLabel SenhaAtualLabel;
     private javax.swing.JLabel conferirSenha;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel todosCampos;
     // End of variables declaration//GEN-END:variables
