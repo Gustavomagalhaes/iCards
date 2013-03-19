@@ -124,9 +124,6 @@ public class JanelaRecarga extends javax.swing.JFrame {
         String CNPJ = null;
         String data = banco.getData();
         
-     
-        JOptionPane.showMessageDialog(null, verNumCartao); //testee
-        
         GerenciarDB cartao = new GerenciarDB();
         
         boolean CheckedIDcartao = false;
