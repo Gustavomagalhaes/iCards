@@ -82,6 +82,21 @@ public class mainTeste {
         for (i=0;i<mtx[0].length;i++){
             System.out.println(mtx[0][i]+"\t"+mtx[1][i]+"\t"+mtx[2][i]);
         }
+        for (i=0;i<mtx[0].length;i++){
+            System.out.println(mtx[1][i]); //imprimindo só os ESTABELECIMENTO/PESSOAS do extrato
+        }
         
-    }
+        //mtx[0] para DATAS mtx[1] para nomes e mtx[2] para valores. Só gerar as tabelas tamanho certo. TIPO ASSIM:
+        
+        String[] Datas = new String[mtx[0].length];
+        String[] Nomes = new String[mtx[1].length];
+        String[] Valores = new String[mtx[2].length];
+        
+        for (i=0;i<mtx[0].length;i++){ //Criando listas separadas de cada coisinha.
+            Datas[i] = mtx[0][i];
+            Nomes[i] = mtx[1][i];
+            Valores[i] = mtx[2][i];
+        }
+        
+}
 }
