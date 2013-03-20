@@ -62,6 +62,11 @@ public class JanelaInicioEst extends javax.swing.JFrame {
         }  
         catch (Exception e){  
         }
+        CNPJLoja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CNPJLojaActionPerformed(evt);
+            }
+        });
 
         ErroAcessoEst.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -70,11 +75,10 @@ public class JanelaInicioEst extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(299, 299, 299)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(BotaoLogin)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(299, 299, 299)
-                        .addComponent(iCards)))
+                    .addComponent(iCards))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 247, Short.MAX_VALUE)
@@ -146,6 +150,10 @@ public class JanelaInicioEst extends javax.swing.JFrame {
         }             
         
     }//GEN-LAST:event_BotaoLoginActionPerformed
+
+    private void CNPJLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNPJLojaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CNPJLojaActionPerformed
 
     /**
      * @param args the command line arguments
