@@ -5,13 +5,14 @@
 package visao;
 
 import bean.Cartao;
-import visao.JanelaInicioAdmin;
+import visao.JanelaTecladoNumerico;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import negocio.GerenciarCartao;
 import negocio.GerenciarDB;
+
 
 /**
  *
@@ -71,6 +72,12 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
 
         SenhadeAcesso.setText("Senha de acesso:");
         getContentPane().add(SenhadeAcesso, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 120, 30));
+
+        SenhaAcessoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SenhaAcessoUsuarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(SenhaAcessoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 110, 30));
 
         BotaoEntrarUsuario.setText("Entrar");
@@ -168,6 +175,17 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_IrparaHomeActionPerformed
 
+    private void SenhaAcessoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenhaAcessoUsuarioActionPerformed
+        // TODO add your handling code here:
+       Cartao c = new Cartao();
+       SenhaAcessoUsuario.setText(c.getSenhaCartao()); 
+       String senha = SenhaAcessoUsuario.getText();
+       
+    
+        
+    }//GEN-LAST:event_SenhaAcessoUsuarioActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
