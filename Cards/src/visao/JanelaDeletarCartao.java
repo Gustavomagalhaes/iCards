@@ -4,6 +4,10 @@
  */
 package visao;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import negocio.GerenciarDB;
+
 /**
  *
  * @author Rafaella
@@ -31,6 +35,7 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
         CancelarDelCartao = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         IDCartao = new javax.swing.JLabel();
+        todosCampos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Deletar Cartão");
@@ -72,7 +77,9 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(IDCartao)
                         .addGap(18, 18, 18)
-                        .addComponent(DelIDCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(DelIDCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(235, 235, 235)
                         .addComponent(jLabel1))
@@ -91,7 +98,8 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
                 .addGap(87, 87, 87)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IDCartao)
-                    .addComponent(DelIDCartao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DelIDCartao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConfirmarDelCartao)
@@ -105,14 +113,30 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
     private void ConfirmarDelCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarDelCartaoActionPerformed
         // TODO add your handling code here:
         String delCartao = DelIDCartao.getText().replace("[-]","");
+        if ((delCartao.isEmpty()) || ("        ".equals(delCartao)) ) {
+            todosCampos.setText("O campo deve ser preenchido");
+        } else {
+            try {
+                 GerenciarDB cartao = new GerenciarDB();
+                 cartao.delCartao(delCartao);
+                 
+                 JanelaInicioAdmin frame = new JanelaInicioAdmin();
+                 frame.setLocationRelativeTo(null);
+                 frame.setVisible(true);
+                 this.dispose();
+
+            } catch (Exception ex) {
+                Logger.getLogger(JanelaDeletarCartao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_ConfirmarDelCartaoActionPerformed
 
     private void CancelarDelCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarDelCartaoActionPerformed
-        // TODO add your handling code here:
+        //TODO add your handling code here:
         this.dispose();
         JanelaInicioAdmin frame = new JanelaInicioAdmin();
         frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        //frame.setVisible(true);
     }//GEN-LAST:event_CancelarDelCartaoActionPerformed
 
     /**
@@ -155,5 +179,6 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField DelIDCartao;
     private javax.swing.JLabel IDCartao;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel todosCampos;
     // End of variables declaration//GEN-END:variables
 }
