@@ -15,6 +15,10 @@ public class Cartao {
         this.numero = numero;
     }
 
+    public Cartao() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getSenhaOnlineTitular() {
         return senhaOnlineTitular;
     }
