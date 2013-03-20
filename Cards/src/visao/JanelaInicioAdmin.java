@@ -216,19 +216,24 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
 
     private void LoginEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginEstActionPerformed
         // TODO add your handling code here:
+
         this.dispose();
         JanelaInicioEst frame = new JanelaInicioEst();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         
+
     }//GEN-LAST:event_LoginEstActionPerformed
 
     private void LoginUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginUsActionPerformed
-        // Encamonha para a janela de InicioUsuario
+        
         JanelaInicioUsuario frame = new JanelaInicioUsuario();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         this.dispose();
+        JanelaTecladoNumerico frame1 = new JanelaTecladoNumerico();
+        frame1.setLocationRelativeTo(null);
+        frame1.setVisible(true);
     }//GEN-LAST:event_LoginUsActionPerformed
 
     private void cadastrarEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarEstActionPerformed
