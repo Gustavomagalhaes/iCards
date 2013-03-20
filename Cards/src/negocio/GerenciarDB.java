@@ -1,6 +1,5 @@
 package negocio;
 
-import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,12 +16,14 @@ import java.util.Calendar;
 public class GerenciarDB {
     static Connection conexao;
    
+    /**
+     * Faz a conexão com o banco de dados
+     */
     public static void conectaDB() throws ClassNotFoundException{ //FUNCIONANDO
         String driver = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://icards.serveftp.com:3306/ICARDS";
         String login = "panda";
         String password = "bazinga";
-        //Funcionando
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url,login,password);
@@ -34,16 +35,25 @@ public class GerenciarDB {
         }
     }
     
+    /**
+     * desfaz a conexão com o banco de dados
+     */
     public static void desconectaDB()throws Exception{
         conexao.close();
     }
     
+    /**
+     * executa um comando sql para acesso ao banco
+     */
     public static void executaDB(String query)throws Exception{
         Statement exe = conexao.createStatement();
         exe.executeUpdate(query);
         exe.close();
     }
     
+    /**
+     * @param Usuario para adição na tabela usuario do banco de dados
+     */
     public void addUsuario(String CPF,String nome,String email,String endereco,String telefone,String datanascimento,String nacionalidade,String tipousuario,String CPFtitular) throws Exception{
         conectaDB();
         String query;
@@ -52,6 +62,9 @@ public class GerenciarDB {
         desconectaDB();
     }
     
+    /**
+     * @param Estabelecimento para adição na tabela estabelecimento do banco de dados
+     */
     public void addEstabelecimento(String CNPJ, String nome, String telefone)throws Exception{
         conectaDB();
         String query;
@@ -60,6 +73,9 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
+    /**
+     * @param Cartao, Usuario para adição na tabela cartão do banco de dados
+     */
     public void addCartao(String IDcartao, String CPF)throws Exception{
         conectaDB();
         String query;
@@ -68,6 +84,9 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
+    /**
+     * @param para adição na tabela extrato do banco de dados
+     */
     public void addExtrato(String pessoa, String valor, String data, String CNPJ, String IDcartao)throws Exception{
         conectaDB();
         String query;
@@ -81,6 +100,9 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
+    /**
+     * @param CPF para deleção na tabela usuario do banco de dados
+     */
     public void delUsuario(String CPF)throws Exception{
         conectaDB();
         String query;
@@ -89,6 +111,9 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
+    /**
+     * @param CNPJ para deleção na tabela estabelecimento do banco de dados
+     */
     public void delEstabelecimento(String CNPJ)throws Exception{
         conectaDB();
         String query;
@@ -96,7 +121,9 @@ public class GerenciarDB {
         executaDB(query);
         desconectaDB(); 
     }
-    
+    /**
+     * @param IDcartao para deleção na tabela cartao do banco de dados
+     */
     public void delCartao(String IDcartao)throws Exception{
         conectaDB();
         String query;
@@ -105,14 +132,10 @@ public class GerenciarDB {
         desconectaDB(); 
     }
     
-    public void delExtrato(String IDextrato)throws Exception{
-        conectaDB();
-        String query;
-        query = "DELETE FROM extrato WHERE IDextrato = '"+IDextrato+"'";
-        executaDB(query);
-        desconectaDB(); 
-    }
-    
+    /**
+     * @param CPF,senha,tipo para checagem na tabela cartao do banco de dados
+     * @return true or false
+     */
     public boolean checkSenhaCartaoDB(String IDcartao, String senha, int tipo)throws Exception{
         conectaDB();
         String query;
@@ -142,6 +165,9 @@ public class GerenciarDB {
         return resp;
     }
     
+    /**
+     * @param CPF,senha,tipo para checagem na tabela cartao do banco de dados
+     */
     public void updateSenhaCartaoDB(String IDcartao, String senha, int tipo)throws Exception{
         conectaDB();
         String query;
@@ -158,6 +184,10 @@ public class GerenciarDB {
         desconectaDB();
     }
     
+    /**
+     * @param IDcartao para pegar saldo do cartao no banco de dados
+     * @return double saldo
+     */
     public double getSaldoCartaoDB(String IDcartao)throws Exception{
         conectaDB();
         String query;
@@ -174,6 +204,9 @@ public class GerenciarDB {
         return saldo; 
     }
     
+    /**
+     * @param CNPJ para pegar nome do estabelecimento no banco de dados
+     */
     public String getEstabelecimentoDB(String CNPJ)throws Exception{
         conectaDB();
         String query;
@@ -188,6 +221,9 @@ public class GerenciarDB {
         return nome; 
     }
     
+    /**
+     * @param IDcartao,saldoatual, operação, valor para fazer update de saldo do cartao no banco de dados
+     */
     public void updateSaldoCartaoDB(String IDcartao, double saldoatual, String operation, double valor)throws Exception{
         conectaDB();
         String query;
@@ -204,6 +240,10 @@ public class GerenciarDB {
         desconectaDB();
     }
     
+    /**
+     * @param CNPJ para pegar venda total do estabelecimento no banco de dados
+     * @return double vendatotal
+     */
     public double getVendaTotalEstabelecimentoDB(String CNPJ)throws Exception{
         conectaDB();
         String query;
@@ -220,6 +260,9 @@ public class GerenciarDB {
         return valor; 
     }
     
+    /**
+     * @param CNPJ para pegar fazer update da venda total do estabelecimento no banco de dados
+     */
     public void updateVendaTotalEstabelecimentoDB(String CNPJ, double saldoatual, double valor)throws Exception{
         conectaDB();
         String query;
@@ -229,6 +272,9 @@ public class GerenciarDB {
         desconectaDB();
     }
 
+    /**
+     * @param IDcartao e operacao para (des)bloquear cartao no banco de dados
+     */
     public void bloquearCartaoDB(String IDcartao, String operation)throws Exception{
         conectaDB();
         String query;
@@ -243,6 +289,10 @@ public class GerenciarDB {
         desconectaDB();
     }
     
+    /**
+     * @param IDcartao para checar se o cartao está bloqueado
+     * @return true or false
+     */
     public boolean checkStatusCartaoBloqueadoDB(String IDcartao)throws Exception{
         conectaDB();
         String query;
@@ -265,14 +315,20 @@ public class GerenciarDB {
         return resp; 
     }
     
-    public void updateSenhaEstabelecimentoDB(String CNPJ, String senha)throws Exception{
+    /**
+     * @param CNPJ e novasenha para fazer update na tabela estabelecimento no banco de dados
+     */
+    public void updateSenhaEstabelecimentoDB(String CNPJ, String novasenha)throws Exception{
         conectaDB();
         String query;
-        query = "UPDATE estabelecimento SET senhaCNPJ = '"+senha+"' WHERE CNPJ = '"+CNPJ+"'";
+        query = "UPDATE estabelecimento SET senhaCNPJ = '"+novasenha+"' WHERE CNPJ = '"+CNPJ+"'";
         executaDB(query);
         desconectaDB();
     }
     
+    /**
+     * @param CNPJ e senha para checar a senha do estabelecimento no banco de dados
+     */
     public boolean checkSenhaEstabelecimentoDB(String CNPJ, String senha)throws Exception{
         conectaDB();
         String query;
@@ -293,6 +349,9 @@ public class GerenciarDB {
         return resp;
     }
     
+    /**
+     * Pega a data do sistema
+     */
     public String getData(){
         Calendar data = Calendar.getInstance();
         SimpleDateFormat now = new SimpleDateFormat("dd/MM/yyyy");
@@ -300,6 +359,10 @@ public class GerenciarDB {
         return today;
     }
 
+    /**
+     * @param IDcartao  para checar se existe cartao na tabela cartao no banco de dados
+     * @return true or false
+     */
     public boolean checkCartaoDB(String IDcartao)throws Exception {
         boolean resp;
         conectaDB();
@@ -320,6 +383,10 @@ public class GerenciarDB {
         return resp;
     }
     
+    /**
+     * @param IDcartao e gera o extrato do usuário no banco de dados
+     * @return Matrix[][]
+     */
     public String[][] getExtratoUsuario(String IDcartao)throws Exception {
         conectaDB();
         String query;
@@ -348,6 +415,10 @@ public class GerenciarDB {
         return Matrix;
     }
     
+    /**
+     * @param CNPJ  para checar se existe estabelecimento na tabela estabelecimento no banco de dados
+     * @return true or false
+     */
     public boolean checkEstabelecimentoDB(String CNPJ)throws Exception {
         boolean resp;
         conectaDB();
@@ -367,7 +438,11 @@ public class GerenciarDB {
         }
         return resp;
     }
-        
+    
+    /**
+     * @param CPF  para checar se existe Usuario na tabela usuario no banco de dados
+     * @return true or false
+     */
     public boolean checkUsuarioDB(String CPF)throws Exception {
         boolean resp;
         conectaDB();
