@@ -84,7 +84,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                     .addComponent(cadastrarUs, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LoginUs, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(excluirUs, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +93,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                 .addComponent(LoginUs, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
                 .addComponent(cadastrarUs, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(excluirUs, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
@@ -112,6 +112,11 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         });
 
         excluirCartao.setText("Excluir");
+        excluirCartao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirCartaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,7 +127,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(excluirCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastrarCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +136,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                 .addComponent(cadastrarCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
                 .addComponent(excluirCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 190, 360));
@@ -155,6 +160,11 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         });
 
         excluirEst.setText("Excluir");
+        excluirEst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirEstActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -173,7 +183,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(LoginEst, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(cadastrarEst, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(excluirEst, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,6 +206,12 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
 
     private void excluirUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirUsActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        JanelaDeletarUsuario frame = new JanelaDeletarUsuario();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        
+        
     }//GEN-LAST:event_excluirUsActionPerformed
 
     private void LoginEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginEstActionPerformed
@@ -225,6 +241,22 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cadastrarCartaoActionPerformed
+
+    private void excluirCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirCartaoActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        JanelaDeletarCartao frame = new JanelaDeletarCartao();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }//GEN-LAST:event_excluirCartaoActionPerformed
+
+    private void excluirEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirEstActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        JanelaDeletarEst frame = new JanelaDeletarEst();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }//GEN-LAST:event_excluirEstActionPerformed
 
     /**
      * @param args the command line arguments
