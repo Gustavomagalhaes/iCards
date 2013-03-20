@@ -112,19 +112,22 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
 
     private void ConfirmarDelCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarDelCartaoActionPerformed
         // TODO add your handling code here:
-        String delCartao = DelIDCartao.getText().replace("[-]","");
-        if ((delCartao.isEmpty()) || ("        ".equals(delCartao)) ) {
+        String IDcartao = DelIDCartao.getText().replaceAll("[-]","");
+        if ((IDcartao.isEmpty()) || ("        ".equals(IDcartao)) ) {
             todosCampos.setText("O campo deve ser preenchido");
         } else {
             try {
-                 GerenciarDB cartao = new GerenciarDB();
-                 cartao.delCartao(delCartao);
+                 GerenciarDB banco = new GerenciarDB();
                  
-                 JanelaInicioAdmin frame = new JanelaInicioAdmin();
-                 frame.setLocationRelativeTo(null);
-                 frame.setVisible(true);
-                 this.dispose();
-
+                 if (banco.checkCartaoDB(IDcartao)) {
+                    banco.delCartao(IDcartao);
+                    JanelaInicioAdmin frame = new JanelaInicioAdmin();
+                    frame.setLocationRelativeTo(null);
+                    frame.setVisible(true);
+                    this.dispose();
+                 } else {
+                     System.out.println("NAO EXISTE ESSE CARTAO ERRO");
+                 }
             } catch (Exception ex) {
                 Logger.getLogger(JanelaDeletarCartao.class.getName()).log(Level.SEVERE, null, ex);
             }
