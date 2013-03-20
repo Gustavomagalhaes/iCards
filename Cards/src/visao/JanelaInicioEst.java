@@ -132,7 +132,7 @@ public class JanelaInicioEst extends javax.swing.JFrame {
             
             if (acesso){
                 this.dispose();
-                JanelaEstabelecimento frame = new JanelaEstabelecimento();
+                JanelaDebito frame = new JanelaDebito();
                 //frame.CNPJ = cnpj;
                // frame.senha = senha;
                 frame.setLocationRelativeTo(null);
