@@ -76,27 +76,39 @@ public class mainTeste {
         //System.out.println(banco.checkCartaoDB("11111111")); //true
         //System.out.println(banco.checkCartaoDB("00000000")); //false
         
-        //Pegar Extrato do banco
+        //Pegar Extrato do banco 
+        
         String[][] mtx = banco.getExtratoUsuario("11111111");
         int i;
-        for (i=0;i<mtx[0].length;i++){
+        //for (i=0;i<mtx[0].length;i++){
+        for (i=(mtx[0].length)-1;i>=0;i--){
             System.out.println(mtx[0][i]+"\t"+mtx[1][i]+"\t"+mtx[2][i]);
         }
-        for (i=0;i<mtx[0].length;i++){
-            System.out.println(mtx[1][i]); //imprimindo só os ESTABELECIMENTO/PESSOAS do extrato
+        
+        System.out.println("\nTeste de Estabelecimento\n");
+        
+        String[][] ext = banco.getExtratoEst("22222222222222");
+        int j;
+        for (j=(ext[0].length)-1;j>=0;j--){
+            System.out.println(ext[0][j]+"\t"+ext[1][j]+"\t"+ext[2][j]);
         }
+        
+        
+        //for (i=0;i<mtx[0].length;i++){
+            //System.out.println(mtx[1][i]); //imprimindo só os ESTABELECIMENTO/PESSOAS do extrato
+        //}
         
         //mtx[0] para DATAS mtx[1] para nomes e mtx[2] para valores. Só gerar as tabelas tamanho certo. TIPO ASSIM:
         
-        String[] Datas = new String[mtx[0].length];
-        String[] Nomes = new String[mtx[1].length];
-        String[] Valores = new String[mtx[2].length];
+        //String[] Datas = new String[mtx[0].length];
+        //String[] Nomes = new String[mtx[1].length];
+        //String[] Valores = new String[mtx[2].length];
         
-        for (i=0;i<mtx[0].length;i++){ //Criando listas separadas de cada coisinha.
-            Datas[i] = mtx[0][i];
-            Nomes[i] = mtx[1][i];
-            Valores[i] = mtx[2][i];
-        }
+        //for (i=0;i<mtx[0].length;i++){ //Criando listas separadas de cada coisinha.
+        //    Datas[i] = mtx[0][i];
+        //    Nomes[i] = mtx[1][i];
+        //    Valores[i] = mtx[2][i];
+        //}
         
 }
 }

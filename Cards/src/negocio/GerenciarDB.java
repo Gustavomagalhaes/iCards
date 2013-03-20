@@ -410,7 +410,7 @@ public class GerenciarDB {
         
         String[][] Matrix = new String[3][datas.size()];
         int tamanho = datas.size();
-        for (int i = 0; i<tamanho; i++){
+        for (int i = tamanho-1; i>=0; i--){
             Matrix[0][i] = datas.get(i)+"";
             Matrix[1][i] = pessoas.get(i)+"";
             Matrix[2][i] = valores.get(i)+"";
@@ -442,7 +442,7 @@ public class GerenciarDB {
         
         String[][] Matrix = new String[3][datas.size()];
         int tamanho = datas.size();
-        for (int i = 0; i<tamanho; i++){
+        for (int i = tamanho-1; i>=0; i--){
             Matrix[0][i] = datas.get(i)+"";
             Matrix[1][i] = pessoas.get(i)+"";
             Matrix[2][i] = valores.get(i)+"";
