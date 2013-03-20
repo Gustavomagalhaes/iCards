@@ -44,10 +44,12 @@
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       <Component id="DelCNPJ" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="DeletarLoja" min="-2" pref="157" max="-2" attributes="0"/>
+                      <Component id="deletarLoja" min="-2" pref="157" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="todosCampos" min="-2" pref="181" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="172" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -59,7 +61,8 @@
               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="DelCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="DeletarLoja" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="deletarLoja" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="todosCampos" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="201" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -101,10 +104,15 @@
         <Property name="text" type="java.lang.String" value="Deletar Estabelecimento"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="DeletarLoja">
+    <Component class="javax.swing.JFormattedTextField" name="deletarLoja">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deletarLojaActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{  &#xd;&#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;##.###.###/####-##&quot;);  &#xd;&#xa;   DeletarLoja = new javax.swing.JFormattedTextField(data);  &#xd;&#xa;}  &#xd;&#xa;   catch (Exception e){  &#xd;&#xa;}   "/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{  &#xd;&#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;##.###.###/####-##&quot;);  &#xd;&#xa;   deletarLoja = new javax.swing.JFormattedTextField(data);  &#xd;&#xa;}  &#xd;&#xa;   catch (Exception e){  &#xd;&#xa;}   "/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="todosCampos">
     </Component>
   </SubComponents>
 </Form>

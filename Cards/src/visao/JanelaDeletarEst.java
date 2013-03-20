@@ -4,6 +4,10 @@
  */
 package visao;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import negocio.GerenciarDB;
+
 /**
  *
  * @author Leandro
@@ -30,7 +34,8 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
         CancelarDelLoja = new javax.swing.JButton();
         DelCNPJ = new javax.swing.JLabel();
         DeletarEstabelecimento = new javax.swing.JLabel();
-        DeletarLoja = new javax.swing.JFormattedTextField();
+        deletarLoja = new javax.swing.JFormattedTextField();
+        todosCampos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Deletar Estabelecimento");
@@ -57,10 +62,15 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
 
         try{  
             javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##.###.###/####-##");  
-            DeletarLoja = new javax.swing.JFormattedTextField(data);  
+            deletarLoja = new javax.swing.JFormattedTextField(data);  
         }  
         catch (Exception e){  
         }
+        deletarLoja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletarLojaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,8 +91,10 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
                         .addGap(66, 66, 66)
                         .addComponent(DelCNPJ)
                         .addGap(18, 18, 18)
-                        .addComponent(DeletarLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(deletarLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +104,8 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
                 .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DelCNPJ)
-                    .addComponent(DeletarLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deletarLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConfirmarDelLoja)
@@ -105,9 +118,32 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
 
     private void ConfirmarDelLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarDelLojaActionPerformed
         // TODO add your handling code here:
-        String DelCNPJ = DeletarLoja.getText().replaceAll("[.]","");
-        DelCNPJ = DelCNPJ.replace("[/]","");
-        DelCNPJ = DelCNPJ.replace("[-]","");
+        String CNPJ = deletarLoja.getText().replaceAll("[.]","");
+        CNPJ = CNPJ.replaceAll("[/]","");
+        CNPJ = CNPJ.replaceAll("[-]","");
+        
+        if ((CNPJ.isEmpty()) || ("        ".equals(CNPJ)) ) {
+            todosCampos.setText("O campo deve ser preenchido");
+        } else {
+            try {
+                 GerenciarDB banco = new GerenciarDB();
+                 
+                 if (banco.checkEstabelecimentoDB(CNPJ)) {
+                    banco.delEstabelecimento(CNPJ);
+                    JanelaInicioAdmin frame = new JanelaInicioAdmin();
+                    frame.setLocationRelativeTo(null);
+                    frame.setVisible(true);
+                    this.dispose();
+                 } else {
+                     System.out.println("NAO EXISTE ESSE CARTAO ERRO");
+                 }
+            } catch (Exception ex) {
+                Logger.getLogger(JanelaDeletarCartao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+        
     }//GEN-LAST:event_ConfirmarDelLojaActionPerformed
 
     private void CancelarDelLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarDelLojaActionPerformed
@@ -117,6 +153,10 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }//GEN-LAST:event_CancelarDelLojaActionPerformed
+
+    private void deletarLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarLojaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deletarLojaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,6 +197,7 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
     private javax.swing.JButton ConfirmarDelLoja;
     private javax.swing.JLabel DelCNPJ;
     private javax.swing.JLabel DeletarEstabelecimento;
-    private javax.swing.JFormattedTextField DeletarLoja;
+    private javax.swing.JFormattedTextField deletarLoja;
+    private javax.swing.JLabel todosCampos;
     // End of variables declaration//GEN-END:variables
 }
