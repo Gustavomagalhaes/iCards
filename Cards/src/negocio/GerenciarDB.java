@@ -1,5 +1,8 @@
 package negocio;
 
+import bean.Cartao;
+import bean.Estabelecimento;
+import bean.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -54,10 +57,10 @@ public class GerenciarDB {
     /**
      * @param Usuario para adição na tabela usuario do banco de dados
      */
-    public void addUsuario(String CPF,String nome,String email,String endereco,String telefone,String datanascimento,String nacionalidade,String tipousuario,String CPFtitular) throws Exception{
+    public void addUsuario(Usuario user) throws Exception{
         conectaDB();
         String query;
-        query = "INSERT INTO usuario (CPF, nome, email,endereco, telefone, datanascimento, nacionalidade, tipousuario, CPFtitular) VALUES ('"+CPF+"','"+nome+"','"+email+"','"+endereco+"','"+telefone+"','"+datanascimento+"','"+nacionalidade+"','"+tipousuario+"','"+CPFtitular+"')";
+        query = "INSERT INTO usuario (CPF, nome, email,endereco, telefone, datanascimento, nacionalidade, tipousuario, CPFtitular) VALUES ('"+user.getCpf()+"','"+user.getNome()+"','"+user.getEmail()+"','"+user.getEndereco()+"','"+user.getTelefone()+"','"+user.getDatanascimento()+"','"+user.getNacionalidade()+"','"+user.getTipoUsuario()+"','"+user.getCPFtitular()+"')";
         executaDB(query);
         desconectaDB();
     }
@@ -65,10 +68,10 @@ public class GerenciarDB {
     /**
      * @param Estabelecimento para adição na tabela estabelecimento do banco de dados
      */
-    public void addEstabelecimento(String CNPJ, String nome, String telefone)throws Exception{
+    public void addEstabelecimento(Estabelecimento shop)throws Exception{
         conectaDB();
         String query;
-        query = "INSERT INTO estabelecimento (CNPJ, nome, telefone, senhaCNPJ) VALUES ('"+CNPJ+"','"+nome+"','"+telefone+"',"+"'Est1234'"+")";
+        query = "INSERT INTO estabelecimento (CNPJ, nome, telefone, senhaCNPJ) VALUES ('"+shop.getCNPJ()+"','"+shop.getNome()+"','"+shop.getTelefone()+"',"+"'Est1234'"+")";
         executaDB(query);
         desconectaDB(); 
     }
@@ -76,10 +79,10 @@ public class GerenciarDB {
     /**
      * @param Cartao, Usuario para adição na tabela cartão do banco de dados
      */
-    public void addCartao(String IDcartao, String CPF)throws Exception{
+    public void addCartao(Cartao card)throws Exception{
         conectaDB();
         String query;
-        query = "INSERT INTO cartao (IDcartao, CPF, bloqueado) VALUES ('"+IDcartao+"','"+CPF+"',"+"'SIM'"+")";
+        query = "INSERT INTO cartao (IDcartao, CPF, bloqueado) VALUES ('"+card.getNumero()+"','"+card.getCPFUsuario()+"',"+"'SIM'"+")";
         executaDB(query);
         desconectaDB(); 
     }
@@ -391,6 +394,38 @@ public class GerenciarDB {
         conectaDB();
         String query;
         query = "SELECT * FROM extrato WHERE IDcartao = '"+IDcartao+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+        ResultSet retorno = exe.executeQuery();
+     
+        ArrayList valores = new ArrayList();
+        ArrayList datas = new ArrayList();
+        ArrayList pessoas = new ArrayList();
+
+        while (retorno.next()) {
+           pessoas.add(retorno.getString(2));
+           valores.add(retorno.getString(3));
+           datas.add(retorno.getString(4));
+        }
+        desconectaDB();
+        
+        String[][] Matrix = new String[3][datas.size()];
+        int tamanho = datas.size();
+        for (int i = 0; i<tamanho; i++){
+            Matrix[0][i] = datas.get(i)+"";
+            Matrix[1][i] = pessoas.get(i)+"";
+            Matrix[2][i] = valores.get(i)+"";
+        }
+        return Matrix;
+    }
+    
+        /**
+     * @param CNPJ e gera o extrato do usuário no banco de dados
+     * @return Matrix[][]
+     */
+    public String[][] getExtratoEst(String CNPJ)throws Exception {
+        conectaDB();
+        String query;
+        query = "SELECT * FROM extrato WHERE CNPJ = '"+CNPJ+"'";
         PreparedStatement exe = conexao.prepareStatement(query);
         ResultSet retorno = exe.executeQuery();
      
