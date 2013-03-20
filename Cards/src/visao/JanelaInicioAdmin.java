@@ -231,9 +231,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         this.dispose();
-        JanelaTecladoNumerico frame1 = new JanelaTecladoNumerico();
-        frame1.setLocationRelativeTo(null);
-        frame1.setVisible(true);
+        
     }//GEN-LAST:event_LoginUsActionPerformed
 
     private void cadastrarEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarEstActionPerformed
