@@ -4,10 +4,6 @@
  */
 package visao;
 
-import visao.JanelaInicioUsuario;
-import java.awt.Toolkit;
-import javax.swing.JOptionPane;
-import bean.Usuario;
 import negocio.GerenciarDB;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -223,6 +219,7 @@ public class JanelaRecarga extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new JanelaRecarga().setVisible(true);
             }

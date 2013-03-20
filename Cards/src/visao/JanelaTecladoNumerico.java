@@ -46,7 +46,8 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
 
         jButton12.setText("jButton12");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dois.setText("2");
         dois.setBorder(new javax.swing.border.MatteBorder(null));
@@ -55,6 +56,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 doisActionPerformed(evt);
             }
         });
+        getContentPane().add(dois, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 143, 45, 33));
 
         tres.setText("3");
         tres.setBorder(new javax.swing.border.MatteBorder(null));
@@ -63,6 +65,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 tresActionPerformed(evt);
             }
         });
+        getContentPane().add(tres, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 143, 45, 33));
 
         jButton4.setText("Limpar");
         jButton4.setBorder(new javax.swing.border.MatteBorder(null));
@@ -71,6 +74,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 182, 96, 33));
 
         zero.setText("0");
         zero.setBorder(new javax.swing.border.MatteBorder(null));
@@ -79,6 +83,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 zeroActionPerformed(evt);
             }
         });
+        getContentPane().add(zero, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 182, 45, 33));
 
         quatro.setText("4");
         quatro.setBorder(new javax.swing.border.MatteBorder(null));
@@ -87,6 +92,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 quatroActionPerformed(evt);
             }
         });
+        getContentPane().add(quatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 104, 45, 33));
 
         cinco.setText("5");
         cinco.setBorder(new javax.swing.border.MatteBorder(null));
@@ -95,6 +101,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 cincoActionPerformed(evt);
             }
         });
+        getContentPane().add(cinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 104, 45, 33));
 
         seis.setText("6");
         seis.setBorder(new javax.swing.border.MatteBorder(null));
@@ -103,6 +110,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 seisActionPerformed(evt);
             }
         });
+        getContentPane().add(seis, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 104, 45, 33));
 
         sete.setText("7");
         sete.setBorder(new javax.swing.border.MatteBorder(null));
@@ -111,6 +119,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 seteActionPerformed(evt);
             }
         });
+        getContentPane().add(sete, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 66, 45, 33));
 
         oito.setText("8");
         oito.setBorder(new javax.swing.border.MatteBorder(null));
@@ -119,6 +128,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 oitoActionPerformed(evt);
             }
         });
+        getContentPane().add(oito, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 66, 45, 33));
 
         nove.setText("9");
         nove.setBorder(new javax.swing.border.MatteBorder(null));
@@ -127,6 +137,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 noveActionPerformed(evt);
             }
         });
+        getContentPane().add(nove, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 66, 45, 33));
 
         um.setText("1");
         um.setBorder(new javax.swing.border.MatteBorder(null));
@@ -135,6 +146,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 umActionPerformed(evt);
             }
         });
+        getContentPane().add(um, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 143, 45, 33));
 
         jButton1.setText("Enter");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -142,87 +154,20 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 66, 71, 71));
 
         jButton2.setText("Sair");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 143, 71, 71));
 
         visor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 visorActionPerformed(evt);
             }
         });
+        getContentPane().add(visor, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 20, 228, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(visor)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(quatro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(sete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(um, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(oito, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(nove, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(dois, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tres, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cinco, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(seis, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(zero, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(visor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(sete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(oito, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nove, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(quatro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cinco, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(seis, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(dois, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tres, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(um, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(zero, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
-        );
-
-        pack();
+        setSize(new java.awt.Dimension(318, 278));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void seisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisActionPerformed

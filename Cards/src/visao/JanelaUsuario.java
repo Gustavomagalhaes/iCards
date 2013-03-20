@@ -1,9 +1,9 @@
 package visao;
 
 import bean.Cartao;
-import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import negocio.GerenciarCartao;
 import negocio.GerenciarDB;
 
@@ -19,6 +19,18 @@ public class JanelaUsuario extends javax.swing.JFrame {
      */
     public JanelaUsuario() {
         initComponents();
+        GerenciarDB banco = new GerenciarDB();
+        String[][] mtx;
+        try {
+            mtx = banco.getExtratoUsuario(IDcartao);
+            int i;
+        for (i=0;i<mtx[0].length;i++){
+            DefaultTableModel dtm = (DefaultTableModel) Historico.getModel();
+            dtm.addRow(new Object[]{mtx[0][i], mtx[1][i], mtx[2][i]});
+        }
+        } catch (Exception ex) {
+            Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -31,13 +43,14 @@ public class JanelaUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         iCliente = new javax.swing.JLabel();
-        Historico = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         SaldoLabel = new javax.swing.JLabel();
         Saldo = new javax.swing.JLabel();
         AlterarSenha = new javax.swing.JButton();
         ImprimirExtrato = new javax.swing.JButton();
         BloquearCartao = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Historico = new javax.swing.JTable();
+        Sair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iCliente");
@@ -47,18 +60,36 @@ public class JanelaUsuario extends javax.swing.JFrame {
         iCliente.setText("iCliente");
         getContentPane().add(iCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 11, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        SaldoLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        SaldoLabel.setText("Saldo atual:");
+        getContentPane().add(SaldoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 90, -1));
+
+        Saldo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Saldo.setText("$ 00,00");
+        getContentPane().add(Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 160, 30));
+
+        AlterarSenha.setText("Alterar senha");
+        AlterarSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlterarSenhaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(AlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 140, 35));
+
+        ImprimirExtrato.setText("Imprimir extrato");
+        getContentPane().add(ImprimirExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 140, 35));
+
+        BloquearCartao.setText("Desbloquear cartão");
+        BloquearCartao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BloquearCartaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BloquearCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 140, 35));
+
+        Historico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Data", "Estabelecimento", "Valor"
@@ -67,51 +98,35 @@ public class JanelaUsuario extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-        });
-        jTable1.setPreferredSize(new java.awt.Dimension(230, 0));
-        Historico.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(0).setResizable(false);
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(120);
-        jTable1.getColumnModel().getColumn(1).setResizable(false);
-        jTable1.getColumnModel().getColumn(1).setPreferredWidth(400);
-        jTable1.getColumnModel().getColumn(2).setResizable(false);
-        jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
 
-        getContentPane().add(Historico, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 540, 180));
-
-        SaldoLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        SaldoLabel.setText("Saldo atual:");
-        getContentPane().add(SaldoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 90, -1));
-
-        Saldo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Saldo.setText("$ 00,00");
-        getContentPane().add(Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 160, 30));
-
-        AlterarSenha.setText("Alterar senha");
-        AlterarSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlterarSenhaActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        getContentPane().add(AlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 281, 140, 35));
+        jScrollPane1.setViewportView(Historico);
+        Historico.getColumnModel().getColumn(0).setPreferredWidth(120);
+        Historico.getColumnModel().getColumn(1).setPreferredWidth(400);
+        Historico.getColumnModel().getColumn(2).setPreferredWidth(100);
 
-        ImprimirExtrato.setText("Imprimir extrato");
-        getContentPane().add(ImprimirExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 322, 140, 35));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 630, 250));
 
-        BloquearCartao.setText("Desbloquear cartão");
-        BloquearCartao.addActionListener(new java.awt.event.ActionListener() {
+        Sair.setText("Sair do sistema");
+        Sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BloquearCartaoActionPerformed(evt);
+                SairActionPerformed(evt);
             }
         });
-        getContentPane().add(BloquearCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 363, 140, 35));
+        getContentPane().add(Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 170, 30));
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-728)/2, (screenSize.height-514)/2, 728, 514);
+        setSize(new java.awt.Dimension(728, 514));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     private void AlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarSenhaActionPerformed
@@ -146,6 +161,15 @@ public class JanelaUsuario extends javax.swing.JFrame {
             Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BloquearCartaoActionPerformed
+
+    private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
+        // TODO add your handling code here:
+        //jTable2.setValueAt(VALOR, LINHA, COLUNA);
+        this.dispose();
+        JanelaInicioUsuario frame = new JanelaInicioUsuario();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }//GEN-LAST:event_SairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,12 +209,13 @@ public class JanelaUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlterarSenha;
     private javax.swing.JButton BloquearCartao;
-    private javax.swing.JScrollPane Historico;
+    private javax.swing.JTable Historico;
     private javax.swing.JButton ImprimirExtrato;
+    private javax.swing.JButton Sair;
     protected javax.swing.JLabel Saldo;
     private javax.swing.JLabel SaldoLabel;
     private javax.swing.JLabel iCliente;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -97,7 +97,7 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
         getContentPane().add(BotaoRecarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 130, 35));
 
         TipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Titular", "Dependente" }));
-        getContentPane().add(TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 140, 20));
+        getContentPane().add(TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 110, 30));
 
         ErroAcessoUsuario.setForeground(new java.awt.Color(255, 0, 0));
         getContentPane().add(ErroAcessoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, -1));
