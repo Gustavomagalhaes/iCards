@@ -132,11 +132,11 @@ public class JanelaInicioEst extends javax.swing.JFrame {
             
             if (acesso){
                 this.dispose();
-                JanelaDebito frame = new JanelaDebito();
+               // JanelaEstabelecimento frame = new JanelaEstabelecimento();
                 //frame.CNPJ = cnpj;
                // frame.senha = senha;
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
+                //frame.setLocationRelativeTo(null);
+             //   frame.setVisible(true);
             }
             else{
                 ErroAcessoEst.setText("Número do CNPJ ou senha incorreta.");
