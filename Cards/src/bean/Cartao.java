@@ -10,11 +10,17 @@ public class Cartao {
     private String senhaOnlineTitular;
     private String senhaOnlineDependente;
     private String senhaCartao;
+    private String cpfUsuario;
+    
+    public Cartao(String numero, String cpfUsuario) {
+        this.numero = numero;
+        this.cpfUsuario = cpfUsuario;
+    }
 
     public Cartao(String numero) {
         this.numero = numero;
     }
-
+    
     public Cartao() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -53,6 +59,14 @@ public class Cartao {
 
     public void setSenhaCartao(String senhaCartao) {
         this.senhaCartao = senhaCartao;
+    }
+    
+    public String getCPFUsuario() {
+        return cpfUsuario;
+    }
+
+    public void setCPFUsuario(String cpfUsuario) {
+        this.cpfUsuario = cpfUsuario;
     }
 
 }

@@ -10,6 +10,19 @@ public class Estabelecimento {
     private String telefone;
     private String CNPJ;
     
+    public Estabelecimento (String CNPJ, String nome, String telefone) {
+        this.CNPJ = CNPJ;
+        this.nome = nome;
+        this.telefone = telefone;
+    }
+    
+    public Estabelecimento(String nome, String endereco, String telefone, String CNPJ) {
+        this.nome = nome;
+        this. endereco = endereco;
+        this.telefone = telefone;
+        this.CNPJ = CNPJ;
+    }
+    
     public Estabelecimento() {
     }
 
