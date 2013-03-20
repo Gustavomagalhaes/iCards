@@ -37,14 +37,17 @@ public class JanelaDeletarUsuario extends javax.swing.JFrame {
         CancelarDelUsuario = new javax.swing.JButton();
         todosCampos = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Deletar Usuário");
         setMinimumSize(new java.awt.Dimension(720, 460));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DeletarUsuario.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         DeletarUsuario.setText("Deletar Usuário");
+        getContentPane().add(DeletarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 33, -1, -1));
 
         DeletarCPF.setText("Digite o CPF do Usuário:");
+        getContentPane().add(DeletarCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 130, 30));
 
         try{  
             javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("###.###.###-##");  
@@ -57,6 +60,7 @@ public class JanelaDeletarUsuario extends javax.swing.JFrame {
                 DelUsuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(DelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, 30));
 
         ConfirmarDelUsuario.setText("Confirmar");
         ConfirmarDelUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +68,7 @@ public class JanelaDeletarUsuario extends javax.swing.JFrame {
                 ConfirmarDelUsuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(ConfirmarDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 100, 30));
 
         CancelarDelUsuario.setText("Cancelar");
         CancelarDelUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -71,48 +76,12 @@ public class JanelaDeletarUsuario extends javax.swing.JFrame {
                 CancelarDelUsuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(CancelarDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 100, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(DeletarUsuario)
-                .addGap(219, 234, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addComponent(ConfirmarDelUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(CancelarDelUsuario)
-                .addGap(210, 210, 210))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(DeletarCPF)
-                .addGap(18, 18, 18)
-                .addComponent(DelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(todosCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(204, 204, 204))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(DeletarUsuario)
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DeletarCPF)
-                    .addComponent(DelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ConfirmarDelUsuario)
-                    .addComponent(CancelarDelUsuario))
-                .addGap(80, 80, 80))
-        );
+        todosCampos.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(todosCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 200, 30));
 
-        pack();
+        setBounds(0, 0, 728, 514);
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelarDelUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarDelUsuarioActionPerformed
@@ -141,7 +110,7 @@ public class JanelaDeletarUsuario extends javax.swing.JFrame {
                     frame.setVisible(true);
                     this.dispose();
                  } else {
-                     System.out.println("NAO EXISTE ESSE CARTAO ERRO");
+                     todosCampos.setText("Usuário incorreto ou inexistente.");
                  }
             } catch (Exception ex) {
                 Logger.getLogger(JanelaDeletarCartao.class.getName()).log(Level.SEVERE, null, ex);
@@ -183,6 +152,7 @@ public class JanelaDeletarUsuario extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new JanelaDeletarUsuario().setVisible(true);
             }

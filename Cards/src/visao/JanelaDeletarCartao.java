@@ -37,9 +37,10 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
         IDCartao = new javax.swing.JLabel();
         todosCampos = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Deletar Cartão");
         setMinimumSize(new java.awt.Dimension(720, 460));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         try{  
             javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("####-####");  
@@ -47,6 +48,7 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
         }  
         catch (Exception e){  
         }
+        getContentPane().add(DelIDCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 117, 30));
 
         ConfirmarDelCartao.setText("Confirmar");
         ConfirmarDelCartao.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +56,7 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
                 ConfirmarDelCartaoActionPerformed(evt);
             }
         });
+        getContentPane().add(ConfirmarDelCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 100, 30));
 
         CancelarDelCartao.setText("Cancelar");
         CancelarDelCartao.addActionListener(new java.awt.event.ActionListener() {
@@ -61,53 +64,20 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
                 CancelarDelCartaoActionPerformed(evt);
             }
         });
+        getContentPane().add(CancelarDelCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 100, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Deletar Cartão");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 23, -1, -1));
 
         IDCartao.setText("Digite o ID do Cartão:");
+        getContentPane().add(IDCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 120, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(IDCartao)
-                        .addGap(18, 18, 18)
-                        .addComponent(DelIDCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(235, 235, 235)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(ConfirmarDelCartao)
-                        .addGap(162, 162, 162)
-                        .addComponent(CancelarDelCartao)))
-                .addContainerGap(226, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addGap(87, 87, 87)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IDCartao)
-                    .addComponent(DelIDCartao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ConfirmarDelCartao)
-                    .addComponent(CancelarDelCartao))
-                .addGap(94, 94, 94))
-        );
+        todosCampos.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(todosCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 360, 30));
 
-        pack();
+        setSize(new java.awt.Dimension(736, 518));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfirmarDelCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarDelCartaoActionPerformed
@@ -126,7 +96,7 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
                     frame.setVisible(true);
                     this.dispose();
                  } else {
-                     System.out.println("NAO EXISTE ESSE CARTAO ERRO");
+                     todosCampos.setText("Cartão incorreto ou inexistente.");
                  }
             } catch (Exception ex) {
                 Logger.getLogger(JanelaDeletarCartao.class.getName()).log(Level.SEVERE, null, ex);
@@ -136,10 +106,10 @@ public class JanelaDeletarCartao extends javax.swing.JFrame {
 
     private void CancelarDelCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarDelCartaoActionPerformed
         //TODO add your handling code here:
-        this.dispose();
         JanelaInicioAdmin frame = new JanelaInicioAdmin();
         frame.setLocationRelativeTo(null);
-        //frame.setVisible(true);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_CancelarDelCartaoActionPerformed
 
     /**

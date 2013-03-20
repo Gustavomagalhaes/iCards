@@ -37,9 +37,10 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
         deletarLoja = new javax.swing.JFormattedTextField();
         todosCampos = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Deletar Estabelecimento");
         setMinimumSize(new java.awt.Dimension(670, 450));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ConfirmarDelLoja.setText("Confirmar");
         ConfirmarDelLoja.addActionListener(new java.awt.event.ActionListener() {
@@ -47,6 +48,7 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
                 ConfirmarDelLojaActionPerformed(evt);
             }
         });
+        getContentPane().add(ConfirmarDelLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 100, 30));
 
         CancelarDelLoja.setText("Cancelar");
         CancelarDelLoja.addActionListener(new java.awt.event.ActionListener() {
@@ -54,11 +56,14 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
                 CancelarDelLojaActionPerformed(evt);
             }
         });
+        getContentPane().add(CancelarDelLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 100, 30));
 
         DelCNPJ.setText("Digite o CNPJ do Estabelecimento:");
+        getContentPane().add(DelCNPJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, 30));
 
         DeletarEstabelecimento.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         DeletarEstabelecimento.setText("Deletar Estabelecimento");
+        getContentPane().add(DeletarEstabelecimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         try{  
             javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##.###.###/####-##");  
@@ -71,49 +76,13 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
                 deletarLojaActionPerformed(evt);
             }
         });
+        getContentPane().add(deletarLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 157, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 177, Short.MAX_VALUE)
-                .addComponent(DeletarEstabelecimento)
-                .addGap(156, 156, 156))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(198, 198, 198)
-                        .addComponent(ConfirmarDelLoja)
-                        .addGap(195, 195, 195)
-                        .addComponent(CancelarDelLoja))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(DelCNPJ)
-                        .addGap(18, 18, 18)
-                        .addComponent(deletarLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(172, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(DeletarEstabelecimento)
-                .addGap(84, 84, 84)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DelCNPJ)
-                    .addComponent(deletarLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(todosCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ConfirmarDelLoja)
-                    .addComponent(CancelarDelLoja))
-                .addGap(97, 97, 97))
-        );
+        todosCampos.setForeground(java.awt.Color.red);
+        getContentPane().add(todosCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 270, 30));
 
-        pack();
+        setSize(new java.awt.Dimension(728, 514));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfirmarDelLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarDelLojaActionPerformed
@@ -135,7 +104,7 @@ public class JanelaDeletarEst extends javax.swing.JFrame {
                     frame.setVisible(true);
                     this.dispose();
                  } else {
-                     System.out.println("NAO EXISTE ESSE CARTAO ERRO");
+                     todosCampos.setText("Estabelecimento incorreto ou inexistente.");
                  }
             } catch (Exception ex) {
                 Logger.getLogger(JanelaDeletarCartao.class.getName()).log(Level.SEVERE, null, ex);

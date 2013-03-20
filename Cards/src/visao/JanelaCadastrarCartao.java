@@ -3,10 +3,9 @@
  * and open the template in the editor.
  */
 package visao;
-import java.awt.Toolkit;
+import bean.Cartao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import negocio.GerenciarDB;
 
 /**
@@ -134,7 +133,8 @@ public class JanelaCadastrarCartao extends javax.swing.JFrame {
         } else {
             try {
                  GerenciarDB cartao = new GerenciarDB();
-                 cartao.addCartao(numeroCartao,cpfUsuario);
+                 Cartao card = new Cartao (numeroCartao, cpfUsuario);
+                 cartao.addCartao(card);
                  JanelaInicioAdmin frame = new JanelaInicioAdmin();
                  frame.setLocationRelativeTo(null);
                  frame.setVisible(true);

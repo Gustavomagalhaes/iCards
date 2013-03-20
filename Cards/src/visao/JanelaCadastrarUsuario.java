@@ -3,10 +3,9 @@
  * and open the template in the editor.
  */
 package visao;
-import java.awt.Toolkit;
+import bean.Usuario;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import negocio.GerenciarDB;
 
 /**
@@ -334,7 +333,8 @@ public class JanelaCadastrarUsuario extends javax.swing.JFrame {
         } else {
             try {
                  GerenciarDB usuario = new GerenciarDB();
-                 usuario.addUsuario(cpfUsuario,nomeUsuario,email,enderecoUsuario,telUsuario,dataNasc,nacionalidadeUsuario,tipoUsuario,cpfDependente);
+                 Usuario user = new Usuario (nomeUsuario, cpfUsuario, tipoUsuario, email, enderecoUsuario, dataNasc, nacionalidadeUsuario, cpfDependente, telUsuario);
+                 usuario.addUsuario(user);
                  JanelaInicioAdmin frame = new JanelaInicioAdmin();
                  frame.setLocationRelativeTo(null);
                  frame.setVisible(true);

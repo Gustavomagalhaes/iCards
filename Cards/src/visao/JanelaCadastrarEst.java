@@ -3,6 +3,8 @@
  * and open the template in the editor.
  */
 package visao;
+import bean.Cartao;
+import bean.Estabelecimento;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import bean.Usuario;
@@ -177,11 +179,12 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
          else{
              try {
                  GerenciarDB estabelecimento = new GerenciarDB();
-                 estabelecimento.addEstabelecimento(cnpj, nomeLoja, telLoja);
-                 this.dispose();
+                 Estabelecimento shop = new Estabelecimento (cnpj, nomeLoja, telLoja);
+                 estabelecimento.addEstabelecimento(shop);
                  JanelaInicioAdmin frame = new JanelaInicioAdmin();
                  frame.setLocationRelativeTo(null);
                  frame.setVisible(true);
+                 this.dispose();
                  
                  
 

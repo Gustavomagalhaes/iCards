@@ -5,7 +5,6 @@
 package visao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import negocio.GerenciarDB;
 
 /**
@@ -38,16 +37,20 @@ public class JanelaInicioEst extends javax.swing.JFrame {
         SenhadaLoja = new javax.swing.JPasswordField();
         ErroAcessoEst = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login - Estabelecimento");
         setMinimumSize(new java.awt.Dimension(690, 410));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         iCards.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         iCards.setText("iCards");
+        getContentPane().add(iCards, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 34, -1, -1));
 
         CNPJdaLoja.setText("Digite o CNPJ da loja:");
+        getContentPane().add(CNPJdaLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 140, 30));
 
         SenhaLoja.setText("Digite a senha:");
+        getContentPane().add(SenhaLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 140, 30));
 
         BotaoLogin.setText("Entrar");
         BotaoLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +58,7 @@ public class JanelaInicioEst extends javax.swing.JFrame {
                 BotaoLoginActionPerformed(evt);
             }
         });
+        getContentPane().add(BotaoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 100, 30));
 
         try{  
             javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##.###.###/####-##");  
@@ -67,61 +71,18 @@ public class JanelaInicioEst extends javax.swing.JFrame {
                 CNPJLojaActionPerformed(evt);
             }
         });
+        getContentPane().add(CNPJLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 117, 30));
+        getContentPane().add(SenhadaLoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 117, 30));
 
         ErroAcessoEst.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(ErroAcessoEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 215, 22));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(299, 299, 299)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BotaoLogin)
-                    .addComponent(iCards))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 247, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CNPJdaLoja)
-                            .addComponent(SenhaLoja))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SenhadaLoja, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                            .addComponent(CNPJLoja))
-                        .addGap(226, 226, 226))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(ErroAcessoEst, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(240, 240, 240))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(iCards)
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CNPJdaLoja)
-                    .addComponent(CNPJLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SenhadaLoja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SenhaLoja))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(ErroAcessoEst, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BotaoLogin)
-                .addGap(158, 158, 158))
-        );
-
-        pack();
+        setSize(new java.awt.Dimension(728, 514));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLoginActionPerformed
         // TODO add your handling code here:
-       
         String cnpj = CNPJLoja.getText().replaceAll("[.]","");
         cnpj = cnpj.replaceAll("[-]","");
         cnpj = cnpj.replaceAll("[/]","");
@@ -135,12 +96,11 @@ public class JanelaInicioEst extends javax.swing.JFrame {
             boolean acesso = banco.checkSenhaEstabelecimentoDB(cnpj, senha);
             
             if (acesso){
+                JanelaEst frame = new JanelaEst();
+                frame.CNPJ = cnpj;
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
                 this.dispose();
-               // JanelaEstabelecimento frame = new JanelaEstabelecimento();
-                //frame.CNPJ = cnpj;
-               // frame.senha = senha;
-                //frame.setLocationRelativeTo(null);
-             //   frame.setVisible(true);
             }
             else{
                 ErroAcessoEst.setText("Número do CNPJ ou senha incorreta.");
@@ -184,6 +144,7 @@ public class JanelaInicioEst extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new JanelaInicioEst().setVisible(true);
             }

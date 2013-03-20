@@ -4,10 +4,6 @@
  */
 package visao;
 
-import visao.JanelaCadastrarUsuario;
-import visao.JanelaCadastrarEst;
-import java.awt.Toolkit;
-
 /**
  *
  * @author Uguinho
@@ -51,7 +47,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         jPanel1.setAlignmentX(0.0F);
         jPanel1.setAlignmentY(0.0F);
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.setEnabled(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LoginUs.setText("Login");
         LoginUs.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +55,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                 LoginUsActionPerformed(evt);
             }
         });
+        jPanel1.add(LoginUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 68, 90, 36));
 
         cadastrarUs.setText("Cadastrar");
         cadastrarUs.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +63,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                 cadastrarUsActionPerformed(evt);
             }
         });
+        jPanel1.add(cadastrarUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 166, 90, 36));
 
         excluirUs.setText("Excluir");
         excluirUs.addActionListener(new java.awt.event.ActionListener() {
@@ -73,36 +71,14 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                 excluirUsActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cadastrarUs, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LoginUs, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(excluirUs, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(LoginUs, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(cadastrarUs, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(excluirUs, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
-        );
+        jPanel1.add(excluirUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 275, 90, 36));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 190, 360));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cartão", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel2.setAlignmentX(0.0F);
         jPanel2.setAlignmentY(0.0F);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cadastrarCartao.setText("Cadastrar");
         cadastrarCartao.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +86,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                 cadastrarCartaoActionPerformed(evt);
             }
         });
+        jPanel2.add(cadastrarCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 65, 90, 36));
 
         excluirCartao.setText("Excluir");
         excluirCartao.addActionListener(new java.awt.event.ActionListener() {
@@ -117,33 +94,14 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                 excluirCartaoActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(excluirCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cadastrarCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(cadastrarCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addComponent(excluirCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
-        );
+        jPanel2.add(excluirCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 165, 90, 36));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 190, 360));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estabelecimento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel3.setAlignmentX(0.0F);
         jPanel3.setAlignmentY(0.0F);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LoginEst.setText("Login");
         LoginEst.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +109,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                 LoginEstActionPerformed(evt);
             }
         });
+        jPanel3.add(LoginEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 63, 90, 36));
 
         cadastrarEst.setText("Cadastrar");
         cadastrarEst.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +117,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                 cadastrarEstActionPerformed(evt);
             }
         });
+        jPanel3.add(cadastrarEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 173, 90, 36));
 
         excluirEst.setText("Excluir");
         excluirEst.addActionListener(new java.awt.event.ActionListener() {
@@ -165,30 +125,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
                 excluirEstActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(excluirEst, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cadastrarEst, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LoginEst, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(LoginEst, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addComponent(cadastrarEst, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(excluirEst, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
-        );
+        jPanel3.add(excluirEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 269, 90, 36));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 190, 360));
 
@@ -231,7 +168,6 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         this.dispose();
-        
     }//GEN-LAST:event_LoginUsActionPerformed
 
     private void cadastrarEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarEstActionPerformed
