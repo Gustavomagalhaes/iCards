@@ -4,6 +4,8 @@
  */
 package visao;
 
+import bean.Cartao;
+
 /**
  *
  * @author hanna
@@ -135,8 +137,19 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
         });
 
         jButton1.setText("Enter");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Sair");
+
+        visor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -268,10 +281,23 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
         // TODO add your handling code here:
         visor.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Cartao c = new Cartao();
+        c.setSenhaCartao(visor.getText());
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void visorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_visorActionPerformed
     private void preecher_visor(String valor){ 
       String valor_atual = visor.getText(); // pega o texto atual do visor 
       visor.setText(valor_atual + valor); // adiciona o texto ao valor atual 
-    }  
+    }
+    
     /**
      * @param args the command line arguments
      */
