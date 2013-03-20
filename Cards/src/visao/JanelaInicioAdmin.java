@@ -216,6 +216,11 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
 
     private void LoginEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginEstActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        JanelaInicioEst frame = new JanelaInicioEst();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        
     }//GEN-LAST:event_LoginEstActionPerformed
 
     private void LoginUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginUsActionPerformed
