@@ -498,4 +498,26 @@ public class GerenciarDB {
         return resp;
     }
     
+    public String getUsername(String IDcartao)throws Exception{
+        conectaDB();
+        String query;
+        query = "SELECT * FROM cartao WHERE IDcartao = '"+IDcartao+"'";
+        PreparedStatement exe = conexao.prepareStatement(query);
+        ResultSet retorno = exe.executeQuery();
+        String CPF = null;
+        while (retorno.next()) { 
+           CPF = retorno.getString(7);
+        }
+        String query2;
+        query2 = "SELECT * FROM usuario WHERE CPF = '"+CPF+"'";
+        PreparedStatement exe2 = conexao.prepareStatement(query2);
+        ResultSet retorno2 = exe2.executeQuery();
+        String nome = null;
+        while (retorno2.next()) { 
+           nome = retorno2.getString(2);
+        }
+        desconectaDB();
+        return nome; 
+    } 
+    
 }

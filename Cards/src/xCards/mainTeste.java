@@ -1,6 +1,7 @@
 package xCards;
 
 import java.util.ArrayList;
+import negocio.GerarRelatorioPDF;
 import negocio.GerenciarDB;
 
 /**
@@ -78,20 +79,20 @@ public class mainTeste {
         
         //Pegar Extrato do banco 
         
-        String[][] mtx = banco.getExtratoUsuario("11111111");
-        int i;
+        //String[][] mtx = banco.getExtratoUsuario("11111111");
+        //int i;
         //for (i=0;i<mtx[0].length;i++){
-        for (i=(mtx[0].length)-1;i>=0;i--){
-            System.out.println(mtx[0][i]+"\t"+mtx[1][i]+"\t"+mtx[2][i]);
-        }
+        //for (i=(mtx[0].length)-1;i>=0;i--){
+        //    System.out.println(mtx[0][i]+"\t"+mtx[1][i]+"\t"+mtx[2][i]);
+        //}
         
-        System.out.println("\nTeste de Estabelecimento\n");
+        //System.out.println("\nTeste de Estabelecimento\n");
         
-        String[][] ext = banco.getExtratoEst("22222222222222");
-        int j;
-        for (j=(ext[0].length)-1;j>=0;j--){
-            System.out.println(ext[0][j]+"\t"+ext[1][j]+"\t"+ext[2][j]);
-        }
+        //String[][] ext = banco.getExtratoEst("22222222222222");
+        //int j;
+        //for (j=(ext[0].length)-1;j>=0;j--){
+            //System.out.println(ext[0][j]+"\t"+ext[1][j]+"\t"+ext[2][j]);
+        //}
         
         
         //for (i=0;i<mtx[0].length;i++){
@@ -110,5 +111,10 @@ public class mainTeste {
         //    Valores[i] = mtx[2][i];
         //}
         
+        //System.out.println(banco.getUsername("11111111"));
+        
+        //GerarRelatorioPDF file = new GerarRelatorioPDF();
+        //file.PDF("11111111", 0); //Extrato Usuario
+        //file.PDF("22222222222222", 1); //Extrato Estabelecimento
 }
 }
