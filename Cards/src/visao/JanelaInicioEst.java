@@ -97,7 +97,8 @@ public class JanelaInicioEst extends javax.swing.JFrame {
                         
             if (acesso){
                 JanelaEst frame = new JanelaEst();
-                frame.estabelecimento = this.estabelecimento;                
+                frame.estabelecimento = this.estabelecimento;   
+                frame.startJanelaEst(cnpj);
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 this.dispose();
