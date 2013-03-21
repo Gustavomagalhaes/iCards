@@ -71,7 +71,7 @@ public class GerenciarDB {
     public void addEstabelecimento(Estabelecimento shop)throws Exception{
         conectaDB();
         String query;
-        query = "INSERT INTO estabelecimento (CNPJ, nome, telefone, senhaCNPJ) VALUES ('"+shop.getCNPJ()+"','"+shop.getNome()+"','"+shop.getTelefone()+"',"+"'Est1234'"+")";
+        query = "INSERT INTO estabelecimento (CNPJ, nome) VALUES ('"+shop.getCNPJ()+"','"+shop.getNome()+")";
         executaDB(query);
         desconectaDB(); 
     }

@@ -179,7 +179,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
          else{
              try {
                  GerenciarDB estabelecimento = new GerenciarDB();
-                 Estabelecimento shop = new Estabelecimento (cnpj, nomeLoja, telLoja);
+                 Estabelecimento shop = new Estabelecimento (cnpj, nomeLoja);
                  estabelecimento.addEstabelecimento(shop);
                  JanelaInicioAdmin frame = new JanelaInicioAdmin();
                  frame.setLocationRelativeTo(null);
