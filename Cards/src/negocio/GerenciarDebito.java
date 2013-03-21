@@ -14,7 +14,7 @@ public class GerenciarDebito {
     
     public void debitar() throws Exception {
         GerenciarDB banco = new GerenciarDB();
-        banco.updateSaldoCartaoDB(debito.getCartao().getNumero(), debito.getCartao().getSaldo(), "MAIS", debito.getValor());
+        banco.updateSaldoCartaoDB(debito.getCartao().getNumero(), debito.getCartao().getSaldo(), "MENOS", debito.getValor());
     }
     
     public void salvarExtrato(){

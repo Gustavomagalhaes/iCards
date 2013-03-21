@@ -1,4 +1,5 @@
 package negocio;
+import bean.Cartao;
 import bean.Recarga;
 
 /**
@@ -7,13 +8,16 @@ import bean.Recarga;
  */
 public class GerenciarRecarga {
     private Recarga recarga;
+    private Cartao cartao;
 
-    public GerenciarRecarga(Recarga recarga) {
+    public GerenciarRecarga(Recarga recarga, Cartao cartao) {
         this.recarga = recarga;
+        this.cartao = cartao;
     }
     
-    public void solicitarRecarga(){
-        //Desenvolver
+    public void solicitarRecarga() throws Exception{
+        GerenciarDB banco = new GerenciarDB();
+        banco.updateSaldoCartaoDB(cartao.getNumero(), cartao.getSaldo(), "MAIS", recarga.getValor());
     }
     
     public void salvarRecarga(){
