@@ -1,6 +1,8 @@
 package visao;
+import bean.Cartao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import negocio.GerenciarCartao;
 import negocio.GerenciarDB;
 
 /**
@@ -114,11 +116,9 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         String novasenha = RepitaSenha.getText();
         String repitasenha = NovaSenha.getText();
         
-        
         System.out.println(senhaatual+" "+novasenha);
         System.out.println(IDcartao);
         System.out.println(tipo);
-        
         
         boolean confereSenha = (novasenha.equals(repitasenha));
         GerenciarDB cartao = new GerenciarDB();
@@ -130,9 +130,7 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
             Logger.getLogger(JanelaAlterarSenha.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        //if ((senhaatual.length()>0)&&(novasenha.length()>0)){
         if (senhaatual.isEmpty()||repitasenha.isEmpty()||novasenha.isEmpty()){
-            //JOptionPane.showMessageDialog(null, "senha não pode ficar em branco");
             todosCampos.setText("Você deve preencher todos os campos.");
 
             
@@ -141,12 +139,17 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
             
         } else {
             try {
-                System.out.println("Teste");    
+                System.out.println("Teste");  
+                Cartao cartao2 = new Cartao(IDcartao);
+                GerenciarCartao gerCartao = new GerenciarCartao(cartao2);
+                double saldo=gerCartao.verificarSaldo();
                 if (CheckedPassword) {
                     cartao.updateSenhaCartaoDB(IDcartao, novasenha, tipo);
                     JanelaUsuario frame = new JanelaUsuario();
                     frame.IDcartao = IDcartao;
                     frame.tipo = tipo;
+                    frame.Saldo.setText(saldo+"");
+                    frame.startJanelaUsuario(IDcartao);
                     frame.setLocationRelativeTo(null);
                     frame.setVisible(true);
                     this.dispose();  
