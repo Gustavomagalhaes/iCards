@@ -1,5 +1,6 @@
 package visao;
 
+import bean.Estabelecimento;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -10,7 +11,8 @@ import negocio.GerenciarDB;
  * @author Uguinho
  */
 public class JanelaEst extends javax.swing.JFrame {
-    public String CNPJ;
+    protected String CNPJ;
+    protected Estabelecimento estabelecimento;
     /**
      * Creates new form JanelaUsuario
      */
@@ -19,7 +21,7 @@ public class JanelaEst extends javax.swing.JFrame {
         GerenciarDB banco = new GerenciarDB();
         String[][] mtx;
         try {
-            mtx = banco.getExtratoEst(CNPJ);
+            mtx = banco.getExtratoEst(estabelecimento.getCNPJ());
             int i;
         for (i=mtx[0].length;i<=0;i--){
             DefaultTableModel dtm = (DefaultTableModel) Historico.getModel();

@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package visao;
+import bean.Estabelecimento;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import negocio.GerenciarDB;
@@ -12,7 +13,7 @@ import negocio.GerenciarDB;
  * @author Leandro
  */
 public class JanelaInicioEst extends javax.swing.JFrame {
-
+    private Estabelecimento estabelecimento;
     /**
      * Creates new form JanelaInicioEst
      */
@@ -83,21 +84,20 @@ public class JanelaInicioEst extends javax.swing.JFrame {
 
     private void BotaoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLoginActionPerformed
         // TODO add your handling code here:
+        GerenciarDB banco = new GerenciarDB();
         String cnpj = CNPJLoja.getText().replaceAll("[.]","");
         cnpj = cnpj.replaceAll("[-]","");
         cnpj = cnpj.replaceAll("[/]","");
         String senha = SenhadaLoja.getText();
         
-        
-        
-        try {
-            
-            GerenciarDB banco = new GerenciarDB();
-            boolean acesso = banco.checkSenhaEstabelecimentoDB(cnpj, senha);
-            
+        try { 
+            String nome_estab = banco.getEstabelecimentoDB(cnpj);        
+            this.estabelecimento = new Estabelecimento(cnpj, nome_estab);
+            boolean acesso = banco.checkSenhaEstabelecimentoDB(cnpj, senha);       
+                        
             if (acesso){
                 JanelaEst frame = new JanelaEst();
-                frame.CNPJ = cnpj;
+                frame.estabelecimento = this.estabelecimento;                
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
                 this.dispose();
@@ -105,6 +105,7 @@ public class JanelaInicioEst extends javax.swing.JFrame {
             else{
                 ErroAcessoEst.setText("Número do CNPJ ou senha incorreta.");
             }
+            
         } catch (Exception ex) {
             Logger.getLogger(JanelaInicioEst.class.getName()).log(Level.SEVERE, null, ex);
         }             
