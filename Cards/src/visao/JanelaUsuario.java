@@ -4,6 +4,7 @@ import bean.Cartao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import negocio.GerarRelatorioPDF;
 import negocio.GerenciarCartao;
 import negocio.GerenciarDB;
 
@@ -26,14 +27,13 @@ public class JanelaUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         iCliente = new javax.swing.JLabel();
+        Historico = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         SaldoLabel = new javax.swing.JLabel();
         Saldo = new javax.swing.JLabel();
         AlterarSenha = new javax.swing.JButton();
         ImprimirExtrato = new javax.swing.JButton();
         BloquearCartao = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Historico = new javax.swing.JTable();
-        Sair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iCliente");
@@ -43,36 +43,18 @@ public class JanelaUsuario extends javax.swing.JFrame {
         iCliente.setText("iCliente");
         getContentPane().add(iCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 11, -1, -1));
 
-        SaldoLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        SaldoLabel.setText("Saldo atual:");
-        getContentPane().add(SaldoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 90, -1));
-
-        Saldo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Saldo.setText("$ 00,00");
-        getContentPane().add(Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 160, 30));
-
-        AlterarSenha.setText("Alterar senha");
-        AlterarSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlterarSenhaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(AlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 140, 35));
-
-        ImprimirExtrato.setText("Imprimir extrato");
-        getContentPane().add(ImprimirExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 140, 35));
-
-        BloquearCartao.setText("Desbloquear cartão");
-        BloquearCartao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BloquearCartaoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BloquearCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 140, 35));
-
-        Historico.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
                 "Data", "Estabelecimento", "Valor"
@@ -81,32 +63,53 @@ public class JanelaUsuario extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
         });
-        jScrollPane1.setViewportView(Historico);
-        Historico.getColumnModel().getColumn(0).setPreferredWidth(120);
-        Historico.getColumnModel().getColumn(1).setPreferredWidth(400);
-        Historico.getColumnModel().getColumn(2).setPreferredWidth(100);
+        jTable1.setPreferredSize(new java.awt.Dimension(230, 0));
+        Historico.setViewportView(jTable1);
+        jTable1.getColumnModel().getColumn(0).setResizable(false);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(120);
+        jTable1.getColumnModel().getColumn(1).setResizable(false);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(400);
+        jTable1.getColumnModel().getColumn(2).setResizable(false);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 630, 250));
+        getContentPane().add(Historico, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 540, 180));
 
-        Sair.setText("Sair do sistema");
-        Sair.addActionListener(new java.awt.event.ActionListener() {
+        SaldoLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        SaldoLabel.setText("Saldo atual:");
+        getContentPane().add(SaldoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 90, -1));
+
+        Saldo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Saldo.setText("$ 00,00");
+        getContentPane().add(Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 160, 30));
+
+        AlterarSenha.setText("Alterar senha");
+        AlterarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SairActionPerformed(evt);
+                AlterarSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 170, 30));
+        getContentPane().add(AlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 281, 140, 35));
+
+        ImprimirExtrato.setText("Imprimir extrato");
+        ImprimirExtrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImprimirExtratoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ImprimirExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 322, 140, 35));
+
+        BloquearCartao.setText("Desbloquear cartão");
+        BloquearCartao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BloquearCartaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BloquearCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 363, 140, 35));
 
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
@@ -173,6 +176,15 @@ public class JanelaUsuario extends javax.swing.JFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_SairActionPerformed
 
+    private void ImprimirExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirExtratoActionPerformed
+        GerarRelatorioPDF file = new GerarRelatorioPDF();
+        try {
+            file.PDF(IDcartao, 0);
+        } catch (Exception ex) {
+            Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ImprimirExtratoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -211,13 +223,12 @@ public class JanelaUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlterarSenha;
     private javax.swing.JButton BloquearCartao;
-    private javax.swing.JTable Historico;
+    private javax.swing.JScrollPane Historico;
     private javax.swing.JButton ImprimirExtrato;
-    private javax.swing.JButton Sair;
     protected javax.swing.JLabel Saldo;
     private javax.swing.JLabel SaldoLabel;
     private javax.swing.JLabel iCliente;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
 }
