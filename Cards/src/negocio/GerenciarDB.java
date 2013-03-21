@@ -498,6 +498,10 @@ public class GerenciarDB {
         return resp;
     }
     
+    /**
+     * @param IDcartao  para pegar o nome do usuario do cartao no banco de dados
+     * @return String
+     */
     public String getUsername(String IDcartao)throws Exception{
         conectaDB();
         String query;
