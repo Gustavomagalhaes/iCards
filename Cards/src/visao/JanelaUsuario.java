@@ -27,8 +27,8 @@ public class JanelaUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         iCliente = new javax.swing.JLabel();
-        Historico = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        HistoricoRoll = new javax.swing.JScrollPane();
+        Historico = new javax.swing.JTable();
         SaldoLabel = new javax.swing.JLabel();
         Saldo = new javax.swing.JLabel();
         AlterarSenha = new javax.swing.JButton();
@@ -43,7 +43,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
         iCliente.setText("iCliente");
         getContentPane().add(iCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 11, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Historico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -68,16 +68,16 @@ public class JanelaUsuario extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setPreferredSize(new java.awt.Dimension(230, 0));
-        Historico.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(0).setResizable(false);
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(120);
-        jTable1.getColumnModel().getColumn(1).setResizable(false);
-        jTable1.getColumnModel().getColumn(1).setPreferredWidth(400);
-        jTable1.getColumnModel().getColumn(2).setResizable(false);
-        jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
+        Historico.setPreferredSize(new java.awt.Dimension(230, 0));
+        HistoricoRoll.setViewportView(Historico);
+        Historico.getColumnModel().getColumn(0).setResizable(false);
+        Historico.getColumnModel().getColumn(0).setPreferredWidth(120);
+        Historico.getColumnModel().getColumn(1).setResizable(false);
+        Historico.getColumnModel().getColumn(1).setPreferredWidth(400);
+        Historico.getColumnModel().getColumn(2).setResizable(false);
+        Historico.getColumnModel().getColumn(2).setPreferredWidth(100);
 
-        getContentPane().add(Historico, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 540, 180));
+        getContentPane().add(HistoricoRoll, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 540, 180));
 
         SaldoLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         SaldoLabel.setText("Saldo atual:");
@@ -223,12 +223,12 @@ public class JanelaUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlterarSenha;
     private javax.swing.JButton BloquearCartao;
-    private javax.swing.JScrollPane Historico;
+    private javax.swing.JTable Historico;
+    private javax.swing.JScrollPane HistoricoRoll;
     private javax.swing.JButton ImprimirExtrato;
     protected javax.swing.JLabel Saldo;
     private javax.swing.JLabel SaldoLabel;
     private javax.swing.JLabel iCliente;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
 }
