@@ -1,15 +1,21 @@
 package bean;
 
+import negocio.GerenciarDB;
+
 /**
  *
- * @author gustavopereira
+ * @author iCards
  */
 public class Recarga {
     private double valor;
     private String pessoa;
     private String data;
 
-    public Recarga() {    
+    public Recarga(double valor, String pessoa) {
+        this.valor = valor;
+        this.pessoa = pessoa;
+        GerenciarDB banco = new GerenciarDB();
+        this.data = banco.getData();
     }
 
     public double getValor() {

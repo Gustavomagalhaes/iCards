@@ -10,10 +10,9 @@ public class Estabelecimento {
     private String telefone;
     private String CNPJ;
     
-    public Estabelecimento (String CNPJ, String nome, String telefone) {
+    public Estabelecimento (String CNPJ, String nome) {
         this.CNPJ = CNPJ;
         this.nome = nome;
-        this.telefone = telefone;
     }
     
     public Estabelecimento(String nome, String endereco, String telefone, String CNPJ) {
