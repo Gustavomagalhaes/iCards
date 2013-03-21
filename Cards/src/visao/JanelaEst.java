@@ -4,6 +4,7 @@ import bean.Estabelecimento;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import negocio.GerarRelatorioPDF;
 import negocio.GerenciarDB;
 
 /**
@@ -127,6 +128,11 @@ public class JanelaEst extends javax.swing.JFrame {
         getContentPane().add(Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 170, 30));
 
         ImprimirExtrato.setText("Imprimir extrato");
+        ImprimirExtrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImprimirExtratoActionPerformed(evt);
+            }
+        });
         getContentPane().add(ImprimirExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 140, 35));
 
         setSize(new java.awt.Dimension(728, 514));
@@ -158,6 +164,15 @@ public class JanelaEst extends javax.swing.JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }//GEN-LAST:event_DebitarActionPerformed
+
+    private void ImprimirExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirExtratoActionPerformed
+        GerarRelatorioPDF file = new GerarRelatorioPDF();
+        try {
+            file.PDF(CNPJ, 1);
+        } catch (Exception ex) {
+            Logger.getLogger(JanelaEst.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ImprimirExtratoActionPerformed
 
     /**
      * @param args the command line arguments
