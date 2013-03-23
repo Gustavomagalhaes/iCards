@@ -38,7 +38,6 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
         jPanel1.setAlignmentX(0.0F);
         jPanel1.setAlignmentY(0.0F);
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.setEnabled(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LoginUs.setText("Login");
@@ -256,6 +255,7 @@ public class JanelaInicioAdmin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new JanelaInicioAdmin().setVisible(true);
             }
