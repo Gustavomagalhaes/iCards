@@ -16,8 +16,4 @@ public class GerenciarDebito {
         GerenciarDB banco = new GerenciarDB();
         banco.updateSaldoCartaoDB(debito.getCartao().getNumero(), debito.getCartao().getSaldo(), "MENOS", debito.getValor());
     }
-    
-    public void salvarExtrato(){
-        //Desenvolver parte do banco
-    } 
 }

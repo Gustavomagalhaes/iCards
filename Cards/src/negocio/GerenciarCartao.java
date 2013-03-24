@@ -16,19 +16,7 @@ public class GerenciarCartao {
     
         public GerenciarCartao () {
     }
-    
-    public void alterarSenha() {
-        //
-    }
-        
-    public double visualizarSaldo(){
-        return this.cartao.getSaldo();
-    }
-    
-    public void imprimirExtrato(){
-        //Desenvolver
-    }
-     
+
     public void desbloquearCartao() throws Exception{
         GerenciarDB banco = new GerenciarDB();
         banco.bloquearCartaoDB(cartao.getNumero(), "DESBLOQUEAR");

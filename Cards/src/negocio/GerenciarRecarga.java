@@ -19,9 +19,4 @@ public class GerenciarRecarga {
         GerenciarDB banco = new GerenciarDB();
         banco.updateSaldoCartaoDB(cartao.getNumero(), cartao.getSaldo(), "MAIS", recarga.getValor());
     }
-    
-    public void salvarRecarga(){
-        //Desenvolver parte de banco
-    }
-    
 }

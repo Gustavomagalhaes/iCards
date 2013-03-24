@@ -1,5 +1,4 @@
 package negocio;
-import bean.Cartao;
 import bean.Usuario;
 
 /**
@@ -21,27 +20,5 @@ public class GerenciarUsuario {
     public void alterarSenhaOnlineDependente(Usuario usuario, String senha) throws Exception{        
         GerenciarDB banco = new GerenciarDB();
         banco.updateSenhaCartaoDB(usuario.getCartao().getNumero(), senha, 2);
-    }
-    
-    public void alterarSenhaCartao(int senha){
-        //Desenvolver
-    }
-    
-    public void alterarEmail(String email){
-        //Desenvolver
-    }
-    
-    public void alterarEndereco(String rua){
-        //Desenvolver
-    }
-    
-    public void alterarTipoUsuario(int tipo){
-        //Desenvolver
-    }
-    
-    public void alterarCartao(Cartao cartao){
-        this.usuario.setCartao(cartao);
-    }
-    
-    
+    }  
 }
