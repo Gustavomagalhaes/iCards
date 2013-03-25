@@ -27,13 +27,14 @@ public class JanelaUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         iCliente = new javax.swing.JLabel();
-        HistoricoRoll = new javax.swing.JScrollPane();
-        Historico = new javax.swing.JTable();
         SaldoLabel = new javax.swing.JLabel();
         Saldo = new javax.swing.JLabel();
         AlterarSenha = new javax.swing.JButton();
         ImprimirExtrato = new javax.swing.JButton();
         BloquearCartao = new javax.swing.JButton();
+        Sair = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iCliente");
@@ -42,42 +43,6 @@ public class JanelaUsuario extends javax.swing.JFrame {
         iCliente.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         iCliente.setText("iCliente");
         getContentPane().add(iCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 11, -1, -1));
-
-        Historico.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Data", "Estabelecimento", "Valor"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        Historico.setPreferredSize(new java.awt.Dimension(230, 0));
-        HistoricoRoll.setViewportView(Historico);
-        Historico.getColumnModel().getColumn(0).setResizable(false);
-        Historico.getColumnModel().getColumn(0).setPreferredWidth(120);
-        Historico.getColumnModel().getColumn(1).setResizable(false);
-        Historico.getColumnModel().getColumn(1).setPreferredWidth(400);
-        Historico.getColumnModel().getColumn(2).setResizable(false);
-        Historico.getColumnModel().getColumn(2).setPreferredWidth(100);
-
-        getContentPane().add(HistoricoRoll, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 540, 180));
 
         SaldoLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         SaldoLabel.setText("Saldo atual:");
@@ -111,19 +76,59 @@ public class JanelaUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(BloquearCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 363, 140, 35));
 
+        Sair.setText("Sair do sistema");
+        Sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SairActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 170, 30));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Data", "Estabelecimento", "Preço"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getColumn(0).setResizable(false);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(100);
+        jTable1.getColumnModel().getColumn(1).setResizable(false);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(300);
+        jTable1.getColumnModel().getColumn(2).setResizable(false);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 540, 170));
+
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
-    public void startJanelaUsuario(String IDcartao){
+    public void startJanelaUsuario(String numCartao){
      try {
             GerenciarDB banco = new GerenciarDB();
             System.out.println(IDcartao+"TESTE");
             String[][] mtx = banco.getExtratoUsuario(IDcartao);
             int i;
-            for (i=(mtx[0].length)-1;i>=0;i--){
-                DefaultTableModel dtm = (DefaultTableModel) Historico.getModel();
-                dtm.addRow(new Object[]{mtx[0][i], mtx[1][i], mtx[2][i]});
+            for (i=0;i<mtx[0].length;i++){
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                model.addRow(new Object[]{mtx[0][i], mtx[1][i], mtx[2][i]});
             }
         } catch (Exception ex) {
             Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
@@ -223,12 +228,13 @@ public class JanelaUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlterarSenha;
     private javax.swing.JButton BloquearCartao;
-    private javax.swing.JTable Historico;
-    private javax.swing.JScrollPane HistoricoRoll;
     private javax.swing.JButton ImprimirExtrato;
+    private javax.swing.JButton Sair;
     protected javax.swing.JLabel Saldo;
     private javax.swing.JLabel SaldoLabel;
     private javax.swing.JLabel iCliente;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
 }
