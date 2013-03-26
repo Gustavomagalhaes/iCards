@@ -36,7 +36,7 @@ public class JanelaEst extends javax.swing.JFrame {
             int i;
             for (i=(mtx[0].length)-1;i>=0;i--){
                 DefaultTableModel dtm = (DefaultTableModel) Historico.getModel();
-                dtm.addRow(new Object[]{mtx[0][i], mtx[1][i], mtx[2][i]});
+                dtm.addRow(new Object[]{mtx[0][i], mtx[2][i].replaceAll("[-]","")});
             }
         } catch (Exception ex) {
             Logger.getLogger(JanelaEst.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,6 +56,7 @@ public class JanelaEst extends javax.swing.JFrame {
         Historico = new javax.swing.JTable();
         Sair = new javax.swing.JButton();
         ImprimirExtrato = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iCliente");
@@ -94,14 +95,14 @@ public class JanelaEst extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Data", "Cliente", "Valor"
+                "Data", "Valor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -113,9 +114,6 @@ public class JanelaEst extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(Historico);
-        Historico.getColumnModel().getColumn(0).setPreferredWidth(120);
-        Historico.getColumnModel().getColumn(1).setPreferredWidth(400);
-        Historico.getColumnModel().getColumn(2).setPreferredWidth(100);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 630, 250));
 
@@ -135,17 +133,19 @@ public class JanelaEst extends javax.swing.JFrame {
         });
         getContentPane().add(ImprimirExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 140, 35));
 
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 440, 20));
+
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     private void AlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarSenhaActionPerformed
-
-        //this.dispose();
-        //JanelaAlterarSenha frame = new JanelaAlterarSenha();
-        //frame.CNPJ = CNPJ;
-        //frame.setLocationRelativeTo(null);
-        //frame.setVisible(true);
+        JanelaAlterarSenhaEst frame = new JanelaAlterarSenhaEst();
+        frame.CNPJ = CNPJ;
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_AlterarSenhaActionPerformed
 
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
@@ -159,10 +159,10 @@ public class JanelaEst extends javax.swing.JFrame {
 
     private void DebitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DebitarActionPerformed
         // TODO add your handling code here:
-        this.dispose();
         JanelaDebito frame = new JanelaDebito();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_DebitarActionPerformed
 
     private void ImprimirExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirExtratoActionPerformed
@@ -218,6 +218,7 @@ public class JanelaEst extends javax.swing.JFrame {
     protected javax.swing.JLabel Saldo;
     private javax.swing.JLabel SaldoLabel;
     private javax.swing.JLabel iCliente;
+    protected javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 

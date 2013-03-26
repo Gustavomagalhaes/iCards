@@ -35,6 +35,9 @@ public class JanelaUsuario extends javax.swing.JFrame {
         Sair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        BotaoRecarregar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iCliente");
@@ -68,7 +71,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(ImprimirExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 322, 140, 35));
 
-        BloquearCartao.setText("Desbloquear cartão");
+        BloquearCartao.setText("Bloquear cartão");
         BloquearCartao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BloquearCartaoActionPerformed(evt);
@@ -116,9 +119,40 @@ public class JanelaUsuario extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 540, 170));
 
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 440, 20));
+
+        BotaoRecarregar.setText("Recarregar");
+        BotaoRecarregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoRecarregarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BotaoRecarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, 170, 35));
+
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 440, 20));
+
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    public void enableBloqueioCard() {
+        try {
+            GerenciarDB banco = new GerenciarDB();
+            if (tipo==1) {
+                if (banco.checkStatusCartaoBloqueadoDB(IDcartao)==true) {
+                BloquearCartao.setText("Desbloquear cartão");
+            } else if (banco.checkStatusCartaoBloqueadoDB(IDcartao)==false) {
+                BloquearCartao.setText("Bloquear cartão");
+            }
+            
+            }else{
+                BloquearCartao.setEnabled(false);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public void startJanelaUsuario(String numCartao){
      try {
@@ -146,32 +180,6 @@ public class JanelaUsuario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_AlterarSenhaActionPerformed
 
-    private void BloquearCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BloquearCartaoActionPerformed
-        try {
-            System.out.println(IDcartao+"TESTE");
-            System.out.println(tipo+"TESTE");
-            
-            Cartao cartao = new Cartao(IDcartao);
-            GerenciarCartao gerenciarCartao = new GerenciarCartao(cartao);
-            GerenciarDB banco = new GerenciarDB();
-            System.out.println(tipo);
-            if (tipo==1) {
-                if (banco.checkStatusCartaoBloqueadoDB(IDcartao)) {
-                gerenciarCartao.desbloquearCartao();
-                BloquearCartao.setText("Bloquear cartão");
-            } else {
-                gerenciarCartao.bloquearCartao();
-                BloquearCartao.setText("Desbloquear cartão");
-            }
-            
-            }else{
-                BloquearCartao.setEnabled(false);
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_BloquearCartaoActionPerformed
-
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
         // TODO add your handling code here:
         //jTable2.setValueAt(VALOR, LINHA, COLUNA);
@@ -189,6 +197,36 @@ public class JanelaUsuario extends javax.swing.JFrame {
             Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ImprimirExtratoActionPerformed
+
+    private void BotaoRecarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoRecarregarActionPerformed
+        this.dispose();
+        JanelaRecarga frame = new JanelaRecarga();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }//GEN-LAST:event_BotaoRecarregarActionPerformed
+
+    private void BloquearCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BloquearCartaoActionPerformed
+        // TODO add your handling code here:
+        try {
+            Cartao cartao = new Cartao(IDcartao);
+            GerenciarCartao gerenciarCartao = new GerenciarCartao(cartao);
+            GerenciarDB banco = new GerenciarDB();
+            if (tipo==1) {
+                if (banco.checkStatusCartaoBloqueadoDB(IDcartao)==true) {
+                gerenciarCartao.desbloquearCartao();
+                BloquearCartao.setText("Bloquear cartão");
+            } else if (banco.checkStatusCartaoBloqueadoDB(IDcartao)==false) {
+                gerenciarCartao.bloquearCartao();
+                BloquearCartao.setText("Desbloquear cartão");
+            }
+            
+            }else{
+                BloquearCartao.setEnabled(false);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BloquearCartaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,11 +266,14 @@ public class JanelaUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlterarSenha;
     private javax.swing.JButton BloquearCartao;
+    private javax.swing.JButton BotaoRecarregar;
     private javax.swing.JButton ImprimirExtrato;
     private javax.swing.JButton Sair;
     protected javax.swing.JLabel Saldo;
     private javax.swing.JLabel SaldoLabel;
     private javax.swing.JLabel iCliente;
+    protected javax.swing.JLabel jLabel1;
+    protected javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

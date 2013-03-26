@@ -89,6 +89,7 @@ public class JanelaInicioEst extends javax.swing.JFrame {
         cnpj = cnpj.replaceAll("[-]","");
         cnpj = cnpj.replaceAll("[/]","");
         String senha = SenhadaLoja.getText();
+        double saldo;
         
         try { 
             String nome_estab = banco.getEstabelecimentoDB(cnpj);        
@@ -96,8 +97,15 @@ public class JanelaInicioEst extends javax.swing.JFrame {
             boolean acesso = banco.checkSenhaEstabelecimentoDB(cnpj, senha);       
                         
             if (acesso){
+                saldo = banco.getVendaTotalEstabelecimentoDB(cnpj);
                 JanelaEst frame = new JanelaEst();
-                frame.estabelecimento = this.estabelecimento;   
+                frame.estabelecimento = this.estabelecimento; 
+                frame.CNPJ = cnpj;
+                if (saldo<=50) {
+                    frame.Saldo.setForeground(new java.awt.Color(255, 0, 0));
+                    frame.jLabel1.setText("AVISO: Sua receita atual é inferior a R$ 50.00.");
+                    }
+                    frame.Saldo.setText("R$ "+saldo+"0");
                 frame.startJanelaEst(cnpj);
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);

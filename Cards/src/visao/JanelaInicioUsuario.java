@@ -134,7 +134,13 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
                 JanelaUsuario frame = new JanelaUsuario();
                 frame.IDcartao = numCartao;
                 frame.tipo = tipo;
-                frame.Saldo.setText(saldo+"");
+                if (saldo<=50) {
+                    frame.Saldo.setForeground(new java.awt.Color(255, 0, 0));
+                    frame.jLabel1.setText("AVISO: Seu saldo atual é inferior a R$ 50.00. Quel tal fazer uma nova recarga?");
+                    frame.jLabel2.setText("Lembrando que sua conta será desconectada ao clicar em 'Recarregar'.");
+                    }
+                    frame.Saldo.setText("R$ "+saldo+"0");
+                frame.enableBloqueioCard();
                 frame.startJanelaUsuario(numCartao);
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);

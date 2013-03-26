@@ -1,21 +1,19 @@
 package visao;
-import bean.Cartao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import negocio.GerenciarCartao;
 import negocio.GerenciarDB;
 
 /**
  *
  * @author Rafaella
  */
-public class JanelaAlterarSenha extends javax.swing.JFrame {
-    public String IDcartao;
-    public int tipo;
+public class JanelaAlterarSenhaEst extends javax.swing.JFrame {
+    public String CNPJ;
+    
     /**
      * Creates new form JanelaAlterarSenha
      */
-    public JanelaAlterarSenha() {
+    public JanelaAlterarSenhaEst() {
         initComponents();
     }
     
@@ -117,17 +115,16 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         String repitasenha = NovaSenha.getText();
         
         System.out.println(senhaatual+" "+novasenha);
-        System.out.println(IDcartao);
-        System.out.println(tipo);
+        System.out.println(CNPJ);
         
         boolean confereSenha = (novasenha.equals(repitasenha));
-        GerenciarDB cartao = new GerenciarDB();
+        GerenciarDB shop = new GerenciarDB();
 
         boolean CheckedPassword = false;
         try {
-            CheckedPassword = cartao.checkSenhaCartaoDB(IDcartao, senhaatual, tipo);
+            CheckedPassword = shop.checkSenhaEstabelecimentoDB(CNPJ, senhaatual);
         } catch (Exception ex) {
-            Logger.getLogger(JanelaAlterarSenha.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JanelaAlterarSenhaEst.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if (senhaatual.isEmpty()||repitasenha.isEmpty()||novasenha.isEmpty()){
@@ -139,22 +136,18 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
             
         } else {
             try {
-                System.out.println("Teste");  
-                Cartao cartao2 = new Cartao(IDcartao);
-                GerenciarCartao gerCartao = new GerenciarCartao(cartao2);
-                double saldo=gerCartao.verificarSaldo();
+                GerenciarDB banco = new GerenciarDB();
+                double saldo = banco.getVendaTotalEstabelecimentoDB(CNPJ);
                 if (CheckedPassword) {
-                    cartao.updateSenhaCartaoDB(IDcartao, novasenha, tipo);
-                    JanelaUsuario frame = new JanelaUsuario();
-                    frame.IDcartao = IDcartao;
-                    frame.tipo = tipo;
+                    banco.updateSenhaEstabelecimentoDB(CNPJ, novasenha);
+                    JanelaEst frame = new JanelaEst();
+                    frame.CNPJ = CNPJ;
                     if (saldo<=50) {
                     frame.Saldo.setForeground(new java.awt.Color(255, 0, 0));
                     frame.jLabel1.setText("AVISO: Seu saldo atual é inferior a R$ 50.00. Quel tal fazer uma nova recarga?");
-                    frame.jLabel2.setText("Lembrando que sua conta será desconectada ao clicar em 'Recarregar'.");
                     }
                     frame.Saldo.setText("R$ "+saldo+"0");
-                    frame.startJanelaUsuario(IDcartao);
+                    frame.startJanelaEst(CNPJ);
                     frame.setLocationRelativeTo(null);
                     frame.setVisible(true);
                     this.dispose();  
@@ -162,7 +155,7 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
                     conferirSenha.setText("Senha atual errada. Digite novamente."); 
                 }
             } catch (Exception ex) {
-                Logger.getLogger(JanelaAlterarSenha.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(JanelaAlterarSenhaEst.class.getName()).log(Level.SEVERE, null, ex);
             }
           }
             
@@ -212,13 +205,13 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JanelaAlterarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaAlterarSenhaEst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JanelaAlterarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaAlterarSenhaEst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JanelaAlterarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaAlterarSenhaEst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JanelaAlterarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaAlterarSenhaEst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -226,7 +219,7 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new JanelaAlterarSenha().setVisible(true);
+                new JanelaAlterarSenhaEst().setVisible(true);
             }
         });
     }
