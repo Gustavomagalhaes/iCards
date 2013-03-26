@@ -160,6 +160,7 @@ public class JanelaEst extends javax.swing.JFrame {
     private void DebitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DebitarActionPerformed
         // TODO add your handling code here:
         JanelaDebito frame = new JanelaDebito();
+        frame.CNPJ = CNPJ;
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         this.dispose();

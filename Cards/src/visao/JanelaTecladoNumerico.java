@@ -4,13 +4,13 @@
  */
 package visao;
 
-import bean.Cartao;
-
 /**
  *
  * @author hanna
  */
 public class JanelaTecladoNumerico extends javax.swing.JFrame {
+    public String IDcartao;
+    public String debito;
 
     /**
      * Creates new form JanelaTecladoNumerico
@@ -29,6 +29,7 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton12 = new javax.swing.JButton();
+        visor = new javax.swing.JPasswordField();
         dois = new javax.swing.JButton();
         tres = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -40,14 +41,20 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
         oito = new javax.swing.JButton();
         nove = new javax.swing.JButton();
         um = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        visor = new javax.swing.JPasswordField();
+        Enter = new javax.swing.JButton();
+        Sair = new javax.swing.JButton();
 
         jButton12.setText("jButton12");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        visor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(visor, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 20, 228, 30));
 
         dois.setText("2");
         dois.setBorder(new javax.swing.border.MatteBorder(null));
@@ -148,23 +155,16 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
         });
         getContentPane().add(um, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 143, 45, 33));
 
-        jButton1.setText("Enter");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Enter.setText("Enter");
+        Enter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                EnterActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 66, 71, 71));
+        getContentPane().add(Enter, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 66, 71, 71));
 
-        jButton2.setText("Sair");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 143, 71, 71));
-
-        visor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                visorActionPerformed(evt);
-            }
-        });
-        getContentPane().add(visor, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 20, 228, -1));
+        Sair.setText("Sair");
+        getContentPane().add(Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 143, 71, 71));
 
         setSize(new java.awt.Dimension(318, 278));
         setLocationRelativeTo(null);
@@ -227,17 +227,22 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
         visor.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Cartao card = new Cartao();
-        card.setSenhaCartao(visor.getText());
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void visorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_visorActionPerformed
+
+    private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
+        // TODO add your handling code here:
+        String valor = visor.getText();
+        //System.out.println(valor);
+        JanelaDebito frame = new JanelaDebito();
+        frame.NumCartaoUsuario.setText(IDcartao);
+        frame.Valor.setText(debito);
+        frame.SenhaCartao.setText(valor);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_EnterActionPerformed
     private void preecher_visor(String valor){ 
       String valor_atual = visor.getText(); // pega o texto atual do visor 
       visor.setText(valor_atual + valor); // adiciona o texto ao valor atual 
@@ -272,17 +277,18 @@ public class JanelaTecladoNumerico extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new JanelaTecladoNumerico().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Enter;
+    private javax.swing.JButton Sair;
     private javax.swing.JButton cinco;
     private javax.swing.JButton dois;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton nove;
     private javax.swing.JButton oito;
