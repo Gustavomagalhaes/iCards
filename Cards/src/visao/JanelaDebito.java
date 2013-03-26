@@ -42,7 +42,6 @@ public class JanelaDebito extends javax.swing.JFrame {
         Valor = new javax.swing.JTextField();
         SenhaLabel = new javax.swing.JLabel();
         SenhaCartao = new javax.swing.JPasswordField();
-        DigitarSenha = new javax.swing.JButton();
         BotaoEnviar = new javax.swing.JButton();
         Cancelar = new javax.swing.JButton();
         Limpar = new javax.swing.JButton();
@@ -81,17 +80,7 @@ public class JanelaDebito extends javax.swing.JFrame {
 
         SenhaLabel.setText("Senha do cartão:");
         getContentPane().add(SenhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 110, 30));
-
-        SenhaCartao.setEditable(false);
         getContentPane().add(SenhaCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 148, 30));
-
-        DigitarSenha.setText("Digitar senha");
-        DigitarSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DigitarSenhaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(DigitarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 150, 30));
 
         BotaoEnviar.setText("Enviar");
         BotaoEnviar.addActionListener(new java.awt.event.ActionListener() {
@@ -176,18 +165,6 @@ public class JanelaDebito extends javax.swing.JFrame {
         
     }//GEN-LAST:event_LimparActionPerformed
 
-    private void DigitarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DigitarSenhaActionPerformed
-        // TODO add your handling code here:
-        JanelaTecladoNumerico frame = new JanelaTecladoNumerico();
-        String numCartao = NumCartaoUsuario.getText();
-        String valor = Valor.getText();
-        frame.IDcartao = numCartao;
-        frame.debito = valor;
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_DigitarSenhaActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -225,7 +202,6 @@ public class JanelaDebito extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoEnviar;
     private javax.swing.JButton Cancelar;
-    private javax.swing.JButton DigitarSenha;
     private javax.swing.JButton Limpar;
     private javax.swing.JLabel NumCartaoLabel;
     public javax.swing.JTextField NumCartaoUsuario;

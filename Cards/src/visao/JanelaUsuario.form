@@ -71,14 +71,14 @@
     </Component>
     <Component class="javax.swing.JButton" name="AlterarSenha">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Alterar senha"/>
+        <Property name="text" type="java.lang.String" value="Alterar senha online"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlterarSenhaActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="45" y="281" width="140" height="35"/>
+          <AbsoluteConstraints x="40" y="340" width="140" height="35"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -91,7 +91,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="45" y="322" width="140" height="35"/>
+          <AbsoluteConstraints x="200" y="340" width="140" height="35"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -104,7 +104,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="45" y="363" width="140" height="35"/>
+          <AbsoluteConstraints x="200" y="400" width="140" height="35"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -208,6 +208,19 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="220" y="350" width="440" height="20"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="AlterarSenhaCartao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alterar senha cart&#xe3;o"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlterarSenhaCartaoActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="40" y="400" width="140" height="35"/>
         </Constraint>
       </Constraints>
     </Component>

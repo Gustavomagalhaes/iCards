@@ -38,6 +38,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         BotaoRecarregar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        AlterarSenhaCartao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iCliente");
@@ -55,13 +56,13 @@ public class JanelaUsuario extends javax.swing.JFrame {
         Saldo.setText("$ 00,00");
         getContentPane().add(Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 160, 30));
 
-        AlterarSenha.setText("Alterar senha");
+        AlterarSenha.setText("Alterar senha online");
         AlterarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AlterarSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(AlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 281, 140, 35));
+        getContentPane().add(AlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 140, 35));
 
         ImprimirExtrato.setText("Imprimir extrato");
         ImprimirExtrato.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +70,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
                 ImprimirExtratoActionPerformed(evt);
             }
         });
-        getContentPane().add(ImprimirExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 322, 140, 35));
+        getContentPane().add(ImprimirExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 140, 35));
 
         BloquearCartao.setText("Bloquear cartão");
         BloquearCartao.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +78,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
                 BloquearCartaoActionPerformed(evt);
             }
         });
-        getContentPane().add(BloquearCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 363, 140, 35));
+        getContentPane().add(BloquearCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 140, 35));
 
         Sair.setText("Sair do sistema");
         Sair.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +133,14 @@ public class JanelaUsuario extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 440, 20));
+
+        AlterarSenhaCartao.setText("Alterar senha cartão");
+        AlterarSenhaCartao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlterarSenhaCartaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(AlterarSenhaCartao, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 140, 35));
 
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
@@ -228,6 +237,17 @@ public class JanelaUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BloquearCartaoActionPerformed
 
+    private void AlterarSenhaCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarSenhaCartaoActionPerformed
+        // TODO add your handling code here:
+        JanelaAlterarSenhaCartao frame = new JanelaAlterarSenhaCartao();
+        frame.IDcartao = IDcartao;
+        //frame.tipo = tipo;
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_AlterarSenhaCartaoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -265,6 +285,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlterarSenha;
+    private javax.swing.JButton AlterarSenhaCartao;
     private javax.swing.JButton BloquearCartao;
     private javax.swing.JButton BotaoRecarregar;
     private javax.swing.JButton ImprimirExtrato;
