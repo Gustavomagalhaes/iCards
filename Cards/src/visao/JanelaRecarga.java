@@ -36,11 +36,11 @@ public class JanelaRecarga extends javax.swing.JFrame {
         NumdoCartao = new javax.swing.JLabel();
         NumCartaoRecarga = new javax.swing.JFormattedTextField();
         Valor = new javax.swing.JLabel();
+        ValorRecarga = new javax.swing.JTextField();
         BotaoConfirmarRecarga = new javax.swing.JButton();
         ErroCampoVazio = new javax.swing.JLabel();
         CancelarRecarga = new javax.swing.JButton();
         LimparRecarga = new javax.swing.JButton();
-        ValorRecarga = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("iCards - iRecharge");
@@ -75,6 +75,9 @@ public class JanelaRecarga extends javax.swing.JFrame {
         Valor.setText("Valor:");
         getContentPane().add(Valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 50, -1));
 
+        ValorRecarga.setToolTipText("Valor para recarga");
+        getContentPane().add(ValorRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 70, 30));
+
         BotaoConfirmarRecarga.setText("Confirmar");
         BotaoConfirmarRecarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,9 +106,6 @@ public class JanelaRecarga extends javax.swing.JFrame {
         });
         getContentPane().add(LimparRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 100, 30));
 
-        ValorRecarga.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
-        getContentPane().add(ValorRecarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 70, 30));
-
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -131,17 +131,17 @@ public class JanelaRecarga extends javax.swing.JFrame {
         }
         
         
-        if (((verNumCartao.isEmpty())|| (valorRecarga.isEmpty()) ||(depositante.isEmpty()))==true){
+        if (((verNumCartao.isEmpty())||(valorRecarga.isEmpty())||(depositante.isEmpty()))==true){
               ErroCampoVazio.setText("Existem campos vazios.");
               
               if (verNumCartao.isEmpty()==true){
                    //ErroNome.setText("*");
                   ErroCampoVazio.setText("Existem campos vazios.");
              
-              }else if (valorRecarga.isEmpty()){
+              }else if (valorRecarga.isEmpty()==true){
                    //CNPJErro.setText("*");
                   ErroCampoVazio.setText("Existem campos vazios.");
-              }else if(depositante.isEmpty()==true){
+              }if(depositante.isEmpty()==true){
                   // TelErro.setText("*");
                   ErroCampoVazio.setText("Existem campos vazios.");
               }
@@ -235,8 +235,10 @@ public class JanelaRecarga extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField NumCartaoRecarga;
     private javax.swing.JLabel NumdoCartao;
     private javax.swing.JLabel Valor;
-    private javax.swing.JFormattedTextField ValorRecarga;
+    private javax.swing.JTextField ValorRecarga;
     private javax.swing.JLabel iRecharge;
     // End of variables declaration//GEN-END:variables
 
 }
+
+// Lembrar de fazer a msg de envio realizado!!! 

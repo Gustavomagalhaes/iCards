@@ -50,11 +50,11 @@ public class JanelaUsuario extends javax.swing.JFrame {
 
         SaldoLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         SaldoLabel.setText("Saldo atual:");
-        getContentPane().add(SaldoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 90, -1));
+        getContentPane().add(SaldoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 90, -1));
 
         Saldo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Saldo.setText("$ 00,00");
-        getContentPane().add(Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 160, 30));
+        getContentPane().add(Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 160, 30));
 
         AlterarSenha.setText("Alterar senha online");
         AlterarSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +121,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 540, 170));
 
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 440, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 440, 20));
 
         BotaoRecarregar.setText("Recarregar");
         BotaoRecarregar.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +132,7 @@ public class JanelaUsuario extends javax.swing.JFrame {
         getContentPane().add(BotaoRecarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, 170, 35));
 
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 440, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 440, 20));
 
         AlterarSenhaCartao.setText("Alterar senha cartão");
         AlterarSenhaCartao.addActionListener(new java.awt.event.ActionListener() {
@@ -145,9 +145,19 @@ public class JanelaUsuario extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(728, 514));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    public void enableBloqueioCard() {
+    
+    public void startJanelaUsuario(String numCartao){
         try {
             GerenciarDB banco = new GerenciarDB();
+            Cartao cartao2 = new Cartao(IDcartao);
+            GerenciarCartao gerCartao = new GerenciarCartao(cartao2);
+            double saldo=gerCartao.verificarSaldo();
+            if (saldo<=50) {
+                    this.Saldo.setForeground(new java.awt.Color(255, 0, 0));
+                    this.jLabel1.setText("AVISO: Seu saldo atual é inferior a R$ 50.00. Quel tal fazer uma nova recarga?");
+                    this.jLabel2.setText("Lembrando que sua conta será desconectada ao clicar em 'Recarregar'.");
+                    }
+                    this.Saldo.setText("R$ "+saldo+"0");
             if (tipo==1) {
                 if (banco.checkStatusCartaoBloqueadoDB(IDcartao)==true) {
                 BloquearCartao.setText("Desbloquear cartão");
@@ -161,9 +171,6 @@ public class JanelaUsuario extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(JanelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-    public void startJanelaUsuario(String numCartao){
      try {
             GerenciarDB banco = new GerenciarDB();
             System.out.println(IDcartao+"TESTE");

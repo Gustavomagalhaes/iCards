@@ -148,12 +148,6 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
                     JanelaUsuario frame = new JanelaUsuario();
                     frame.IDcartao = IDcartao;
                     frame.tipo = tipo;
-                    if (saldo<=50) {
-                    frame.Saldo.setForeground(new java.awt.Color(255, 0, 0));
-                    frame.jLabel1.setText("AVISO: Seu saldo atual é inferior a R$ 50.00. Quel tal fazer uma nova recarga?");
-                    frame.jLabel2.setText("Lembrando que sua conta será desconectada ao clicar em 'Recarregar'.");
-                    }
-                    frame.Saldo.setText("R$ "+saldo+"0");
                     frame.startJanelaUsuario(IDcartao);
                     frame.setLocationRelativeTo(null);
                     frame.setVisible(true);
@@ -189,10 +183,15 @@ public class JanelaAlterarSenha extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
         JanelaUsuario frame = new JanelaUsuario();
+        frame.IDcartao = IDcartao;
+        System.out.println(IDcartao);
+        frame.tipo = tipo;
+        System.out.println(tipo);
+        frame.startJanelaUsuario(IDcartao);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

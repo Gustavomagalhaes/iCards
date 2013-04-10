@@ -140,7 +140,6 @@ public class JanelaInicioUsuario extends javax.swing.JFrame {
                     frame.jLabel2.setText("Lembrando que sua conta será desconectada ao clicar em 'Recarregar'.");
                     }
                     frame.Saldo.setText("R$ "+saldo+"0");
-                frame.enableBloqueioCard();
                 frame.startJanelaUsuario(numCartao);
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
