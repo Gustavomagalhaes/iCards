@@ -133,7 +133,7 @@ public class JanelaAlterarSenhaCartao extends javax.swing.JFrame {
             Logger.getLogger(JanelaAlterarSenhaCartao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if (senhaatual.isEmpty()|| ("    ".equals(senhaatual)) || ("    ".equals(repitasenha)) || ("    ".equals(novasenha)) || repitasenha.isEmpty()||novasenha.isEmpty()){
+        if (senhaatual.isEmpty()|| ("".equals(senhaatual)) || ("".equals(repitasenha)) || ("".equals(novasenha)) || repitasenha.isEmpty()||novasenha.isEmpty()){
             todosCampos.setText("Você deve preencher todos os campos.");
 
             
