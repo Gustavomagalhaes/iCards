@@ -3,14 +3,10 @@
  * and open the template in the editor.
  */
 package visao;
-import bean.Cartao;
 import bean.Estabelecimento;
-import java.awt.Toolkit;
-import javax.swing.JOptionPane;
-import bean.Usuario;
-import negocio.GerenciarDB;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import negocio.GerenciarDB;
 
 /**
  *
@@ -161,7 +157,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
          telLoja = telLoja.replaceAll("[-]","");
         
     
-         if (((nomeLoja.isEmpty())||(cnpj.isEmpty())||(telLoja.isEmpty()))==true){
+         if (((nomeLoja.isEmpty())  || ("              ".equals(cnpj)) || ("          ".equals(telLoja)) ||(cnpj.isEmpty())||(telLoja.isEmpty()))==true){
               ErroCampoVazio.setText("Existem campos vazios.");
               
               if (nomeLoja.isEmpty()==true){
@@ -224,6 +220,7 @@ public class JanelaCadastrarEst extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new JanelaCadastrarEst().setVisible(true);          
             }
